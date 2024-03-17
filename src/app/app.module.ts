@@ -6,6 +6,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './services_provider/navigation/navigation.component';
 import { DashboardComponent } from './services_provider/dashboard/dashboard.component';
+import { MakeFormComponent } from './services_provider/make-form/make-form.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { DashboardComponent } from './services_provider/dashboard/dashboard.comp
     AppComponent,
     RegistrationComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    MakeFormComponent
   ],
   imports: [
     BrowserModule,

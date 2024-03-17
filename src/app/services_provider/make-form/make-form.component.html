@@ -1,0 +1,19 @@
+<div class="main">
+    <div class="form-section-one">
+        <label>Components</label>
+        <div class="components" *ngFor="let item of formcomponents[0].form.elements" 
+             draggable="true" (dragstart)="onDragStart($event, item)">
+            <label>{{item.type}}</label>
+        </div>
+    </div>
+    <div class="form-section-two" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+        <label>Drop Here</label>
+        <div class="working-space">
+            
+        </div>
+    </div>
+    <div class="form-section-three">
+        <label>Enter Data</label>
+    </div>
+</div>
+

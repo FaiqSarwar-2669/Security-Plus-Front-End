@@ -1,0 +1,57 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+
+    .form-section-one {
+        padding: 10px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 2px solid red;
+        label{
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .components {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #e7eefa;
+        }
+    }
+
+    .form-section-two {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+        label{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .working-space {
+            padding: 10px;
+            width: 100%;
+            background-color: #e7eefa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
+
+    .form-section-three {
+        width: 400px;
+        border: 2px solid blue;
+        label{
+            display: block;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    }
+}
