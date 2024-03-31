@@ -8,7 +8,6 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        border: 2px solid red;
 
         label {
             display: block;
@@ -28,7 +27,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        width: 50%;
+        min-width: 50%;
 
         label {
             text-align: center;
@@ -65,12 +64,24 @@
             }
 
         }
+        .save{
+            color: white;
+            background-color: rgb(130, 190, 130);
+            font-size:20px; padding:10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: none;
+        }
+        .save:hover{
+            color: rgb(130, 190, 130);
+            background-color: white;
+        }
     }
 
     .form-section-three {
         width: 400px;
-        border: 2px solid blue;
-
+        padding: 0 30px 30px 30px;
         label {
             display: block;
             text-align: center;
