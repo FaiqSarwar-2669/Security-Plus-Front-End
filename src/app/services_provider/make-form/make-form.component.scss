@@ -1,6 +1,7 @@
 .main {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .form-section-one {
         padding: 10px;

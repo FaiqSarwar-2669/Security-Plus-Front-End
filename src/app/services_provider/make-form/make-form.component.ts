@@ -62,6 +62,9 @@ export class MakeFormComponent {
   ];
 
 
+  Save(){
+    console.log(this.newJsonArray);
+  }
 
   // for drag start
   onDragStart(event: DragEvent, item: any) {
