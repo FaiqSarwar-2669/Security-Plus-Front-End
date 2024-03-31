@@ -338,6 +338,10 @@ export class MakeFormComponent {
     let inputElement: HTMLInputElement | HTMLButtonElement | HTMLLabelElement | HTMLDivElement | undefined;
     const workingSpace = document.querySelector('.working-space');
     const workingSpace2 = document.querySelector('.working-space-2');
+    const submit = document.getElementById('saveButton');
+    if(submit){
+      submit.style.display='block';
+    }
     if (!workingSpace || !workingSpace2) {
       return;
     }
