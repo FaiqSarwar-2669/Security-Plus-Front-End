@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './services_provider/navigation/navigation.component';
 import { DashboardComponent } from './services_provider/dashboard/dashboard.component';
 import { MakeFormComponent } from './services_provider/make-form/make-form.component';
+import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-portfolio.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MakeFormComponent } from './services_provider/make-form/make-form.compo
     RegistrationComponent,
     NavigationComponent,
     DashboardComponent,
-    MakeFormComponent
+    MakeFormComponent,
+    EditPortfolioComponent
   ],
   imports: [
     BrowserModule,
