@@ -65,16 +65,19 @@
             }
 
         }
-        .save{
+
+        .save {
             color: white;
             background-color: rgb(130, 190, 130);
-            font-size:20px; padding:10px;
+            font-size: 20px;
+            padding: 10px;
             border: none;
             outline: none;
             cursor: pointer;
             display: none;
         }
-        .save:hover{
+
+        .save:hover {
             color: rgb(130, 190, 130);
             background-color: white;
         }
@@ -83,11 +86,89 @@
     .form-section-three {
         width: 400px;
         padding: 0 30px 30px 30px;
+
         label {
             display: block;
             text-align: center;
             font-size: 25px;
             font-weight: bold;
+        }
+    }
+}
+
+@media (min-width: 750px) and (max-width: 850px) {
+    .main {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 10px;
+
+        .form-section-one {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+
+            .component {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .components {
+                    width: 150px;
+                    display: flex;
+                }
+            }
+
+        }
+        .form-section-two {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-section-three {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+
+}
+
+@media (min-width: 355px) and (max-width: 450px) {
+    .main {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .form-section-one {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+
+            .component {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .components {
+                    width: 150px;
+                    display: flex;
+                }
+            }
+
+        }
+        .form-section-two {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+        .form-section-three {
+            width: 100%;
+            padding: 10px;
         }
     }
 }
