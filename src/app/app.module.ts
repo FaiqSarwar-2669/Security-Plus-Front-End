@@ -8,6 +8,8 @@ import { NavigationComponent } from './services_provider/navigation/navigation.c
 import { DashboardComponent } from './services_provider/dashboard/dashboard.component';
 import { MakeFormComponent } from './services_provider/make-form/make-form.component';
 import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-portfolio.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularEditorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
