@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
 
 @Component({
   selector: 'app-edit-portfolio',
@@ -7,6 +9,12 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   styleUrls: ['./edit-portfolio.component.scss']
 })
 export class EditPortfolioComponent {
+
+  htmlcontent:any;
+  selectedImg: any = '../../../assets/default.png';
+  selectedImg1: any = '../../../assets/default banner.png';
+  ImageFile:any;
+  ImageFile1:any;
 
   config: AngularEditorConfig = {
     editable: true,
@@ -52,4 +60,55 @@ export class EditPortfolioComponent {
     ]
    
   };
+
+
+  async takePicture() {
+    const image = await Camera.getPhoto({
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Prompt,
+      allowEditing: true,
+      quality: 90
+    });
+
+    this.selectedImg = `data:image/jpeg;base64,${image.base64String}`;
+    const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
+    this.ImageFile = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
+    if (this.ImageFile) {
+      console.log(this.ImageFile);
+    }
+  }
+  async takePicture1() {
+    const image = await Camera.getPhoto({
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Prompt,
+      allowEditing: true,
+      quality: 90
+    });
+
+    this.selectedImg1 = `data:image/jpeg;base64,${image.base64String}`;
+    const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
+    this.ImageFile1 = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
+    if (this.ImageFile1) {
+      console.log(this.ImageFile1);
+    }
+  }
+  base64ToBlob(base64: any, type: string) {
+    const byteCharacters = atob(base64);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      const byteNumbers = new Array(slice.length);
+
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blobData = new Blob(byteArrays, { type });
+    return blobData;
+  }
 }

@@ -1,2 +1,13 @@
-<h1>hi</h1>
-<angular-editor [config]="config"></angular-editor>
+<div class="main-banner">
+    <img [src]="selectedImg1" alt=""/>
+    <i class="fa-regular fa-image image-edit" (click)="takePicture1()"></i>
+</div>
+<div class="main-page-content">
+    <div class="company-image">
+        <img [src]="selectedImg" alt="">
+        <i class="fa-regular fa-image image-edit" (click)="takePicture()"></i>
+    </div>
+    <div class="apply-section"></div>
+</div>
+<angular-editor [config]="config" [(ngModel)]="htmlcontent"></angular-editor>
+{{htmlcontent}}

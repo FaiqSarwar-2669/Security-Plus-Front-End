@@ -1,0 +1,70 @@
+.main-banner {
+    width: 100%;
+    height: 40vh;
+    border: 2px solid red;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        overflow: hidden;
+    }
+
+    .image-edit {
+        color: blue;
+        font-size: 25px;
+        position: absolute;
+        bottom: 20px;
+        left: 95%;
+    }
+
+}
+
+.main-page-content {
+    width: 100%;
+    height: 40vh;
+    border: 2px solid red;
+
+    .company-image {
+        width: 200px;
+        height: 200px;
+        border: 3px solid #d1e1fc;
+        border-radius: 50%;
+        position: relative;
+        transform: translateY(-50%);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .image-edit {
+            color: blue;
+            font-size: 25px;
+            position: absolute;
+            bottom: 20px;
+            left: 70%;
+        }
+    }
+}
+
+
+@media (min-width: 750px) and (max-width: 850px) {
+    .main-banner {
+        height: 30vh;
+    }
+}
+
+@media (min-width: 355px) and (max-width: 450px) {
+    .main-banner {
+        height: 25vh;
+
+        .image-edit {
+            left: 90%;
+        }
+    }
+}
