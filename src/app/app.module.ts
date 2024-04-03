@@ -11,6 +11,8 @@ import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeNevigationComponent } from './home-nevigation/home-nevigation.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     NavigationComponent,
     DashboardComponent,
     MakeFormComponent,
-    EditPortfolioComponent
+    EditPortfolioComponent,
+    HomeNevigationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

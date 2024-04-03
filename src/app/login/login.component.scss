@@ -1,0 +1,78 @@
+.main-inter {
+    display: flex;
+
+    .image-section {
+        width: 300px;
+        height: 400px;
+        background-image: url('../../assets/Data_security_27.jpg');
+        background-size: 100% 100%;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 0px 60px 60px 0px;
+        border: 3px solid red;
+    }
+
+    .content {
+        margin-left: 10px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .logo{
+            display: flex;
+            justify-content: center;
+            .logo-image{
+                width: 100px;
+                height: 80px;
+                background-image: url('../../assets/logo.png');
+                background-size: 100% 100%;
+            }
+        }
+        h3 {
+            display: block;
+            text-align: center;
+        }
+
+        .credentials-path {
+            display: flex;
+            flex-direction: column;
+
+            label{
+                margin-bottom: 5px;
+            }
+            input {
+                padding: 0px 5px 0px 25px;
+                height: 30px;
+            }
+
+            .fa-regular {
+                position: relative;
+            }
+
+            .fa-eye,
+            .fa-envelope {
+                top: -25px;
+                left: 5px;
+            }
+            a{
+                margin-bottom: 20px;
+            }
+            button{
+                padding: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                outline: none;
+                border: none;
+                
+
+            }
+
+        }
+        .not-have-account{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
