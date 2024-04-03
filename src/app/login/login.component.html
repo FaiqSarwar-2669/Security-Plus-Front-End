@@ -11,9 +11,9 @@
                 <input type="email">
                 <i class="fa-regular fa-envelope"></i>
                 <label>Enter Password</label>
-                <input type="text">
-                <i class="fa-regular fa-eye"></i>
-                <a href="#">Forget Password ?</a>
+                <input [type]="type">
+                <i class="fa-regular fa-eye" (click)="display()"></i>
+                <a [routerLink]="['/forget-password']">Forget Password ?</a>
                 <button>Login</button>
             </div>
             <div class="not-have-account">

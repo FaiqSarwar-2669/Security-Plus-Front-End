@@ -6,12 +6,14 @@ import { MakeFormComponent } from './services_provider/make-form/make-form.compo
 import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-portfolio.component';
 import { HomeNevigationComponent } from './home-nevigation/home-nevigation.component';
 import { LoginComponent } from './login/login.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 const routes: Routes = [
   // { path: '', component: HomePageComponent }, 
   { path: 'home-nevigation', component: HomeNevigationComponent },
   { path: 'registeration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'forget-password', component: ForgetPasswordComponent },
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },

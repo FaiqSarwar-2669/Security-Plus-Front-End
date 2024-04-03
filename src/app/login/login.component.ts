@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  type:any='password';
+  display(){
+    this.type = (this.type === 'text') ? 'password' : 'text';
+  }
 }
