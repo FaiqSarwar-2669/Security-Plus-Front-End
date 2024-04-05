@@ -1,0 +1,189 @@
+.main-section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    .part-1 {
+        display: flex;
+        align-items: center;
+
+        .logo {
+            width: 80px;
+            height: 60px;
+            background-image: url('../../assets/logo.png');
+            background-size: 100% 100%;
+        }
+
+        label {
+            color: #0077ff;
+            font-size: 25px;
+            font-weight: bold;
+
+            span {
+                color: black;
+            }
+        }
+    }
+
+    .part-2 {
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            display: inline-block;
+            position: relative;
+
+            .dropdown {
+                display: none;
+                position: absolute;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                width: 300px;
+
+                .drop-down-item {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    justify-content: center;
+                    align-items: center;
+
+                    .drop-down-item li a {
+                        padding: 10px 15px;
+                    }
+
+                    .drop-down-item li:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+
+            }
+        }
+
+        nav ul li a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul li:hover>.dropdown {
+            display: block;
+        }
+    }
+
+    .part-3 {
+        .fa-bars {
+            display: none;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100px;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #0077ff;
+        }
+    }
+
+}
+
+.tabs {
+    display: none;
+}
+
+
+
+@media (min-width: 355px) and (max-width: 850px) {
+    .main-section {
+
+        .part-2 {
+            display: none;
+        }
+
+        .part-3 {
+            display: flex;
+            align-items: center;
+
+            button {
+                width: 70px;
+            }
+
+            .fa-bars {
+                margin-right: 10px;
+                font-size: 25px;
+                color: #0077ff;
+                display: block;
+
+            }
+        }
+    }
+
+    .tabs {
+        width: 100%;
+        left: -100%;
+        position: absolute;
+        background-color: gray;
+        height: 100vh;
+
+        .nevigation-main {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+
+            a {
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+                font-weight: bold;
+            }
+
+            .nav-one {
+                cursor: pointer;
+                height: 40px;
+                overflow: hidden;
+
+                .content {
+                    padding: 10px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    label {
+                        font-size: 18px;
+                        color: white;
+                        font-weight: bold;
+                    }
+
+                    #up {
+                        display: none;
+                    }
+
+                    #up,
+                    #down {
+                        margin-left: 20px;
+                        font-size: 16px;
+                        color: white;
+                        font-weight: bold;
+                    }
+                }
+
+                .body {
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+
+                    a {
+                        text-decoration: none;
+                        color: blue;
+                    }
+                }
+
+            }
+        }
+    }
+}

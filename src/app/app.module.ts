@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeNevigationComponent } from './home-nevigation/home-nevigation.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     EditPortfolioComponent,
     HomeNevigationComponent,
     LoginComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    CompaniesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

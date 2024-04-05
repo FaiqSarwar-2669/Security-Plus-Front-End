@@ -1,3 +1,110 @@
 <div class="main-section">
-    
+    <div class="part-1">
+        <div class="logo"></div>
+        <label>SECURITY <span>PLUS</span></label>
+    </div>
+    <div class="part-2">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Companies</a></li>
+                <li>
+                    <a href="#">Plateforms</a>
+                    <ul class="dropdown">
+                        <div class="drop-down-item">
+                            <li><a href="#">Companies Web Portal</a></li>
+                            <li><a href="#">Back-Office Dashboards</a></li>
+                            <li><a href="#">Guards Mobile App</a></li>
+                        </div>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Legals</a>
+                    <ul class="dropdown">
+                        <div class="drop-down-item">
+                            <li><a href="#">FAQ's</a></li>
+                            <li><a href="#">Privacy Policies</a></li>
+                            <li><a href="#">Terms and Conditions</a></li>
+                        </div>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                    <ul class="dropdown">
+                        <div class="drop-down-item">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Benefits</a></li>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="part-3">
+        <i class="fa-solid fa-bars" (click)="responsive()"></i>
+        <button [routerLink]="['/login']">Login</button>
+    </div>
 </div>
+
+<!-- resposive of the router links -->
+
+<div class="tabs" id="main-section">
+    <div class="nevigation-main">
+        <a href="#">Home</a>
+        <a href="#">Companies</a>
+        <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="content">
+                <label>Plateforms</label>
+                <div class="iocon">
+                    <i id="down" class="fa-solid fa-angle-down"></i>
+                    <i id="up" class="fa-solid fa-angle-up"></i>
+                </div>
+            </div>
+            <div class="body">
+                <a href="#">Companies Web Portal</a>
+                <a href="#">Back-Office Dashboards</a>
+                <a href="#">Guards Mobile App</a>
+            </div>
+        </div>
+        <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="content">
+                <label>Legals</label>
+                <div class="iocon">
+                    <i id="down" class="fa-solid fa-angle-down"></i>
+                    <i id="up" class="fa-solid fa-angle-up"></i>
+                </div>
+            </div>
+            <div class="body">
+                <a href="#">FAQ's</a>
+                <a href="#">Privacy Policies</a>
+                <a href="#">Terms and Conditions</a>
+            </div>
+        </div>
+        <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="content">
+                <label>About</label>
+                <div class="iocon">
+                    <i id="down" class="fa-solid fa-angle-down"></i>
+                    <i id="up" class="fa-solid fa-angle-up"></i>
+                </div>
+            </div>
+            <div class="body">
+                <a href="#">About Us</a>
+                <a href="#">Features</a>
+                <a href="#">Benefits</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main section of the every page -->
+
+<div>
+    <h1>hello</h1>
+</div>
+
+
+<!-- footer of every page that display to every one -->
+
+<app-footer></app-footer>
