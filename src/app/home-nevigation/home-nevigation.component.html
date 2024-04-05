@@ -23,8 +23,8 @@
                     <ul class="dropdown">
                         <div class="drop-down-item">
                             <li><a [routerLink]="['/faq']">FAQ's</a></li>
-                            <li><a href="#">Privacy Policies</a></li>
-                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a [routerLink]="['/privacy-policies']">Privacy Policies</a></li>
+                            <li><a [routerLink]="['/terms-and-conditions']">Terms and Conditions</a></li>
                         </div>
                     </ul>
                 </li>
@@ -77,8 +77,8 @@
             </div>
             <div class="body">
                 <a [routerLink]="['/faq']">FAQ's</a>
-                <a href="#">Privacy Policies</a>
-                <a href="#">Terms and Conditions</a>
+                <a [routerLink]="['/privacy-policies']">Privacy Policies</a>
+                <a [routerLink]="['/terms-and-conditions']">Terms and Conditions</a>
             </div>
         </div>
         <div class="nav-one mydiv" (click)="showMore($event)">

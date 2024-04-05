@@ -17,6 +17,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { CompaniesComponent } from './companies/companies.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqsComponent } from './faqs/faqs.component';
+import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
+import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { FaqsComponent } from './faqs/faqs.component';
     ForgetPasswordComponent,
     CompaniesComponent,
     FooterComponent,
-    FaqsComponent
+    FaqsComponent,
+    TermsAndConditionComponent,
+    PrivacyPoliciesComponent
   ],
   imports: [
     BrowserModule,

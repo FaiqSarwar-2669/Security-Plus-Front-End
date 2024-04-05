@@ -11,6 +11,7 @@
 
     .questions {
         padding: 20px;
+
         .nav-one {
             cursor: pointer;
             height: 40px;
@@ -47,4 +48,30 @@
 
         }
     }
+}
+
+@media (min-width: 355px) and (max-width: 450px) {
+    .faq-main {
+        .page-content {
+            margin-top: 15px;
+            display: block;
+
+            h1,
+            h4 {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .questions {
+            padding: 0px;
+
+            .nav-one {
+                height: 53px;
+            }
+
+        }
+
+    }
+
 }

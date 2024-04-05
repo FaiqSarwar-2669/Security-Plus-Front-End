@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { FaqsComponent } from './faqs/faqs.component';
+import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
+import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
 
 const routes: Routes = [
   // { path: '', component: HomePageComponent }, 
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'companies', component: CompaniesComponent },
   { path: 'faq', component: FaqsComponent },
+  { path: 'terms-and-conditions', component: TermsAndConditionComponent },
+  { path: 'privacy-policies', component: PrivacyPoliciesComponent },
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },
