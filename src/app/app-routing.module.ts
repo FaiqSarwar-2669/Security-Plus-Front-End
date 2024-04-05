@@ -7,6 +7,8 @@ import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-
 import { HomeNevigationComponent } from './home-nevigation/home-nevigation.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { FaqsComponent } from './faqs/faqs.component';
 
 const routes: Routes = [
   // { path: '', component: HomePageComponent }, 
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'registeration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'companies', component: CompaniesComponent },
+  { path: 'faq', component: FaqsComponent },
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },

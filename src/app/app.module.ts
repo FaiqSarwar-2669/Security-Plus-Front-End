@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { FooterComponent } from './footer/footer.component';
+import { FaqsComponent } from './faqs/faqs.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     ForgetPasswordComponent,
     CompaniesComponent,
-    FooterComponent
+    FooterComponent,
+    FaqsComponent
   ],
   imports: [
     BrowserModule,

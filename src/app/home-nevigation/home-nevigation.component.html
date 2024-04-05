@@ -7,7 +7,7 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Companies</a></li>
+                <li><a [routerLink]="['/companies']">Companies</a></li>
                 <li>
                     <a href="#">Plateforms</a>
                     <ul class="dropdown">
@@ -22,7 +22,7 @@
                     <a href="#">Legals</a>
                     <ul class="dropdown">
                         <div class="drop-down-item">
-                            <li><a href="#">FAQ's</a></li>
+                            <li><a [routerLink]="['/faq']">FAQ's</a></li>
                             <li><a href="#">Privacy Policies</a></li>
                             <li><a href="#">Terms and Conditions</a></li>
                         </div>
@@ -52,7 +52,7 @@
 <div class="tabs" id="main-section">
     <div class="nevigation-main">
         <a href="#">Home</a>
-        <a href="#">Companies</a>
+        <a [routerLink]="['/companies']">Companies</a>
         <div class="nav-one mydiv" (click)="showMore($event)">
             <div class="content">
                 <label>Plateforms</label>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="body">
-                <a href="#">FAQ's</a>
+                <a [routerLink]="['/faq']">FAQ's</a>
                 <a href="#">Privacy Policies</a>
                 <a href="#">Terms and Conditions</a>
             </div>
@@ -98,13 +98,3 @@
     </div>
 </div>
 
-<!-- main section of the every page -->
-
-<div>
-    <h1>hello</h1>
-</div>
-
-
-<!-- footer of every page that display to every one -->
-
-<app-footer></app-footer>
