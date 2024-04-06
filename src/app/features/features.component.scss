@@ -1,0 +1,90 @@
+.faq-main {
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        height: 200px;
+    }
+    .outer {
+        margin-top: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .register-companies:hover {
+        background-color: rgba(211, 211, 211, 0.356);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    }
+    .register-companies:hover .Company-logo {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: white;
+    } 
+    .register-companies {
+        transition: 0.7s ease-out;
+        cursor: pointer;
+        padding: 30px 18px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        width: 300px;
+        height: 250px;
+        border: 1px solid #ececec;
+
+        .comapny-outer{
+            display: flex;
+            align-items: center;
+            .Company-logo {
+                padding: 10px;
+                overflow: hidden;
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    overflow: hidden;
+                }
+            }
+            .logo-name{
+                margin-left: 20px;
+                font-weight: bold;
+                font-size: 23px;
+                color: #0077ff;
+            }
+        }
+        
+
+        .Company-name {
+            margin-top: 15px;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+}
+
+@media (min-width: 355px) and (max-width: 450px) {
+    .faq-main {
+        .page-content {
+            margin-top: 15px;
+            display: block;
+
+            h1,
+            h4 {
+                display: block;
+                text-align: center;
+            }
+        }
+
+
+    }
+
+}

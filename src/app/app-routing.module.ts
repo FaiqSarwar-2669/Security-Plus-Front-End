@@ -11,6 +11,7 @@ import { CompaniesComponent } from './companies/companies.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
+import { FeaturesComponent } from './features/features.component';
 
 const routes: Routes = [
   // { path: '', component: HomePageComponent }, 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'faq', component: FaqsComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionComponent },
   { path: 'privacy-policies', component: PrivacyPoliciesComponent },
+  { path: 'features', component: FeaturesComponent },
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },

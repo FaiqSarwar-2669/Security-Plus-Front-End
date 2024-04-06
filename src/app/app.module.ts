@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
+import { FeaturesComponent } from './features/features.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.co
     FooterComponent,
     FaqsComponent,
     TermsAndConditionComponent,
-    PrivacyPoliciesComponent
+    PrivacyPoliciesComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
