@@ -20,6 +20,7 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
 import { FeaturesComponent } from './features/features.component';
+import { BenefitsComponent } from './benefits/benefits.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FeaturesComponent } from './features/features.component';
     FaqsComponent,
     TermsAndConditionComponent,
     PrivacyPoliciesComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    BenefitsComponent
   ],
   imports: [
     BrowserModule,
