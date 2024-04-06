@@ -13,9 +13,11 @@ import { TermsAndConditionComponent } from './terms-and-condition/terms-and-cond
 import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
 import { FeaturesComponent } from './features/features.component';
 import { BenefitsComponent } from './benefits/benefits.component';
+import { HomeComponent } from './home/home.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
-  // { path: '', component: HomePageComponent }, 
+  { path: '', component: HomeComponent }, 
   { path: 'home-nevigation', component: HomeNevigationComponent },
   { path: 'registeration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'privacy-policies', component: PrivacyPoliciesComponent },
   { path: 'features', component: FeaturesComponent },
   { path: 'benefits', component: BenefitsComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'home', component: HomeComponent },
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },

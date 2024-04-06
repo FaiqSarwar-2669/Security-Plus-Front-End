@@ -6,7 +6,7 @@
     <div class="part-2">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a [routerLink]="['/home']">Home</a></li>
                 <li><a [routerLink]="['/companies']">Companies</a></li>
                 <li>
                     <a href="#">Plateforms</a>
@@ -32,7 +32,7 @@
                     <a href="#">About</a>
                     <ul class="dropdown">
                         <div class="drop-down-item">
-                            <li><a href="#">About Us</a></li>
+                            <li><a [routerLink]="['/about-us']">About Us</a></li>
                             <li><a [routerLink]="['/features']">Features</a></li>
                             <li><a [routerLink]="['/benefits']">Benefits</a></li>
                         </div>
@@ -51,7 +51,7 @@
 
 <div class="tabs" id="main-section">
     <div class="nevigation-main">
-        <a href="#">Home</a>
+        <a [routerLink]="['/home']">Home</a>
         <a [routerLink]="['/companies']">Companies</a>
         <div class="nav-one mydiv" (click)="showMore($event)">
             <div class="content">
@@ -90,9 +90,9 @@
                 </div>
             </div>
             <div class="body">
-                <a href="#">About Us</a>
+                <a [routerLink]="['/about-us']">About Us</a>
                 <a [routerLink]="['/features']">Features</a>
-                <a href="#">Benefits</a>
+                <a [routerLink]="['/benefits']">Benefits</a>
             </div>
         </div>
     </div>

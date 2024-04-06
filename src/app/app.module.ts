@@ -21,6 +21,8 @@ import { TermsAndConditionComponent } from './terms-and-condition/terms-and-cond
 import { PrivacyPoliciesComponent } from './privacy-policies/privacy-policies.component';
 import { FeaturesComponent } from './features/features.component';
 import { BenefitsComponent } from './benefits/benefits.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { BenefitsComponent } from './benefits/benefits.component';
     TermsAndConditionComponent,
     PrivacyPoliciesComponent,
     FeaturesComponent,
-    BenefitsComponent
+    BenefitsComponent,
+    AboutUsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
