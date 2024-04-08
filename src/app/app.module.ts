@@ -51,7 +51,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     AngularEditorModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,18 +10,18 @@
             </div>
             <div class="heading-of-part-2">
                 <div class="fname">
-                    <input type="text" class="input">
+                    <input type="text" class="input" [(ngModel)]="registration.bussiness_fname">
                     <Label>First Name</Label>
                 </div>
                 <div class="lname">
-                    <input type="text">
+                    <input type="text" [(ngModel)]="registration.bussiness_lname">
                     <Label>Last Name</Label>
                 </div>
             </div>
         </div>
         <div class="part-2">
             <Label>Bussiness Name<span class="required">*</span></Label>
-            <input type="text">
+            <input type="text" [(ngModel)]="registration.bussiness_owner">
         </div>
         <div class="part-3">
             <div class="heading-of-part-1">
@@ -29,33 +29,33 @@
             </div>
             <div class="heading-of-part-2">
                 <div class="fname">
-                    <input type="text">
+                    <input type="text" [(ngModel)]="registration.area_code">
                     <Label>Area Code</Label>
                 </div>
                 <div class="lname">
-                    <input type="text">
+                    <input type="text" [(ngModel)]="registration.phone_number">
                     <Label>Phone Number</Label>
                 </div>
             </div>
         </div>
         <div class="part-4">
             <Label>Email<span class="required">*</span></Label>
-            <input type="email">
+            <input type="email" [(ngModel)]="registration.email">
         </div>
         <div class="part-5">
             <Label class="label">Address<span class="required">*</span></Label>
             <div class="section-part-5">
                 <div class="part-5-1">
-                    <input type="text">
+                    <input type="text" [(ngModel)]="registration.street_adress">
                     <label>Street Address</label>
                 </div>
                 <div class="part-5-2">
                     <div class="part1">
-                        <input type="text">
+                        <input type="text" [(ngModel)]="registration.city_name">
                         <label>city</label>
                     </div>
                     <div class="part2">
-                        <input type="text">
+                        <input type="text" [(ngModel)]="registration.provice">
                         <label>province</label>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="part-6">
             <Label>Type of Bussiness<span class="required">*</span></Label>
-            <select name="" id="">
+            <select name="" id="" [(ngModel)]="registration.bussiness_type">
                 <option value=""></option>
                 <option value="Provider">Service Provider</option>
                 <option value="Taker">Service Taker</option>
@@ -73,11 +73,11 @@
             <Label class="label">Password<span class="required">*</span></Label>
             <div class="part-7-1">
                 <div class="part1">
-                    <input type="password">
+                    <input type="password" [(ngModel)]="registration.password">
                     <label>Password</label>
                 </div>
                 <div class="part2">
-                    <input type="password">
+                    <input type="password" [(ngModel)]="registration.conform_password">
                     <label>Confirm Password</label>
                 </div>
             </div>
@@ -86,11 +86,11 @@
     <div class="section-2">
         <label>Upload Logo</label>
         <div class="image-containter">
-    
+            <img [src]="selectedImg" alt="">
         </div>
-        <input type="file">
+        <button (click)="takePicture()">Upload</button>
     </div>
 </div>
 <div class="form-submittion">
-    <button>Submit</button>
+    <button (click)="submitForm()">Submit</button>
 </div>
