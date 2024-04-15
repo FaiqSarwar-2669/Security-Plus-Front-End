@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { registration } from '../models/model';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Service } from '../services';
 
 @Component({
   selector: 'app-registration',
@@ -11,6 +12,8 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 export class RegistrationComponent {
   ImageFile: any;
   selectedImg: any = '../../../assets/default.png';
+
+  constructor(private services: Service) { }
 
   registration: registration = {
     bussiness_fname: "",
@@ -49,7 +52,7 @@ export class RegistrationComponent {
       Swal.fire("Fill Contact Number !!");
     } else if (!Number.isInteger(Number(this.registration.phone_number))) {
       Swal.fire("Contact Number Cannot Contain Alphabets !!");
-    } else if(this.registration.phone_number.length != 11){
+    } else if (this.registration.phone_number.length != 11) {
       Swal.fire("Enter 11 digit Number !!");
     } else if (!this.registration.street_adress?.trim()) {
       Swal.fire("Fill The Address !!");
@@ -74,11 +77,40 @@ export class RegistrationComponent {
     } else if (!emailPattern.test(this.registration.email)) {
       Swal.fire("Invalid Email Address !!");
     } else {
-      Swal.fire({
-        icon: "success",
-        title: "Your request has been saved wait for approval",
+
+      this.services.registeration(this.registration).then((res: any) => {
+        if (res.message) {
+          Swal.fire({
+            icon: "success",
+            title: res.message,
+          });
+          this.registration.bussiness_fname = "";
+          this.registration.bussiness_lname= "";
+          this.registration.bussiness_owner= "";
+          this.registration.area_code= "";
+          this.registration.phone_number= "";
+          this.registration.street_adress= "";
+          this.registration.city_name= "";
+          this.registration.provice= "";
+          this.registration.bussiness_type= "";
+          this.registration.password= "";
+          this.registration.conform_password= "";
+          this.registration.logo= "";
+          this.registration.email= "";
+        } else if (res.error) {
+          Swal.fire({
+            icon: "error",
+            title: res.error,
+          });
+        }
+      }).catch((err: any) => {
+        console.log(err);
       });
-      console.log(this.registration);
+      // Swal.fire({
+      //   icon: "success",
+      //   title: "Your request has been saved wait for approval",
+      // });
+      // console.log(this.registration);
     }
   }
 
