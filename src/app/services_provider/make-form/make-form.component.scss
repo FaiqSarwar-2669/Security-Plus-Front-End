@@ -1,174 +1,203 @@
-.main {
+.main-layout {
+    background-color: white;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 
-    .form-section-one {
-        padding: 10px;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        label {
-            display: block;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .components {
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #e7eefa;
-        }
-    }
-
-    .form-section-two {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        min-width: 50%;
-
-        label {
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .working-space {
-            padding: 10px;
-            width: 100%;
-            background-color: #e7eefa;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 10px;
-
-            .section {
-                display: flex;
-            }
-
-            .left,
-            .right {
-                width: 50%;
-                min-height: 100px;
-                border: 1px solid #ccc;
-            }
-
-            .left {
-                background-color: lightblue;
-            }
-
-            .right {
-                background-color: lightgreen;
-            }
-
-        }
-
-        .save {
-            color: white;
-            background-color: rgb(130, 190, 130);
-            font-size: 20px;
-            padding: 10px;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            display: none;
-        }
-
-        .save:hover {
-            color: rgb(130, 190, 130);
-            background-color: white;
-        }
-    }
-
-    .form-section-three {
-        width: 400px;
-        padding: 0 30px 30px 30px;
-
-        label {
-            display: block;
-            text-align: center;
-            font-size: 25px;
-            font-weight: bold;
-        }
-    }
-}
-
-@media (min-width: 750px) and (max-width: 850px) {
     .main {
-        padding: 10px;
         display: flex;
-        flex-direction: column;
-        width: 90%;
-        gap: 10px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 20px;
 
         .form-section-one {
             padding: 10px;
-            width: 100%;
+            width: 200px;
             display: flex;
+            flex-direction: column;
+            gap: 10px;
 
-            .component {
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-
-                .components {
-                    width: 150px;
-                    display: flex;
-                }
+            label {
+                display: block;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
             }
 
+            .components {
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: #e7eefa;
+            }
         }
+
         .form-section-two {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            min-width: 50%;
+
+            label {
+                text-align: center;
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            .working-space {
+                padding: 10px;
+                width: 100%;
+                background-color: #e7eefa;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+
+                .section {
+                    display: flex;
+                }
+
+                .left,
+                .right {
+                    width: 50%;
+                    min-height: 100px;
+                    border: 1px solid #ccc;
+                }
+
+                .left {
+                    background-color: lightblue;
+                }
+
+                .right {
+                    background-color: lightgreen;
+                }
+
+            }
+
+            .save {
+                color: white;
+                background-color: rgb(130, 190, 130);
+                font-size: 20px;
+                padding: 10px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                display: none;
+            }
+
+            .save:hover {
+                color: rgb(130, 190, 130);
+                background-color: white;
+            }
         }
+
         .form-section-three {
-            width: 100%;
-            padding: 10px;
+            width: 400px;
+            padding: 0 30px 30px 30px;
+
+            label {
+                display: block;
+                text-align: center;
+                font-size: 25px;
+                font-weight: bold;
+            }
+            .working-space-2{
+                padding: 10px;
+                background-color: #e7eefa;
+            }
         }
     }
+}
+
+
+@media (min-width: 750px) and (max-width: 850px) {
+    .main-layout {
+        app-navigation {
+            position: fixed;
+        }
+
+        .main {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            gap: 10px;
+
+            .form-section-one {
+                padding: 10px;
+                width: 100%;
+                display: flex;
+
+                .component {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    .components {
+                        width: 150px;
+                        display: flex;
+                    }
+                }
+
+            }
+
+            .form-section-two {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .form-section-three {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    }
+
 
 }
 
 @media (min-width: 355px) and (max-width: 450px) {
-    .main {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .form-section-one {
-            padding: 10px;
-            width: 100%;
-            display: flex;
-
-            .component {
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-
-                .components {
-                    width: 150px;
-                    display: flex;
-                }
-            }
-
+    .main-layout {
+        app-navigation {
+            position: fixed;
         }
-        .form-section-two {
+
+        .main {
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            width: 100%;
-        }
-        .form-section-three {
-            width: 100%;
-            padding: 10px;
+            gap: 10px;
+
+            .form-section-one {
+                padding: 10px;
+                width: 100%;
+                display: flex;
+
+                .component {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    .components {
+                        width: 150px;
+                        display: flex;
+                    }
+                }
+
+            }
+
+            .form-section-two {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .form-section-three {
+                width: 100%;
+                padding: 10px;
+            }
         }
     }
+
 }

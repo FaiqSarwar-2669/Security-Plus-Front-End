@@ -58,6 +58,20 @@
                         font-weight: bold;
                     }
                 }
+                .body{
+                    position: relative;
+                    left: 40px;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    a{
+                        text-decoration: none;
+                        font-size: 15px;
+                        color: gray;
+                        font-weight: bold;
+                    }
+                }
 
             }
         }
