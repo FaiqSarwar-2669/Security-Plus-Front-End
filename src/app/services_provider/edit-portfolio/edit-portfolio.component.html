@@ -1,13 +1,18 @@
-<div class="main-banner">
-    <img [src]="selectedImg1" alt=""/>
-    <i class="fa-regular fa-image image-edit" (click)="takePicture1()"></i>
-</div>
-<div class="main-page-content">
-    <div class="company-image">
-        <img [src]="selectedImg" alt="">
-        <i class="fa-regular fa-image image-edit" (click)="takePicture()"></i>
+<div class="main-layout">
+    <app-navigation></app-navigation>
+    <div class="part-2">
+        <div class="main-banner">
+            <img [src]="selectedImg1" alt="" />
+            <i class="fa-regular fa-image image-edit" (click)="takePicture1()"></i>
+        </div>
+        <div class="main-page-content">
+            <div class="company-image">
+                <img [src]="selectedImg" alt="">
+                <i class="fa-regular fa-image image-edit" (click)="takePicture()"></i>
+            </div>
+            <div class="apply-section"></div>
+        </div>
+        <h2>Write About Your Company</h2>
+        <angular-editor [config]="config" [(ngModel)]="htmlcontent"></angular-editor>
     </div>
-    <div class="apply-section"></div>
 </div>
-<h2>Write About Your Company</h2>
-<angular-editor [config]="config" [(ngModel)]="htmlcontent"></angular-editor>

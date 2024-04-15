@@ -15,6 +15,7 @@ import { FeaturesComponent } from './features/features.component';
 import { BenefitsComponent } from './benefits/benefits.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { NavigationComponent } from './services_provider/navigation/navigation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, 
@@ -33,6 +34,7 @@ const routes: Routes = [
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'nevigation', component: NavigationComponent },
   { path: 'make-form', component: MakeFormComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
 ];
