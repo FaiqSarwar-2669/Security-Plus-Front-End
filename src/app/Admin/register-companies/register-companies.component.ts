@@ -11,8 +11,11 @@ export class RegisterCompaniesComponent {
   constructor(){
 
   }
-  
+
   Active(){
 
+  }
+  viewApplication(){
+    
   }
 }
