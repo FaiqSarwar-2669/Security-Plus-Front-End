@@ -1,0 +1,93 @@
+<div class="main" id="main-section">
+    <div class="main-section-nav">
+        <div class="organization-data">
+            <div class="organization-pic">
+                <img src="../../../assets/logo.png" alt="">
+            </div>
+            <div class="organization-information">
+                <label>Security Plus</label>
+            </div>
+        </div>
+        <div class="nevigation-main">
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-house"></i></span>Dashboard</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-building"></i></span>Portfolio</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" [routerLink]="['/edit-portfolio']">Edit Portfolio</a>
+                    <a class="link" href="#">Preview Portfolio</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-brands fa-wpforms"></i></span>Forms</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" [routerLink]="['/make-form']">Edit Forms</a>
+                    <a class="link" href="#">Preview Forms</a>
+                    <a class="link" href="#">Job Applications</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-comment"></i></span>Chat</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-user-pen"></i></span>Review</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-credit-card"></i></span>Pay Role</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive" (click)="responsive()">
+        <i class="fa-solid fa-caret-right" id="right"></i>
+        <i class="fa-solid fa-caret-left" id="left"></i>
+    </div>
+</div>

@@ -23,6 +23,12 @@ import { FeaturesComponent } from './features/features.component';
 import { BenefitsComponent } from './benefits/benefits.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomeComponent } from './home/home.component';
+import { NevigationComponent } from './Admin/nevigation/nevigation.component';
+import { RegisterCompaniesComponent } from './Admin/register-companies/register-companies.component';
+import { UnregisterCompaniesComponent } from './Admin/unregister-companies/unregister-companies.component';
+import { UnregisterClientComponent } from './Admin/unregister-client/unregister-client.component';
+import { RegisterClientComponent } from './Admin/register-client/register-client.component';
+import { AdmindashboardComponent } from './Admin/admindashboard/admindashboard.component';
 
 
 @NgModule({
@@ -44,7 +50,13 @@ import { HomeComponent } from './home/home.component';
     FeaturesComponent,
     BenefitsComponent,
     AboutUsComponent,
-    HomeComponent
+    HomeComponent,
+    NevigationComponent,
+    RegisterCompaniesComponent,
+    UnregisterCompaniesComponent,
+    UnregisterClientComponent,
+    RegisterClientComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,

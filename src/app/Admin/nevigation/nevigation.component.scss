@@ -1,0 +1,122 @@
+.main {
+    display: flex;
+    height: 100vh;
+    position: relative;
+
+    .main-section-nav {
+
+        background: #e7eefa;
+        width: 250px;
+
+        .organization-data {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+
+            .organization-pic {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .organization-information{
+                label{
+                    font-weight: bold;
+                    color: gray;
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .nevigation-main {
+            .nav-one {
+                cursor: pointer;
+                height: 40px;
+                overflow: hidden;
+
+                .content {
+                    padding: 10px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .relative-icon {
+                        margin-right: 15px;
+                        color: gray;
+                        font-size: 20px;
+                    }
+
+                    label {
+                        font-size: 18px;
+                        color: gray;
+                        font-weight: bold;
+                    }
+
+                    #up {
+                        display: none;
+                    }
+
+                    #up,
+                    #down {
+                        font-size: 16px;
+                        color: gray;
+                        font-weight: bold;
+                    }
+                }
+                .body{
+                    position: relative;
+                    left: 40px;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    a{
+                        text-decoration: none;
+                        font-size: 15px;
+                        color: gray;
+                        font-weight: bold;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .responsive {
+        display: none;
+        margin-top: 30px;
+        cursor: pointer;
+        padding: 5px 0;
+        background: #c9daf7;
+        height: 30px;
+        width: 20px;
+        font-size: 30px;
+        border-radius: 0 10px 10px 0;
+        #left{
+            display: none;
+        }
+    }
+}
+
+
+@media (min-width: 355px) and (max-width: 850px) {
+    .main {
+        position: relative;
+        left: -250px;
+        transition: left 1.5s ease;
+
+        .responsive{
+            display: block;
+        }
+    }
+    
+}

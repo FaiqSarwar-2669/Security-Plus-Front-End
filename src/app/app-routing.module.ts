@@ -16,9 +16,10 @@ import { BenefitsComponent } from './benefits/benefits.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavigationComponent } from './services_provider/navigation/navigation.component';
+import { AdmindashboardComponent } from './Admin/admindashboard/admindashboard.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, 
+  { path: '', component: HomeComponent },
   { path: 'home-nevigation', component: HomeNevigationComponent },
   { path: 'registeration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
@@ -37,6 +38,10 @@ const routes: Routes = [
   { path: 'nevigation', component: NavigationComponent },
   { path: 'make-form', component: MakeFormComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
+
+
+  // for admin
+  { path: 'admin/dashboard', component: AdmindashboardComponent }
 ];
 
 @NgModule({
