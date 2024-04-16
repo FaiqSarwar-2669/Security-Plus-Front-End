@@ -1,1 +1,12 @@
-<p>register-companies works!</p>
+<div class="main-container" *ngFor="let item of [1,2,3,4,5,6,7,8]">
+    <div class="container-layer" >
+        <div class="container-part-1">
+            <label class="company">Security</label><br>
+            <label class="name">Faiq Sarwar</label>
+        </div>
+        <div class="container-part-2">
+            <button class="application">View Application</button>
+            <button class="active" (click)="Active()">Active</button>
+        </div>
+    </div>
+</div>
