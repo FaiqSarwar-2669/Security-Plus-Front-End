@@ -10,6 +10,10 @@ import Swal from 'sweetalert2';
 export class RegisterClientComponent {
   registerClients: any[] = [];
   constructor(private services: Service) {
+    this.getData();
+  }
+
+  getData(){
     this.services.getRegisterCilentOrganization().then((res: any) => {
       if (res && res.data) {
         this.registerClients = res.data;
@@ -24,9 +28,24 @@ export class RegisterClientComponent {
       }
     })
   }
-
   Active(id:any) {
-    alert(id)
+    this.services.ActivationOrganizations(id).then((res:any)=>{
+      if(res){
+        Swal.fire({
+          icon: 'success',
+          title: res.message
+        })
+        this.getData();
+      }
+    }).catch((err:any)=>{
+      console.log(err)
+      if(err && err.error){
+        Swal.fire({
+          icon: 'error',
+          title: err.error.message
+        })
+      }
+    });
   }
   viewApplication(id:any) {
     alert(id)

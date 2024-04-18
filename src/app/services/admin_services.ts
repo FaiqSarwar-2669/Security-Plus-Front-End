@@ -128,6 +128,26 @@ export class Service {
         })
     }
 
-    
+    // Activate the  all the un-register or inactive organizations and companies
+    ActivationOrganizations(id: any) {
+        const payload = {
+            'id' : id
+        }
+        const header = this.getHeaders();
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + 'activation/', payload, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res)
+                    },
+                    error: (err) => {
+                        reject(err)
+                    },
+                })
+        })
+    }
+
+
 }
 
