@@ -1,3 +1,46 @@
+.nav-bar {
+    padding: 10px;
+    background-color: #e7eefa;
+
+    .nav-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            margin-top: -10px;
+            color: #0077ff;
+        }
+
+        .search {
+            margin-top: 10px;
+            margin-left: 15px;
+            width: 300px;
+
+            input {
+                outline: none;
+                border: none;
+                height: 40px;
+                width: 300px;
+                border-radius: 20px;
+                padding-right: 35px;
+                padding-left: 5px;
+                font-size: 18px;
+                color: #0077ff;
+            }
+
+            i {
+                position: relative;
+                color: #0077ff;
+                font-size: 20px;
+                float: right;
+                right: -25px;
+                top: -28px;
+            }
+        }
+    }
+}
 .main {
     display: flex;
     overflow-y: hidden;
@@ -91,6 +134,11 @@
 }
 
 @media (min-width: 355px) and (max-width: 450px) {
+    .nav-bar{
+        .nav-content{
+            display: block;
+        }
+    }
     .main {
         .main-1 {
             app-nevigation {
@@ -105,6 +153,7 @@
 
                     .container-part-1 {
                         max-width: 50%;
+
                         .company {
                             font-size: 20px;
                         }
@@ -112,6 +161,13 @@
                         .name {
                             font-size: 16px;
                         }
+                    }
+                    .container-part-2{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
                     }
                 }
 
