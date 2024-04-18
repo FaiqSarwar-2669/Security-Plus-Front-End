@@ -24,10 +24,6 @@
                 align-items: center;
                 cursor: pointer;
 
-                .container-layer:hover {
-                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-                }
-
                 .container-part-1 {
                     .company {
                         display: block;
@@ -64,6 +60,10 @@
                         border-radius: 5px;
                     }
                 }
+            }
+
+            .container-layer:hover {
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
             }
         }
     }
@@ -104,6 +104,7 @@
 
                     .container-part-1 {
                         max-width: 50%;
+
                         .company {
                             font-size: 20px;
                         }
