@@ -14,3 +14,10 @@ export interface registration {
     email: string | null,
 
 }
+export interface login{
+    email: string| null,
+    password: string| null,
+}
+export interface forgetPassword{
+    email: string| null,
+}

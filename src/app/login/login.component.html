@@ -8,13 +8,13 @@
             <h3>Login To Your Account</h3>
             <div class="credentials-path">
                 <label>Enter Email</label>
-                <input type="email">
+                <input type="email" [(ngModel)]="logindetail.email">
                 <i class="fa-regular fa-envelope"></i>
                 <label>Enter Password</label>
-                <input [type]="type">
+                <input [type]="type" [(ngModel)]="logindetail.password">
                 <i class="fa-regular fa-eye" (click)="display()"></i>
                 <a [routerLink]="['/forget-password']">Forget Password ?</a>
-                <button>Login</button>
+                <button (click)="login()">Login</button>
             </div>
             <div class="not-have-account">
                 <label>Don't Have an Account ?</label>
