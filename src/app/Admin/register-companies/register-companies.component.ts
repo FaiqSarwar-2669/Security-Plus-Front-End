@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Service } from 'src/app/services/admin_services';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-companies',
@@ -17,14 +18,19 @@ export class RegisterCompaniesComponent {
         console.log(this.registerCompanies);
       }
     }).catch((err: any) => {
-      console.log(err)
+      if(err && err.error){
+        Swal.fire({
+          icon:'error',
+          title: err.error.message
+        })
+      }
     })
   }
 
-  Active() {
-
+  Active(id:any) {
+    alert(id)
   }
-  viewApplication() {
-
+  viewApplication(id:any) {
+    alert(id)
   }
 }

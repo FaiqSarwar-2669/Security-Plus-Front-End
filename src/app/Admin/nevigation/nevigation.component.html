@@ -31,9 +31,9 @@
                 </div>
                 <div class="body">
                     <a class="link" [routerLink]="['/registerCompanies']">Register Company</a>
-                    <a class="link" href="#">UnRegister Company</a>
-                    <a class="link" href="#">Register Client</a>
-                    <a class="link" href="#">UnRegister Client</a>
+                    <a class="link" [routerLink]="['/unRegisterCompanies']">UnRegister Company</a>
+                    <a class="link" [routerLink]="['/registerClient']">Register Client</a>
+                    <a class="link" [routerLink]="['/UnRegisterClient']">UnRegister Client</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
@@ -84,6 +84,18 @@
                 </div>
                 <div class="body">
                     <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-right-from-bracket"></i></span>LogOut</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" (click)="logout()">logout</a>
                 </div>
             </div>
         </div>

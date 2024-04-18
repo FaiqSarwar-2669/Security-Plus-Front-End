@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Service } from 'src/app/services';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nevigation',
@@ -7,7 +10,10 @@ import { Component } from '@angular/core';
 })
 export class NevigationComponent {
 
-  
+
+  constructor(private services: Service, private routes: Router) {
+
+  }
   showMore(event: MouseEvent) {
     const mydive = event.currentTarget as HTMLElement;
     const up = mydive.querySelector('.fa-angle-up') as HTMLElement | null;
@@ -38,5 +44,26 @@ export class NevigationComponent {
       left.style.display = 'none';
       right.style.display = 'block';
     }
+  }
+
+  logout() {
+    this.services.logout().then((res: any) => {
+      if(res){
+        Swal.fire({
+          icon:'success',
+          title: res.message
+        })
+        this.routes.navigate(['/login']);
+        localStorage.clear();
+      }
+    }).catch((err: any) => {
+      if(err.error){
+        Swal.fire({
+          icon:'error',
+          title: err.error.message
+        })
+      }
+      console.log(err)
+    });
   }
 }

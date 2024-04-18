@@ -1,1 +1,19 @@
-<p>unregister-client works!</p>
+<div class="main">
+    <div class="main-1">
+        <app-nevigation></app-nevigation>
+    </div>
+    <div class="main-2">
+        <div class="main-container" *ngFor="let items of unRegisterClientOrganization">
+            <div class="container-layer">
+                <div class="container-part-1">
+                    <label class="company">{{items.bussiness_owner}}</label><br>
+                    <label class="name">{{items.bussiness_fname}} {{items.bussiness_lname}}</label>
+                </div>
+                <div class="container-part-2">
+                    <button class="application" (click)="viewApplication(items.id)">View</button>
+                    <button class="active" (click)="Active(items.id)">Active</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

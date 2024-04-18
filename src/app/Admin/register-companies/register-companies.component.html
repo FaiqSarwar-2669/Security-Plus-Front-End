@@ -10,8 +10,8 @@
                     <label class="name">{{items.bussiness_fname}} {{items.bussiness_lname}}</label>
                 </div>
                 <div class="container-part-2">
-                    <button class="application" (click)="viewApplication()">View</button>
-                    <button class="active" (click)="Active()">Active</button>
+                    <button class="application" (click)="viewApplication(items.id)">View</button>
+                    <button class="active" (click)="Active(items.id)">In Active</button>
                 </div>
             </div>
         </div>
