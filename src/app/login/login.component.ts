@@ -58,10 +58,12 @@ export class LoginComponent {
           });
         }
       }).catch((err: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Login failed'
-        });
+        if(err && err.error){
+          Swal.fire({
+            icon: 'error',
+            title: err.error.message
+          });
+        }
         console.log(err)
       });
     }

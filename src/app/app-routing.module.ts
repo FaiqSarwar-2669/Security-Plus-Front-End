@@ -18,6 +18,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { NavigationComponent } from './services_provider/navigation/navigation.component';
 import { AdmindashboardComponent } from './Admin/admindashboard/admindashboard.component';
 import { RegisterCompaniesComponent } from './Admin/register-companies/register-companies.component';
+import { UnregisterCompaniesComponent } from './Admin/unregister-companies/unregister-companies.component';
+import { RegisterClientComponent } from './Admin/register-client/register-client.component';
+import { UnregisterClientComponent } from './Admin/unregister-client/unregister-client.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,7 +46,10 @@ const routes: Routes = [
 
   // for admin
   { path: 'admin/dashboard', component: AdmindashboardComponent },
-  { path: 'registerCompanies', component: RegisterCompaniesComponent }
+  { path: 'registerCompanies', component: RegisterCompaniesComponent },
+  { path: 'unRegisterCompanies', component: UnregisterCompaniesComponent },
+  { path: 'registerClient', component: RegisterClientComponent },
+  { path: 'UnRegisterClient', component: UnregisterClientComponent },
 ];
 
 @NgModule({

@@ -31,9 +31,9 @@
                 </div>
                 <div class="body">
                     <a class="link" [routerLink]="['/registerCompanies']">Register Company</a>
-                    <a class="link" href="#">UnRegister Company</a>
-                    <a class="link" href="#">Register Client</a>
-                    <a class="link" href="#">UnRegister Client</a>
+                    <a class="link" [routerLink]="['/unRegisterCompanies']">UnRegister Company</a>
+                    <a class="link" [routerLink]="['/registerClient']">Register Client</a>
+                    <a class="link" [routerLink]="['/UnRegisterClient']">UnRegister Client</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
