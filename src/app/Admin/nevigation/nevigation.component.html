@@ -18,20 +18,22 @@
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
+                    <a class="link" [routerLink]="['/admin/dashboard']">Dashboard</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
                 <div class="content">
-                    <label><span class="relative-icon"><i class="fa-solid fa-building"></i></span>Portfolio</label>
+                    <label><span class="relative-icon"><i class="fa-solid fa-building"></i></span>Organizations</label>
                     <div class="iocon">
                         <i id="down" class="fa-solid fa-angle-down"></i>
                         <i id="up" class="fa-solid fa-angle-up"></i>
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" [routerLink]="['/edit-portfolio']">Edit Portfolio</a>
-                    <a class="link" href="#">Preview Portfolio</a>
+                    <a class="link" [routerLink]="['/registerCompanies']">Register Company</a>
+                    <a class="link" href="#">UnRegister Company</a>
+                    <a class="link" href="#">Register Client</a>
+                    <a class="link" href="#">UnRegister Client</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
