@@ -30,7 +30,7 @@ export class UnregisterClientComponent {
   }
 
   Active(id: any) {
-    this.services.activationOrganizations(id).then((res:any)=>{
+    this.services.inActivationOrganizations(id).then((res:any)=>{
       if(res){
         Swal.fire({
           icon: 'success',

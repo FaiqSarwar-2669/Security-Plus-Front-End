@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({ providedIn: "root" })
 export class Service {
 
-    baseUrl = 'http://127.0.0.1:8000/api/';
+    baseUrl = 'http://192.168.10.7:80/api/';
 
     Heads = new HttpHeaders({
         'Accept': 'application/json',
@@ -110,9 +110,12 @@ export class Service {
 
     // in-Activate the  all the un-register or inactive organizations and companies
     inActivationOrganizations(id: any) {
+        const payload = {
+            'id' : id
+        }
         const header = this.getHeaders();
         return new Promise((resolve, reject) => {
-            this.http.put(this.baseUrl + 'inActivation/' + id, {}, { headers: header })
+            this.http.post(this.baseUrl + 'inActivation/', payload, { headers: header })
                 .pipe()
                 .subscribe({
                     next: (res) => {
@@ -124,5 +127,7 @@ export class Service {
                 })
         })
     }
+
+    
 }
 
