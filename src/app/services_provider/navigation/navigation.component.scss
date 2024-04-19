@@ -20,7 +20,9 @@
                 width: 150px;
                 height: 150px;
                 border-radius: 50%;
-                border: 2px solid darkblue
+                border: 2px solid darkblue;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
             }
         }
 
@@ -58,14 +60,16 @@
                         font-weight: bold;
                     }
                 }
-                .body{
+
+                .body {
                     position: relative;
                     left: 40px;
                     padding: 10px;
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
-                    a{
+
+                    a {
                         text-decoration: none;
                         font-size: 15px;
                         color: gray;
@@ -87,7 +91,8 @@
         width: 20px;
         font-size: 30px;
         border-radius: 0 10px 10px 0;
-        #left{
+
+        #left {
             display: none;
         }
     }
@@ -100,9 +105,9 @@
         left: -250px;
         transition: left 1.5s ease;
 
-        .responsive{
+        .responsive {
             display: block;
         }
     }
-    
+
 }
