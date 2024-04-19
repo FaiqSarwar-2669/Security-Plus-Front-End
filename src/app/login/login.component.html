@@ -1,7 +1,45 @@
 <div class="outer-main">
     <div class="main-inter">
         <div class="image-section"></div>
-        <div class="content">
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login">
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="email" class="login__input" placeholder="User name / Email" [(ngModel)]="logindetail.email">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock" (click)="display()"></i>
+                            <input [type]="type" [(ngModel)]="logindetail.password" class="login__input" placeholder="Password">
+                        </div>
+                        <button class="button login__submit" (click)="login()">
+                            <span class="button__text">Log In</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>				
+                        <button class="button login__submit">
+                            <span class="button__text">Sign Up</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>				
+                    </form>
+                    <div class="social-login">
+                        <h3>log in via</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-login__icon fab fa-google"></a>
+                            <a href="#" class="social-login__icon fab fa-facebook"></a>
+                        </div>
+                        <a [routerLink]="['/forget-password']">Forget Password ?</a>
+                    </div>
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
+        <!-- <div class="content">
             <div class="logo">
                 <div class="logo-image"></div>
             </div>
@@ -20,6 +58,6 @@
                 <label>Don't Have an Account ?</label>
                 <a [routerLink]="['/registeration']">Create Your Account</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
