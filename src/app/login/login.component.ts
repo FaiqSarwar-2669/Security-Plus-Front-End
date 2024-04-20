@@ -29,13 +29,10 @@ export class LoginComponent {
     const email = this.logindetail.email || '';
     if (this.logindetail.email?.trim() === '') {
       Swal.fire('Enter the Email');
-      return;
     } else if (!emailPattern.test(email)) {
       Swal.fire('Invalid Email');
-      return;
     } else if (this.logindetail.password?.trim() === '') {
       Swal.fire('Enter the password');
-      return;
     } else {
       this.services.login(this.logindetail).then((res: any) => {
         if (res) {

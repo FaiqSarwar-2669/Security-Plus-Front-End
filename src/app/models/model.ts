@@ -14,6 +14,8 @@ export interface registration {
     email: string | null,
 
 }
+
+
 export interface login{
     email: string| null,
     password: string| null,
@@ -21,3 +23,8 @@ export interface login{
 export interface forgetPassword{
     email: string| null,
 }
+export interface changePassword{
+    password: string| null,
+    confirm_password: string| null,
+}
+

@@ -29,6 +29,7 @@ import { UnregisterCompaniesComponent } from './Admin/unregister-companies/unreg
 import { UnregisterClientComponent } from './Admin/unregister-client/unregister-client.component';
 import { RegisterClientComponent } from './Admin/register-client/register-client.component';
 import { AdmindashboardComponent } from './Admin/admindashboard/admindashboard.component';
+import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AdmindashboardComponent } from './Admin/admindashboard/admindashboard.c
     UnregisterCompaniesComponent,
     UnregisterClientComponent,
     RegisterClientComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    NewPasswordComponent
   ],
   imports: [
     BrowserModule,

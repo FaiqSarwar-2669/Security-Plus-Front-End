@@ -21,6 +21,7 @@ import { RegisterCompaniesComponent } from './Admin/register-companies/register-
 import { UnregisterCompaniesComponent } from './Admin/unregister-companies/unregister-companies.component';
 import { RegisterClientComponent } from './Admin/register-client/register-client.component';
 import { UnregisterClientComponent } from './Admin/unregister-client/unregister-client.component';
+import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'unRegisterCompanies', component: UnregisterCompaniesComponent },
   { path: 'registerClient', component: RegisterClientComponent },
   { path: 'UnRegisterClient', component: UnregisterClientComponent },
+  { path: 'admin/newpassword', component: NewPasswordComponent },
 ];
 
 @NgModule({

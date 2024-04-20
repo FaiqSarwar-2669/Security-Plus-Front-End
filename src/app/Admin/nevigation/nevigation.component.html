@@ -88,6 +88,18 @@
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
                 <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-user"></i></span>Profile</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" [routerLink]="['/admin/newpassword']">Chnage Password</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-right-from-bracket"></i></span>LogOut</label>
                     <div class="iocon">
                         <i id="down" class="fa-solid fa-angle-down"></i>
