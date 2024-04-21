@@ -14,5 +14,11 @@
         </div>
         <h2>Write About Your Company</h2>
         <angular-editor [config]="config" [(ngModel)]="htmlcontent"></angular-editor>
+        <div class="save">
+            <button class="button login__submit" (click)="addOrUpdatePortfolio()">
+                <span class="button__text">Save Change</span>
+                <i class="button__icon fas fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
 </div>

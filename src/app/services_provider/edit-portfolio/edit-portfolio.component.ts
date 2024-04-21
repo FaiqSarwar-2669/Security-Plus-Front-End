@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Service } from 'src/app/services/provider_services';
+import { portfolio } from 'src/app/models/model';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -10,6 +13,15 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 })
 export class EditPortfolioComponent {
 
+  constructor(private services:Service){
+
+  }
+
+  dataContent: portfolio = {
+    logo: null,
+    Banner_image: null,
+    portfolio: ''
+  }
   htmlcontent:any;
   selectedImg: any = '../../../assets/default.png';
   selectedImg1: any = '../../../assets/default banner.png';
@@ -74,6 +86,7 @@ export class EditPortfolioComponent {
     const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
     this.ImageFile = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
     if (this.ImageFile) {
+      this.dataContent.logo = this.ImageFile
       console.log(this.ImageFile);
     }
   }
@@ -89,6 +102,7 @@ export class EditPortfolioComponent {
     const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
     this.ImageFile1 = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
     if (this.ImageFile1) {
+      this.dataContent.Banner_image = this.ImageFile1
       console.log(this.ImageFile1);
     }
   }
@@ -110,5 +124,27 @@ export class EditPortfolioComponent {
 
     const blobData = new Blob(byteArrays, { type });
     return blobData;
+  }
+
+
+  addOrUpdatePortfolio(){
+    this.dataContent.portfolio = this.htmlcontent
+    this.services.addAndUpdatePortfolio(this.dataContent).then((res:any)=>{
+      if(res&& res.message){
+        Swal.fire({
+          icon: 'success',
+          title: res.message
+        })
+      }
+      console.log(res);
+    }).catch((err:any)=>{
+      if(err && err.error){
+        Swal.fire({
+          icon:'error',
+          title: err.error.error
+        })
+      }
+      console.log(err)
+    })
   }
 }
