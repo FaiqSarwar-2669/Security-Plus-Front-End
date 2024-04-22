@@ -1,7 +1,9 @@
 .outer-main {
     width: 95%;
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 15px;
 
     .main-inter {
@@ -23,6 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: auto;
 
             .screen {
                 background: linear-gradient(90deg, #D7E9FF, #e7eefa);
@@ -41,13 +44,15 @@
                         padding-top: 70px;
 
                         .login__field {
-                            padding: 13px 0px;
+                            padding: 10px 0px;
                             position: relative;
+                            width: 250px;
 
                             .login__icon {
                                 position: absolute;
                                 top: 30px;
                                 color: #7875B5;
+                                cursor: pointer;
                             }
 
                             .login__input {
@@ -111,6 +116,11 @@
                         right: 0px;
                         color: #fff;
 
+                        h3 {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+
                         .social-icons {
                             display: flex;
                             align-items: center;
@@ -127,7 +137,10 @@
                                 transform: scale(1.5);
                             }
                         }
-                        a{
+
+                        a {
+                            text-decoration: none;
+                            color: white;
                             cursor: pointer;
                         }
                     }
@@ -196,7 +209,7 @@
     .outer-main {
         .main-inter {
             .image-section {
-               display: none;
+                display: none;
             }
         }
     }
