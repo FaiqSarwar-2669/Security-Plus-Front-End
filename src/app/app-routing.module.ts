@@ -22,6 +22,7 @@ import { UnregisterCompaniesComponent } from './Admin/unregister-companies/unreg
 import { RegisterClientComponent } from './Admin/register-client/register-client.component';
 import { UnregisterClientComponent } from './Admin/unregister-client/unregister-client.component';
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
+import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'nevigation', component: NavigationComponent },
   { path: 'make-form', component: MakeFormComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
+  { path: 'preview-portfolio', component: PreviewPortfolioComponent },
 
 
   // for admin

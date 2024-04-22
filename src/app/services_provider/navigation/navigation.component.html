@@ -1,7 +1,9 @@
 <div class="main" id="main-section">
     <div class="main-section-nav">
         <div class="organization-data">
-            <div class="organization-pic"></div>
+            <div class="organization-pic">
+                <img [src]="selectedImg" alt="">
+            </div>
             <div class="organization-information">
                 <label>organization name</label>
             </div>
@@ -29,7 +31,7 @@
                 </div>
                 <div class="body">
                     <a class="link" [routerLink]="['/edit-portfolio']">Edit Portfolio</a>
-                    <a class="link" href="#">Preview Portfolio</a>
+                    <a class="link" [routerLink]="['/preview-portfolio']">Preview Portfolio</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">

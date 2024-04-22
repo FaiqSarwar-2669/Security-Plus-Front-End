@@ -1,5 +1,7 @@
 import { Block, HtmlParser } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { Service } from 'src/app/services/provider_services';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navigation',
@@ -9,6 +11,22 @@ import { Component } from '@angular/core';
 export class NavigationComponent {
 
 
+  selectedImg: any;
+  constructor(private services: Service) {
+    this.services.getAndUpdatePortfolio().then((res: any) => {
+      if (res && res.data && res.data.length > 0) {
+        const data = res.data[0]; 
+        this.selectedImg = data.logo ? data.logo : '../../../assets/default.png';
+      }
+    }).catch((err: any) => {
+      if (err && err.error) {
+        Swal.fire({
+          icon: 'error',
+          title: err.error.error
+        })
+      }
+    })
+  }
 
   showMore(event: MouseEvent) {
     const mydive = event.currentTarget as HTMLElement;
