@@ -31,6 +31,8 @@ import { RegisterClientComponent } from './Admin/register-client/register-client
 import { AdmindashboardComponent } from './Admin/admindashboard/admindashboard.component';
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
+import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
+import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { PreviewPortfolioComponent } from './services_provider/preview-portfolio
     RegisterClientComponent,
     AdmindashboardComponent,
     NewPasswordComponent,
-    PreviewPortfolioComponent
+    PreviewPortfolioComponent,
+    PreviewFormsComponent,
+    TopNavComponent
   ],
   imports: [
     BrowserModule,

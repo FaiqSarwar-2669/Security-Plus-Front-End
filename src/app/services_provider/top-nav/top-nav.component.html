@@ -1,0 +1,54 @@
+<div class="top-nav">
+    <div class="top-nav-part-1"></div>
+    <div class="top-nav-part-2">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search here ....">
+    </div>
+    <div class="top-nav-part-3">
+        <nav>
+            <ul>
+                <li class="one" (click)="display($event)">
+                    <i class="fa-regular fa-envelope"></i>
+                    <ul class="drop-down">
+                        <div class="item">
+                            <div class="content-data" *ngFor="let item of [1,2,3,4]">
+                                <div class="content-data-1">
+                                    <img src="../../../assets/default.png" alt="">
+                                </div>
+                                <div class="content-data-2">
+                                    <label class="name">Qasim Farooq</label>
+                                    <label class="time">17 Minutes Ago</label>
+                                </div>
+                            </div>
+                            <div class="number-of-message">
+                                <label>4 New Messages</label>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li class="two" (click)="display($event)">
+                    <i class="fa-regular fa-bell"></i>
+                    <ul class="drop-down">
+                        <div class="item">
+                            <div class="content-data" *ngFor="let item of [1,2,3,4]">
+                                <div class="content-data-1">
+                                    <img src="../../../assets/default.png" alt="">
+                                </div>
+                                <div class="content-data-2">
+                                    <label class="name">Qasim Farooq</label>
+                                    <label class="time">17 Minutes Ago</label>
+                                </div>
+                            </div>
+                            <div class="number-of-message">
+                                <label>4 New Messages</label>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li class="three">
+                    <i class="fa-solid fa-power-off" (click)="logout()"></i>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

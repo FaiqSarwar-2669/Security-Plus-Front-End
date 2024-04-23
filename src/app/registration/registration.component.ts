@@ -11,6 +11,7 @@ import { Service } from '../services';
 export class RegistrationComponent {
   ImageFile: any;
   selectedImg: any = '../../../assets/default.png';
+  type:any = 'password'
 
   constructor(private services: Service) { }
 
@@ -20,6 +21,10 @@ export class RegistrationComponent {
     password: "",
     conform_password: "",
     email: "",
+  }
+
+  display() {
+    this.type = (this.type === 'text') ? 'password' : 'text';
   }
   submitForm() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

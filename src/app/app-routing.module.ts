@@ -23,6 +23,7 @@ import { RegisterClientComponent } from './Admin/register-client/register-client
 import { UnregisterClientComponent } from './Admin/unregister-client/unregister-client.component';
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
+import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'benefits', component: BenefitsComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'top-navigation', component: TopNavComponent },
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },

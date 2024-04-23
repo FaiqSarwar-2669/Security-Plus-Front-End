@@ -23,7 +23,7 @@ export class RegisterClientComponent {
       if(err && err.error){
         Swal.fire({
           icon:'error',
-          title: err.error.message
+          title: err.error.error
         })
       }
     })

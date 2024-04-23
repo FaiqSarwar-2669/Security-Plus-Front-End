@@ -1,0 +1,26 @@
+.main {
+    display: flex;
+    .main-content {
+        width: 100%;
+        padding: 10px;
+        .current-page {
+
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+
+            i {
+                font-size: 20px;
+                color: gray;
+                font-weight: bold;
+            }
+
+            label {
+                margin-left: 10px;
+                font-weight: bold;
+                color: #4C489D;
+                font-size: 20px;
+            }
+        }
+    }
+}

@@ -54,11 +54,12 @@ export class LoginComponent {
             title: 'Login failed'
           });
         }
+        console.log(res)
       }).catch((err: any) => {
         if(err && err.error){
           Swal.fire({
             icon: 'error',
-            title: err.error.message
+            title: err.error.error
           });
         }
         console.log(err)

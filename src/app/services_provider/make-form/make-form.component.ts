@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Service } from 'src/app/services/provider_services';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-make-form',
@@ -11,6 +13,22 @@ export class MakeFormComponent {
   idCounter: number = 1;
   Sectionid: number = 0;
 
+  constructor(private services: Service) {
+    // createInputField
+    this.services.getAndUpdateform().then((res: any) => {
+      // console.log(res)
+      if (res && res.data) {
+        const data = res.data[0].form_content;
+        for (let i = 0; i < data.length; i++) {
+          this.createInputField(data[i]);
+        }
+
+        console.log(data)
+      }
+    }).catch((err: any) => {
+      console.log(err);
+    })
+  }
   formcomponents: any[] = [
     {
       "form": {
@@ -62,8 +80,33 @@ export class MakeFormComponent {
   ];
 
 
-  Save(){
+  Save() {
+    const workingSpace = document.querySelector('.working-space');
     console.log(this.newJsonArray);
+    this.services.addAndUpdateform(this.newJsonArray).then((res: any) => {
+      if (res && res.message) {
+        Swal.fire({
+          icon: 'success',
+          title: res.message
+        })
+        if (workingSpace) {
+          workingSpace.innerHTML = '';
+        }
+      }
+    }).catch((err: any) => {
+      console.log(err)
+      if (err && err.error) {
+        Swal.fire({
+          icon: 'error',
+          title: err.error.message
+        })
+      } else if (err && err.error.error) {
+        Swal.fire({
+          icon: 'error',
+          title: err.error.error.form_content[0]
+        })
+      }
+    })
   }
 
   // for drag start
@@ -263,7 +306,7 @@ export class MakeFormComponent {
       formElement.appendChild(lineBreak);
       formElement.appendChild(input_4);
 
-    }else if (element.type === 'Radio Button'){
+    } else if (element.type === 'Radio Button') {
       const lineBreak = document.createElement('br');
       const label = document.createElement('label');
       label.innerText = 'Writer the question of this Radio button';
@@ -323,9 +366,9 @@ export class MakeFormComponent {
       button.innerText = 'delete';
       button.addEventListener('click', (event) => {
         const item = this.newJsonArray.findIndex(obj => obj.id === element.id);
-        if(item){
-          this.newJsonArray.splice(item , 1);
-          workingSpace.innerHTML=''
+        if (item) {
+          this.newJsonArray.splice(item, 1);
+          workingSpace.innerHTML = ''
         }
         this.UpdatedSpace(this.newJsonArray);
       });
@@ -342,8 +385,8 @@ export class MakeFormComponent {
     const workingSpace = document.querySelector('.working-space');
     const workingSpace2 = document.querySelector('.working-space-2');
     const submit = document.getElementById('saveButton');
-    if(submit){
-      submit.style.display='block';
+    if (submit) {
+      submit.style.display = 'block';
     }
     if (!workingSpace || !workingSpace2) {
       return;
@@ -475,7 +518,7 @@ export class MakeFormComponent {
           inputElement.appendChild(lineBreak);
           inputElement.appendChild(checkbox);
           inputElement.appendChild(label);
-          
+
         }
       } else if (data.type === 'Radio Button') {
         inputElement = document.createElement('div');

@@ -33,6 +33,24 @@ export class Service {
   }
 
 
+  logout() {
+    const header = this.getHeaders();
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'logout/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+
   // add and update the portfolio
 
   // addAndUpdatePortfolio(portfolioData: portfolio) {
@@ -106,6 +124,41 @@ export class Service {
     const header = this.getHeaders();
     return new Promise((resolve, reject) => {
       this.http.get(this.baseUrl + 'getPortfolio/', { headers: header }).pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          }
+        });
+    });
+  }
+
+  // add and update  the form of the company
+  addAndUpdateform(data: any) {
+    const payload = {
+      'form_content': data
+    }
+    const header = this.getHeaders();
+    return new Promise((resolve, reject) => {
+      this.http.post(this.baseUrl + 'makeForm/', payload, { headers: header }).pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          }
+        });
+    });
+  }
+
+  // get   the form of the company
+  getAndUpdateform() {
+    const header = this.getHeaders();
+    return new Promise((resolve, reject) => {
+      this.http.get(this.baseUrl + 'getForm/', { headers: header }).pipe()
         .subscribe({
           next: (res) => {
             resolve(res);

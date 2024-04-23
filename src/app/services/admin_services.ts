@@ -149,6 +149,26 @@ export class Service {
         })
     }
 
+    // remind  all the un-register or inactive organizations and companies for the complete your registeration
+    remindOrganizations(id: any) {
+        const payload = {
+            'id' : id
+        }
+        const header = this.getHeaders();
+        return new Promise((resolve, reject) => {
+            this.http.post(this.baseUrl + 'remindRegisteration/', payload, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res)
+                    },
+                    error: (err) => {
+                        reject(err)
+                    },
+                })
+        })
+    }
+
     //admin chnage password request
     changePassword(payload: changePassword) {
         const header = this.getHeaders();

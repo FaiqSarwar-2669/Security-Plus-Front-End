@@ -25,7 +25,7 @@ export class RegisterCompaniesComponent {
       if(err && err.error){
         Swal.fire({
           icon:'error',
-          title: err.error.message
+          title: err.error.error
         })
       }
     })
@@ -45,7 +45,7 @@ export class RegisterCompaniesComponent {
       if(err && err.error){
         Swal.fire({
           icon: 'error',
-          title: err.error.message
+          title: err.error.error
         })
       }
     });

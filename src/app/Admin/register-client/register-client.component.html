@@ -1,28 +1,33 @@
-<div class="nav-bar">
-    <div class="nav-content">
-        <h1>Register Client Organization</h1>
-        <div class="search">
-            <input type="text">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-    </div>
-</div>
+<app-top-nav></app-top-nav>
 <div class="main">
     <div class="main-1">
         <app-nevigation></app-nevigation>
     </div>
     <div class="main-2">
-        <div class="main-container" *ngFor="let items of registerClients">
-            <div class="container-layer">
-                <div class="container-part-1">
-                    <label class="company">{{items.bussiness_owner}}</label><br>
-                    <label class="name">{{items.bussiness_fname}} {{items.bussiness_lname}}</label>
-                </div>
-                <div class="container-part-2">
-                    <button class="application" (click)="viewApplication(items.id)">View</button>
-                    <button class="active" (click)="Active(items.id)">In Active</button>
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Register Client Organizations</label>
+        </div>
+        <ng-container *ngIf="registerClients && registerClients.length > 0; else noRecord">
+            <div class="main-container" *ngFor="let items of registerClients">
+                <div class="container-layer">
+                    <div class="container-part-1">
+                        <label class="company">{{items.bussiness_owner}}</label><br>
+                        <label class="name">{{items.bussiness_fname}} {{items.bussiness_lname}}</label>
+                    </div>
+                    <div class="container-part-2">
+                        <button class="application" (click)="viewApplication(items.id)">View</button>
+                        <button class="active" (click)="Active(items.id)">In Active</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
+        <ng-template #noRecord>
+            <div class="no-record-found">
+                <div class="image">
+                    <img src="../../../assets/no-data.gif" alt="No Record Found">
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>

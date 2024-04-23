@@ -1,6 +1,11 @@
+<app-top-nav></app-top-nav>
 <div class="main-layout">
     <app-navigation></app-navigation>
     <div class="part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Edit Portfolio</label>
+        </div>
         <div class="main-banner">
             <img [src]="selectedImg1" alt="" />
             <i class="fa-regular fa-image image-edit" (click)="takePicture1()"></i>

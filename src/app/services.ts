@@ -73,6 +73,7 @@ export class Service {
         });
     });
   }
+  
   logout() {
     const header = this.getHeaders();
     return new Promise((resolve, reject) => {

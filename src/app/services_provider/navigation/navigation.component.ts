@@ -2,6 +2,7 @@ import { Block, HtmlParser } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -12,17 +13,17 @@ export class NavigationComponent {
 
 
   selectedImg: any;
-  constructor(private services: Service) {
+  constructor(private services: Service, private routes:Router) {
     this.services.getAndUpdatePortfolio().then((res: any) => {
       if (res && res.data && res.data.length > 0) {
-        const data = res.data[0]; 
+        const data = res.data[0];
         this.selectedImg = data.logo ? data.logo : '../../../assets/default.png';
       }
     }).catch((err: any) => {
       if (err && err.error) {
         Swal.fire({
           icon: 'error',
-          title: err.error.error
+          title: err.error.message
         })
       }
     })
@@ -48,7 +49,7 @@ export class NavigationComponent {
     const result = document.getElementById('main-section') as HTMLElement;
     const left = document.getElementById('left') as HTMLElement;
     const right = document.getElementById('right') as HTMLElement;
-  
+
     if (result?.style.left === '-250px') {
       result.style.left = '0px';
       right.style.display = 'none';
@@ -56,8 +57,29 @@ export class NavigationComponent {
     } else {
       result.style.left = '-250px';
       left.style.display = 'none';
-      right.style.display = 'block'; 
+      right.style.display = 'block';
     }
   }
-  
+
+  logout() {
+    this.services.logout().then((res: any) => {
+      if(res){
+        Swal.fire({
+          icon:'success',
+          title: res.message
+        })
+        this.routes.navigate(['/login']);
+        localStorage.clear();
+      }
+    }).catch((err: any) => {
+      if(err.error){
+        Swal.fire({
+          icon:'error',
+          title: err.error.message
+        })
+      }
+      console.log(err)
+    });
+  }
+
 }

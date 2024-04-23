@@ -23,12 +23,13 @@
                             </select>
                         </div>
                         <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input class="login__input" placeholder="Password" [(ngModel)]="registration.password">
+                            <i class="login__icon fas fa-lock" (click)="display()"></i>
+                            <input [type]="type" class="login__input" placeholder="Password"
+                                [(ngModel)]="registration.password">
                         </div>
                         <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input class="login__input" placeholder="Confirm Password"
+                            <i class="login__icon fas fa-lock" (click)="display()"></i>
+                            <input [type]="type" class="login__input" placeholder="Confirm Password"
                                 [(ngModel)]="registration.conform_password">
                         </div>
                         <button class="button login__submit" (click)="submitForm()">
