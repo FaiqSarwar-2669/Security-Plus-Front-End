@@ -22,5 +22,36 @@
                 font-size: 20px;
             }
         }
+        .frist{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            padding: 20px;
+
+        .graph2{
+                cursor: pointer;
+                width: 600px;
+                height: 450px;
+
+
+                canvas{
+                    height: 600px;
+                }
+            }
+        
+        .graph{
+            cursor: pointer;
+            width: 270px;
+            height: 450px;
+        }
+
+        
+        .graph:hover,
+        .graph2:hover {
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            }
+    }
     }
 }
