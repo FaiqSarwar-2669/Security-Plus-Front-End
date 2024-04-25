@@ -5,7 +5,7 @@ import { changePassword } from "../models/model";
 @Injectable({ providedIn: "root" })
 export class Service {
 
-    baseUrl = 'http://192.168.100.42:80/api/';
+    baseUrl = 'http://127.0.0.1:8000/api/';
 
     Heads = new HttpHeaders({
         'Accept': 'application/json',
@@ -92,22 +92,22 @@ export class Service {
         })
     }
 
-    // Activate the  all the un-register or inactive organizations and companies
-    // activationOrganizations(id: any) {
-    //     const header = this.getHeaders();
-    //     return new Promise((resolve, reject) => {
-    //         this.http.put(this.baseUrl + 'activation/' + id, { headers: header })
-    //             .pipe()
-    //             .subscribe({
-    //                 next: (res) => {
-    //                     resolve(res)
-    //                 },
-    //                 error: (err) => {
-    //                     reject(err)
-    //                 },
-    //             })
-    //     })
-    // }
+    // view  all the un-register or inactive organizations and companies
+    viewOrganizations(id: any) {
+        const header = this.getHeaders();
+        return new Promise((resolve, reject) => {
+            this.http.get(this.baseUrl + 'viewOganization/' + id, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res)
+                    },
+                    error: (err) => {
+                        reject(err)
+                    },
+                })
+        })
+    }
 
     // in-Activate the  all the un-register or inactive organizations and companies
     inActivationOrganizations(id: any) {
