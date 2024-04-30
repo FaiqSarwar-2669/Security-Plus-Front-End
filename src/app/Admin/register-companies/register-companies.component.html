@@ -9,16 +9,51 @@
             <label>Register Companies</label>
         </div>
         <ng-container *ngIf="registerCompanies && registerCompanies.length > 0; else noRecord">
-            <div class="main-container" *ngFor="let items of registerCompanies">
-                <div class="container-layer">
-                    <div class="container-part-1">
-                        <label class="company">{{items.bussiness_owner}}</label><br>
-                        <label class="name">{{items.bussiness_fname}} {{items.bussiness_lname}}</label>
-                    </div>
-                    <div class="container-part-2">
-                        <button class="application" (click)="viewApplication(items.id)">View</button>
-                        <button class="active" (click)="Active(items.id)">In Active</button>
-                    </div>
+            <div class="main-container">
+                <table class="rwd-table">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Bussiness Name</th>
+                        <th>Phone Number</th>
+                        <th>Area Code</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Province</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr *ngFor="let items of registerCompanies">
+                        <td>{{items.bussiness_fname}}</td>
+                        <td>{{items.bussiness_lname}}</td>
+                        <td>{{items.bussiness_owner}}</td>
+                        <td>{{items.phone_number}}</td>
+                        <td>{{items.area_code}}</td>
+                        <td>{{items.street_address}}</td>
+                        <td>{{items.city_name}}</td>
+                        <td>{{items.province}}</td>
+                        <td class="container-part-2">
+                            <button class="application" (click)="viewApplication(items.id)">View</button>
+                            <button class="active" (click)="Active(items.id)">In Active</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="mobile-view">
+                    <table class="rwd-table1" *ngFor="let items of registerCompanies">
+                        <tr>
+                            <td data-th="First Name">{{items.bussiness_fname}}</td>
+                            <td data-th="Last Name">{{items.bussiness_lname}}</td>
+                            <td data-th="Bussiness Name">{{items.bussiness_owner}}</td>
+                            <td data-th="Phone Number">{{items.phone_number}}</td>
+                            <td data-th="Area Code">{{items.area_code}}</td>
+                            <td data-th="Address">{{items.street_address}}</td>
+                            <td data-th="City">{{items.city_name}}</td>
+                            <td data-th="Province">{{items.province}}</td>
+                            <td data-th="Actions" class="container-part-2">
+                                <button class="application" (click)="viewApplication(items.id)">View</button>
+                                <button class="active" (click)="Active(items.id)">In Active</button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </ng-container>
