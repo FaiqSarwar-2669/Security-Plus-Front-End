@@ -10,6 +10,10 @@ import Swal from 'sweetalert2';
 export class PreviewFormsComponent {
   
   constructor(private services:Service){
-
+    this.services.getAndUpdateform().then((res:any)=>{
+      console.log(res)
+    }).catch((err:any)=>{
+      console.log(err)
+    })
   }
 }

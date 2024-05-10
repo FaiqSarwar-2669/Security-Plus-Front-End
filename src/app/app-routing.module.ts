@@ -24,6 +24,10 @@ import { UnregisterClientComponent } from './Admin/unregister-client/unregister-
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
+import { AdminChatComponent } from './Admin/admin-chat/admin-chat.component';
+import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
+import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,13 +44,16 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'top-navigation', component: TopNavComponent },
+  
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },
   { path: 'nevigation', component: NavigationComponent },
   { path: 'make-form', component: MakeFormComponent },
+  { path: 'preview-form', component: PreviewFormsComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
   { path: 'preview-portfolio', component: PreviewPortfolioComponent },
+  { path: 'provider-chat', component: ProviderChatComponent },
 
 
   // for admin
@@ -56,6 +63,7 @@ const routes: Routes = [
   { path: 'registerClient', component: RegisterClientComponent },
   { path: 'UnRegisterClient', component: UnregisterClientComponent },
   { path: 'admin/newpassword', component: NewPasswordComponent },
+  { path: 'admin/chat', component: AdminChatComponent },
 ];
 
 @NgModule({

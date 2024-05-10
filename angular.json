@@ -95,7 +95,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/laravel-echo/dist/echo.js",
+              "./node_modules/socket.io-client/dist/socket.io.js"
+            ]
           }
         }
       }

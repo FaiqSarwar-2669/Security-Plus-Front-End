@@ -5,7 +5,7 @@ import { changePassword } from "../models/model";
 @Injectable({ providedIn: "root" })
 export class Service {
 
-    baseUrl = 'http://192.168.100.42:80/api/';
+    baseUrl = 'http://127.0.0.1:8000/api/';
 
     Heads = new HttpHeaders({
         'Accept': 'application/json',

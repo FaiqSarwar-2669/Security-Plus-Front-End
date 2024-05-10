@@ -44,7 +44,7 @@
                 </div>
                 <div class="body">
                     <a class="link" [routerLink]="['/make-form']">Edit Forms</a>
-                    <a class="link" href="#">Preview Forms</a>
+                    <a class="link" [routerLink]="['/preview-form']">Preview Forms</a>
                     <a class="link" href="#">Job Applications</a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
+                    <a class="link" [routerLink]="['/provider-chat']">Open Chat</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">

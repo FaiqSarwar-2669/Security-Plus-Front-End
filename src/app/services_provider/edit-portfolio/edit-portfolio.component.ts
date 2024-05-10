@@ -18,8 +18,8 @@ export class EditPortfolioComponent {
   }
 
   dataContent: portfolio = {
-    logo: null,
-    Banner_image: null,
+    logo: '',
+    Banner_image: '',
     portfolio: ''
   }
   htmlcontent:any;
@@ -83,12 +83,13 @@ export class EditPortfolioComponent {
     });
 
     this.selectedImg = `data:image/jpeg;base64,${image.base64String}`;
-    const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
-    this.ImageFile = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
-    if (this.ImageFile) {
-      this.dataContent.logo = this.ImageFile
-      console.log(this.ImageFile);
-    }
+    this.dataContent.logo = this.selectedImg
+    // const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
+    // this.ImageFile = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
+    // if (this.ImageFile) {
+    //   this.dataContent.logo = this.ImageFile
+    //   console.log(this.ImageFile);
+    // }
   }
   async takePicture1() {
     const image = await Camera.getPhoto({
@@ -99,12 +100,13 @@ export class EditPortfolioComponent {
     });
 
     this.selectedImg1 = `data:image/jpeg;base64,${image.base64String}`;
-    const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
-    this.ImageFile1 = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
-    if (this.ImageFile1) {
-      this.dataContent.Banner_image = this.ImageFile1
-      console.log(this.ImageFile1);
-    }
+    this.dataContent.Banner_image = this.selectedImg1
+    // const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
+    // this.ImageFile1 = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
+    // if (this.ImageFile1) {
+    //   this.dataContent.Banner_image = this.ImageFile1
+    //   console.log(this.ImageFile1);
+    // }
   }
   base64ToBlob(base64: any, type: string) {
     const byteCharacters = atob(base64);
@@ -144,7 +146,7 @@ export class EditPortfolioComponent {
           title: err.error.error
         })
       }
-      console.log(err)
+      console.log(err);
     })
   }
 }
