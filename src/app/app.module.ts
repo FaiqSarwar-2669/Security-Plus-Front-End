@@ -34,6 +34,9 @@ import { PreviewPortfolioComponent } from './services_provider/preview-portfolio
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
+import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
+import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
+import { ProfileComponent } from './services_provider/profile/profile.component';
 
 
 @NgModule({
@@ -67,6 +70,9 @@ import { ProviderChatComponent } from './services_provider/provider-chat/provide
     PreviewFormsComponent,
     TopNavComponent,
     ProviderChatComponent,
+    JobapplicationComponent,
+    RegisterGuardsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

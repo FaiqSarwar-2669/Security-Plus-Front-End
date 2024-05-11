@@ -45,7 +45,7 @@
                 <div class="body">
                     <a class="link" [routerLink]="['/make-form']">Edit Forms</a>
                     <a class="link" [routerLink]="['/preview-form']">Preview Forms</a>
-                    <a class="link" href="#">Job Applications</a>
+                    <a class="link" [routerLink]="['/job-application']">Job Applications</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
@@ -70,6 +70,19 @@
                 </div>
                 <div class="body">
                     <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
+                </div>
+            </div>
+            <div class="nav-one mydiv" (click)="showMore($event)">
+                <div class="content">
+                    <label><span class="relative-icon"><i class="fa-solid fa-user"></i></span>Profile</label>
+                    <div class="iocon">
+                        <i id="down" class="fa-solid fa-angle-down"></i>
+                        <i id="up" class="fa-solid fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="body">
+                    <a class="link" [routerLink]="['/profile']">Profile</a>
+                    <a class="link" [routerLink]="['/register-guards']">Register Guards</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">

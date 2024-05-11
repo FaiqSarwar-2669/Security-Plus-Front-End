@@ -27,7 +27,9 @@ import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 import { AdminChatComponent } from './Admin/admin-chat/admin-chat.component';
 import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
-
+import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
+import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
+import { ProfileComponent } from './services_provider/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,7 +56,9 @@ const routes: Routes = [
   { path: 'edit-portfolio', component: EditPortfolioComponent },
   { path: 'preview-portfolio', component: PreviewPortfolioComponent },
   { path: 'provider-chat', component: ProviderChatComponent },
-
+  { path: 'job-application', component: JobapplicationComponent },
+  { path: 'register-guards', component: RegisterGuardsComponent },
+  { path: 'profile', component: ProfileComponent },
 
   // for admin
   { path: 'admin/dashboard', component: AdmindashboardComponent },
