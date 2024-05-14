@@ -24,6 +24,7 @@ import { UnregisterClientComponent } from './Admin/unregister-client/unregister-
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
+import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'make-form', component: MakeFormComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
   { path: 'preview-portfolio', component: PreviewPortfolioComponent },
+  { path: 'guardregisteration', component: GuardRegisterationsComponent },
 
 
   // for admin

@@ -33,6 +33,7 @@ import { NewPasswordComponent } from './Admin/new-password/new-password.componen
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
+import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
     NewPasswordComponent,
     PreviewPortfolioComponent,
     PreviewFormsComponent,
-    TopNavComponent
+    TopNavComponent,
+    GuardRegisterationsComponent
   ],
   imports: [
     BrowserModule,
