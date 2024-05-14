@@ -25,7 +25,7 @@ import { NewPasswordComponent } from './Admin/new-password/new-password.componen
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
-
+import { ClientDashboardComponent } from './client_organization/client-dashboard/client-dashboard.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home-nevigation', component: HomeNevigationComponent },
@@ -58,6 +58,8 @@ const routes: Routes = [
   { path: 'registerClient', component: RegisterClientComponent },
   { path: 'UnRegisterClient', component: UnregisterClientComponent },
   { path: 'admin/newpassword', component: NewPasswordComponent },
+  //for client
+  { path: 'clientdashboard', component: ClientDashboardComponent },
 ];
 
 @NgModule({

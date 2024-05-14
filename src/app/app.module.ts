@@ -34,6 +34,7 @@ import { PreviewPortfolioComponent } from './services_provider/preview-portfolio
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
+import { ClientDashboardComponent } from './client_organization/client-dashboard/client-dashboard.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { GuardRegisterationsComponent } from './services_provider/guard-register
     PreviewPortfolioComponent,
     PreviewFormsComponent,
     TopNavComponent,
-    GuardRegisterationsComponent
+    GuardRegisterationsComponent,
+    ClientDashboardComponent
   ],
   imports: [
     BrowserModule,
