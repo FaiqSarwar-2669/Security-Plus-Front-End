@@ -1,0 +1,84 @@
+.main-part {
+    display: flex;
+
+    .main-part-2 {
+        width: 100%;
+        padding: 10px;
+        .current-page {
+
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+
+            i {
+                font-size: 20px;
+                color: gray;
+                font-weight: bold;
+            }
+
+            label {
+                margin-left: 10px;
+                font-weight: bold;
+                color: #4C489D;
+                font-size: 20px;
+            }
+        }
+
+        .current-content{
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            .form-part-1{
+                padding: 10px;
+                width: 50%;
+                border: 2px solid red;
+                h3{
+                    font-weight: bold;
+                    display: block;
+                    text-align: center;
+                }
+                .form-data{
+                    width: 100%;
+                    label{
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }
+                    input{
+                        width: 100%;
+                        margin-bottom: 10px;
+                        height: 40px;
+                        border-radius: 20px;
+                        outline: none;
+                        background: transparent;
+                        border: 1px solid #4C489D;
+                    }
+                    button{
+                        background: #4C489D;
+                        color: white;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 8px;
+                        outline: none;
+                        border: none;
+                        border-radius: 20px;
+                    }
+                }
+            }
+            .form-part-2{
+                width: 200px;
+                height: 200px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+}

@@ -24,8 +24,18 @@ import { UnregisterClientComponent } from './Admin/unregister-client/unregister-
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
+<<<<<<< HEAD
 import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
 import { ClientDashboardComponent } from './client_organization/client-dashboard/client-dashboard.component';
+=======
+import { AdminChatComponent } from './Admin/admin-chat/admin-chat.component';
+import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
+import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
+import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
+import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
+import { ProfileComponent } from './services_provider/profile/profile.component';
+
+>>>>>>> e262174737e63d90b26cae328571c46851a1a7a6
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home-nevigation', component: HomeNevigationComponent },
@@ -41,15 +51,24 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'top-navigation', component: TopNavComponent },
+  
 
   // for service provider
   { path: 'dashboard', component: DashboardComponent },
   { path: 'nevigation', component: NavigationComponent },
   { path: 'make-form', component: MakeFormComponent },
+  { path: 'preview-form', component: PreviewFormsComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
   { path: 'preview-portfolio', component: PreviewPortfolioComponent },
+<<<<<<< HEAD
   { path: 'guardregisteration', component: GuardRegisterationsComponent },
 
+=======
+  { path: 'provider-chat', component: ProviderChatComponent },
+  { path: 'job-application', component: JobapplicationComponent },
+  { path: 'register-guards', component: RegisterGuardsComponent },
+  { path: 'profile', component: ProfileComponent },
+>>>>>>> e262174737e63d90b26cae328571c46851a1a7a6
 
   // for admin
   { path: 'admin/dashboard', component: AdmindashboardComponent },
@@ -58,8 +77,12 @@ const routes: Routes = [
   { path: 'registerClient', component: RegisterClientComponent },
   { path: 'UnRegisterClient', component: UnregisterClientComponent },
   { path: 'admin/newpassword', component: NewPasswordComponent },
+<<<<<<< HEAD
   //for client
   { path: 'clientdashboard', component: ClientDashboardComponent },
+=======
+  { path: 'admin/chat', component: AdminChatComponent },
+>>>>>>> e262174737e63d90b26cae328571c46851a1a7a6
 ];
 
 @NgModule({

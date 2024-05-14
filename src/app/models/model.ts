@@ -21,8 +21,10 @@ export interface changePassword {
 //models for service provider conpanies
 
 export interface portfolio {
-  logo: File | null;
-  Banner_image: File | null;
+  // logo: File | null;
+  // Banner_image: File | null;
+  logo: string | null;
+  Banner_image: string | null;
   portfolio: string | null;
 }
 

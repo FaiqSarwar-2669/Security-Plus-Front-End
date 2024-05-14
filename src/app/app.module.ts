@@ -33,8 +33,15 @@ import { NewPasswordComponent } from './Admin/new-password/new-password.componen
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
+<<<<<<< HEAD
 import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
 import { ClientDashboardComponent } from './client_organization/client-dashboard/client-dashboard.component';
+=======
+import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
+import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
+import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
+import { ProfileComponent } from './services_provider/profile/profile.component';
+>>>>>>> e262174737e63d90b26cae328571c46851a1a7a6
 
 
 @NgModule({
@@ -67,8 +74,15 @@ import { ClientDashboardComponent } from './client_organization/client-dashboard
     PreviewPortfolioComponent,
     PreviewFormsComponent,
     TopNavComponent,
+<<<<<<< HEAD
     GuardRegisterationsComponent,
     ClientDashboardComponent
+=======
+    ProviderChatComponent,
+    JobapplicationComponent,
+    RegisterGuardsComponent,
+    ProfileComponent,
+>>>>>>> e262174737e63d90b26cae328571c46851a1a7a6
   ],
   imports: [
     BrowserModule,

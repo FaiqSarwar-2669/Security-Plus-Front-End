@@ -1,0 +1,78 @@
+<app-top-nav></app-top-nav>
+<div class="main">
+    <div class="main-part-1">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Job Applications</label>
+        </div>
+        <div class="search">
+            <label>All Applications List</label>
+            <label>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="search here ...........">
+            </label>
+            
+        </div>
+        <div class="job-content" *ngFor="let i of [1,2,3,4,5]">
+            <div class="img">
+                <img src="../../../assets/default.png" alt="">
+            </div>
+            <div class="content">
+                <label  class="email" for="">EMAIL</label>
+                <label class="date" for="">DATE</label>
+            </div>
+            <div class="actions">
+                <button class="b1">Reject</button>
+                <button class="b2">Accept</button>
+                <button class="b3">Download</button>
+            </div>
+        </div>
+        <!-- for accepted members -->
+        <div class="search">
+            <label>Active Members</label>
+            <label>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="search here ...........">
+            </label>
+        </div>
+        <div class="job-content" *ngFor="let i of [1,2,3,4,5]">
+            <div class="img">
+                <img src="../../../assets/default.png" alt="">
+            </div>
+            <div class="content">
+                <label  class="email" for="">EMAIL</label>
+                <label class="date" for="">DATE</label>
+            </div>
+            <div class="actions">
+                <button class="b2">Resign</button>
+                <button class="b3">Download</button>
+            </div>
+        </div>
+        <!-- for rejected members -->
+        <div class="search">
+            <label>Rejected Applications</label>
+            <label>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="search here ...........">
+            </label>
+            
+        </div>
+        <div class="job-content" *ngFor="let i of [1,2,3,4,5]">
+            <div class="img">
+                <img src="../../../assets/default.png" alt="">
+            </div>
+            <div class="content">
+                <label  class="email" for="">EMAIL</label>
+                <label class="date" for="">DATE</label>
+            </div>
+            <div class="actions">
+                <button class="b1">Delete</button>
+                <button class="b3">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+

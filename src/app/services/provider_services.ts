@@ -5,7 +5,7 @@ import { portfolio } from "../models/model";
 @Injectable({ providedIn: "root" })
 export class Service {
 
-  baseUrl = 'http://192.168.100.42:80/api/';
+  baseUrl = 'http://127.0.0.1:8000/api/';
 
   Heads = new HttpHeaders({
     'Accept': 'application/json',
@@ -18,11 +18,12 @@ export class Service {
   getFormHeaders() {
     const token = localStorage.getItem('B_Token');
     return {
-      'Accept': 'multipart/form data',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Accept': 'application/json',
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${token}`,
     };
   }
+
   getHeaders() {
     const token = localStorage.getItem('B_Token');
     return {
@@ -53,71 +54,74 @@ export class Service {
 
   // add and update the portfolio
 
-  // addAndUpdatePortfolio(portfolioData: portfolio) {
-
-  //     const formData = new FormData();
-
-  //     if (portfolioData.logo) {
-  //         formData.append('logo', portfolioData.logo);
-  //     }
-
-  //     if (portfolioData.Banner_image) {
-  //         formData.append('Banner_image', portfolioData.Banner_image);
-  //     }
-  //     if(portfolioData.portfolio){
-  //         formData.append('portfolio', portfolioData.portfolio);
-  //     }
-
-  //     console.log(formData)
-  //     console.log(portfolioData.logo)
+  addAndUpdatePortfolio(portfolioData: portfolio) {
+    return new Promise((resolve, reject) => {
 
 
-  //     const header = this.getHeaders();
-  //     return new Promise((resolve, reject) => {
-  //         this.http.post(this.baseUrl + 'makePortfolio/', formData, { headers: header }).pipe()
-  //             .subscribe({
-  //                 next: (res) => {
-  //                     resolve(res);
-  //                 },
-  //                 error: (err) => {
-  //                     reject(err);
-  //                 }
-  //             });
-  //     });
-  // }
-  async addAndUpdatePortfolio(portfolioData: portfolio) {
-    const formData = new FormData();
+      // const formData = new FormData();
 
-    if (portfolioData.logo) {
-      formData.append('logo', portfolioData.logo);
-    }
+      // if (portfolioData.logo) {
+      //   formData.append('logo', portfolioData.logo, portfolioData.logo.name);
+      // }
 
-    if (portfolioData.Banner_image) {
-      formData.append('Banner_image', portfolioData.Banner_image);
-    }
-    if (portfolioData.portfolio) {
-      formData.append('portfolio', portfolioData.portfolio);
-    }
+      // if (portfolioData.Banner_image) {
+      //   formData.append('Banner_image', portfolioData.Banner_image, portfolioData.Banner_image.name);
+      // }
 
-    const header = this.getFormHeaders();
+      // if (portfolioData.portfolio) {
+      //   formData.append('portfolio', JSON.stringify(portfolioData.portfolio));
+      // }
 
-    try {
-      const response = await fetch(this.baseUrl + 'makePortfolio/', {
-        method: 'POST',
-        headers: header,
-        body: formData
-      });
+      const header = this.getFormHeaders();
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
 
-      return await response.json();
-    } catch (error) {
-      console.error('There was an error!', error);
-      throw error;
-    }
+      this.http.post<any>(this.baseUrl + 'makePortfolio/', portfolioData, { headers: header })
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          }
+        });
+    });
   }
+
+
+
+  // async addAndUpdatePortfolio(portfolioData: portfolio) {
+  //   const formData = new FormData();
+
+  //   if (portfolioData.logo) {
+  //     formData.append('logo', portfolioData.logo);
+  //   }
+
+  //   if (portfolioData.Banner_image) {
+  //     formData.append('Banner_image', portfolioData.Banner_image);
+  //   }
+  //   if (portfolioData.portfolio) {
+  //     formData.append('portfolio', portfolioData.portfolio);
+  //   }
+
+  //   const header = this.getFormHeaders();
+
+  //   try {
+  //     const response = await fetch(this.baseUrl + 'makePortfolio/', {
+  //       method: 'POST',
+  //       headers: header,
+  //       body: formData
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+
+  //     return await response.json();
+  //   } catch (error) {
+  //     console.error('There was an error!', error);
+  //     throw error;
+  //   }
+  // }
 
   // get the portfolio of the company
   getAndUpdatePortfolio() {

@@ -41,6 +41,7 @@
         }
     }
 }
+
 .main {
     display: flex;
     overflow-y: hidden;
@@ -73,63 +74,80 @@
             background-color: white;
             padding: 10px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
 
-            .container-layer {
-                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-                background-color: #e7eefa;
-                width: 60%;
-                padding: 10px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
+            .rwd-table {
+                margin: 1em 0;
+                background: #34495E;
+                color: #fff;
+                border-radius: .4em;
+                overflow: hidden;
+                width: 100%;
 
-                .container-layer:hover {
-                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+                tr {
+                    border-top: 1px solid #ddd;
+                    border-bottom: 1px solid #ddd;
+
+                    th {
+                        color: #dd5;
+                    }
+
+                    .container-part-2 {
+                        padding: 10px;
+
+                        .application {
+                            padding: 3px;
+                            font-size: 18px;
+                            background-color: orange;
+                            outline: none;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+
+                        .active {
+                            margin-left: 10px;
+                            padding: 3px;
+                            font-size: 18px;
+                            background-color: rgb(241, 73, 73);
+                            outline: none;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+
+                        .Remind {
+                            margin-left: 10px;
+                            padding: 3px;
+                            font-size: 18px;
+                            background-color: lightgreen;
+                            outline: none;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+                    }
+
+
                 }
 
-                .container-part-1 {
-                    .company {
-                        display: block;
-                        font-size: 25px;
-                        font-weight: bold;
-                    }
-
-                    .name {
-                        display: block;
-                        font-size: 20px;
-                    }
+                td:first-child {
+                    padding-top: .5em;
                 }
 
-                .container-part-2 {
-
-                    .application {
-                        padding: 7px;
-                        font-size: 18px;
-                        background-color: orange;
-                        outline: none;
-                        border: none;
-                        cursor: pointer;
-                        border-radius: 5px;
-                    }
-
-                    .active {
-                        margin-left: 10px;
-                        padding: 7px;
-                        font-size: 18px;
-                        background-color: lightgreen;
-                        outline: none;
-                        border: none;
-                        cursor: pointer;
-                        border-radius: 5px;
-                    }
+                th,
+                td {
+                    text-align: center;
+                    margin: .5em 1em;
+                    display: table-cell;
+                    padding: .25em .5em;
                 }
+
             }
+
+            .mobile-view {
+                display: none;
+            }
+
         }
 
         .no-record-found {
@@ -155,6 +173,95 @@
 
 }
 
+@media (min-width: 355px) and (max-width: 850px) {
+    .main {
+        display: flex;
+        overflow-y: hidden;
+
+        .main-2 {
+            .main-container {
+                .rwd-table {
+                    display: none;
+                }
+
+                .mobile-view {
+                    display: block;
+
+                    .rwd-table1 {
+                        background: #34495E;
+                        color: #fff;
+                        border-radius: .4em;
+                        overflow: hidden;
+                        width: 100%;
+                        margin-bottom: 10px;
+
+                        tr {
+                            border-color: white;
+
+                            td {
+                                display: block;
+                                padding: 1em !important;
+                            }
+
+                            td:before {
+                                content: attr(data-th) ": ";
+                                font-weight: bold;
+                                width: 6.5em;
+                                display: inline-block;
+                                color: #dd5;
+                            }
+
+                            td:first-child {
+                                padding-left: 0;
+                            }
+
+                            td:last-child {
+                                padding-right: 0;
+                            }
+
+                            .container-part-2 {
+                                padding: 10px;
+
+                                .application {
+                                    padding: 3px;
+                                    font-size: 18px;
+                                    background-color: orange;
+                                    outline: none;
+                                    border: none;
+                                    cursor: pointer;
+                                    border-radius: 5px;
+                                }
+
+                                .active {
+                                    margin-left: 10px;
+                                    padding: 3px;
+                                    font-size: 18px;
+                                    background-color: rgb(241, 73, 73);
+                                    outline: none;
+                                    border: none;
+                                    cursor: pointer;
+                                    border-radius: 5px;
+                                }
+
+                                .Remind {
+                                    margin-left: 10px;
+                                    padding: 3px;
+                                    font-size: 18px;
+                                    background-color: lightgreen;
+                                    outline: none;
+                                    border: none;
+                                    cursor: pointer;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
 
 @media (min-width: 750px) and (max-width: 850px) {
     .main {
@@ -163,55 +270,21 @@
                 position: fixed;
             }
         }
-
-        .main-2 {
-            .main-container {
-                .container-layer {
-                    width: 80%;
-                }
-            }
-        }
     }
 }
 
+
 @media (min-width: 355px) and (max-width: 450px) {
-    .nav-bar{
-        .nav-content{
+    .nav-bar {
+        .nav-content {
             display: block;
         }
     }
+
     .main {
         .main-1 {
             app-nevigation {
                 position: fixed;
-            }
-        }
-
-        .main-2 {
-            .main-container {
-                .container-layer {
-                    width: 80%;
-
-                    .container-part-1 {
-                        max-width: 50%;
-
-                        .company {
-                            font-size: 20px;
-                        }
-
-                        .name {
-                            font-size: 16px;
-                        }
-                    }
-                    .container-part-2{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 10px;
-                    }
-                }
-
             }
         }
     }
