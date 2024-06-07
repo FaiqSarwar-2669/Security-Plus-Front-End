@@ -1,0 +1,20 @@
+<app-home-nevigation></app-home-nevigation>
+<div class="main-layout">
+    <div class="part-2">
+        <div class="main-banner">
+            <img [src]="selectedImg1" alt="" />
+        </div>
+        <div class="main-page-content">
+            <div class="company-image">
+                <img [src]="selectedImg" alt="">
+            </div>
+            <div class="job-form">
+                <label>{{pagaData.bussiness_owner}}</label>
+                <button class="job-btn" (click)="Form(pagaData.id)">Job Form</button>
+            </div>
+        </div>
+        <div class="htmlcontent" [innerHTML]="htmlContent">
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

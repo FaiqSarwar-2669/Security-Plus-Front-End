@@ -22,6 +22,7 @@ export class MakeFormComponent {
         for (let i = 0; i < data.length; i++) {
           this.createInputField(data[i]);
         }
+        this.newJsonArray = data; 
 
         console.log(data)
       }
@@ -60,6 +61,7 @@ export class MakeFormComponent {
             "value2": "value",
             "value3": "value",
             "value4": "value",
+            "data": "",
           },
           {
             "type": "Radio Button",
@@ -68,11 +70,13 @@ export class MakeFormComponent {
             "value1": "value",
             "value2": "value",
             "value3": "value",
+            "data": "",
           },
           {
             "type": "Image",
             "id": "",
             "title": "Image Title",
+            "data": File,
           }
         ]
       }
@@ -81,17 +85,25 @@ export class MakeFormComponent {
 
 
   Save() {
-    const workingSpace = document.querySelector('.working-space');
     console.log(this.newJsonArray);
+    let found: boolean = false;
+    for (let i = 0; i < this.newJsonArray.length; i++) {
+      if (this.newJsonArray[i].type === 'Button') {
+        found= true;
+        break;
+      }
+    }
+    if (!found) {
+      alert("Button not found!!!!!");
+      return
+    }
+
     this.services.addAndUpdateform(this.newJsonArray).then((res: any) => {
       if (res && res.message) {
         Swal.fire({
           icon: 'success',
           title: res.message
         })
-        if (workingSpace) {
-          workingSpace.innerHTML = '';
-        }
       }
     }).catch((err: any) => {
       console.log(err)

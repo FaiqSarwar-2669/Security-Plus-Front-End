@@ -21,15 +21,31 @@ export interface changePassword {
 //models for service provider conpanies
 
 export interface portfolio {
-  // logo: File | null;
-  // Banner_image: File | null;
-  logo: string | null;
-  Banner_image: string | null;
+  logo: File | null;
+  Banner_image: File | null;
+  // logo: string | null;
+  // Banner_image: string | null;
   portfolio: string | null;
 }
 
 export interface forms {
   form_content: string | null;
+}
+
+export interface formContent {
+  type?: string;
+  Type?: string;
+  id?: string;
+  label?: string;
+  placeholder?: string;
+  data?: string;
+  required?: string;
+  text?: string;
+  title?: string;
+  value1?: string;
+  value2?: string;
+  value3?: string;
+  value4?: string;
 }
 
 // for graphs

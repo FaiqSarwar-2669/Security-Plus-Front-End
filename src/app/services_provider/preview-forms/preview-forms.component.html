@@ -8,60 +8,79 @@
             <i class="fa-solid fa-angle-right"></i>
             <label>Preview Form</label>
         </div>
-        <div class="current-content">
-            <div class="form-part-1">
-                <h3>Form</h3>
-                <div class="form-data">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <label for="">Name</label><br>
-                    <input type="text" name="" id="">
-                    <button>button</button>
+        <ng-container *ngIf="formContent && formContent.length > 0 else nodata">
+            <div class="current-content">
+                <div class="form-part-1">
+                    <h3>Job Application Form</h3>
+                    <div class="form-data">
+                        <div *ngFor="let item of formContent">
+                            <div class="label" *ngIf="item.type === 'Label'">
+                                <label>{{item.text}}</label>
+                            </div>
+                            <div class="input" *ngIf="item.type === 'Input'">
+                                <input [type]="item.Type" [placeholder]="item.placeholder"
+                                    (input)="onInputChange($event)" [(ngModel)]="item.data">
+                            </div>
+                            <div class="checkbox" *ngIf="item.type === 'Checkbox'" (change)="onCheckboxChange($event)">
+                                <label>{{item.text}}</label>
+                                <div class="value">
+                                    <input type="checkbox" name="options" [value]="item.value1">
+                                    <label for="option1">{{item.value1}}</label>
+                                </div>
+                                <div class="value">
+                                    <input type="checkbox" name="options" [value]="item.value2">
+                                    <label for="option2">{{item.value2}}</label>
+                                </div>
+                                <div class="value">
+                                    <input type="checkbox" name="options" [value]="item.value3">
+                                    <label for="option3">{{item.value3}}</label>
+                                </div>
+                                <div class="value">
+                                    <input type="checkbox" name="options" [value]="item.value4">
+                                    <label for="option4">{{item.value4}}</label>
+                                </div>
+                            </div>
+                            <div class="radio" *ngIf="item.type === 'Radio Button'">
+                                <label>{{item.text}}</label>
+                                <div class="outer">
+                                    <div class="value">
+                                        <input type="radio" name="options" value="Option 1">
+                                        <label for="option1">{{item.value1}}</label>
+                                    </div>
+                                    <div class="value">
+                                        <input type="radio" name="options" value="Option 2">
+                                        <label for="option2">{{item.value2}}</label>
+                                    </div>
+                                    <div class="value">
+                                        <input type="radio" name="options" value="Option 3">
+                                        <label for="option3">{{item.value3}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngFor="let item of formContent">
+                            <div class="button" *ngIf="item.type === 'Button'">
+                                <button>{{ item.text }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let item of formContent">
+                    <div class="form-part-2" *ngIf="item.type === 'Image'">
+                        <h3>Upload image</h3>
+                        <div class="image">
+                            <img src="../../../assets/default.png" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-part-2">
-                <img src="../../../assets/default.png" alt="">
+        </ng-container>
+        <ng-template #nodata>
+            <div class="no-record-found">
+                <div class="image">
+                    <img src="../../../assets/no-data.gif" alt="No Record Found">
+                </div>
             </div>
-        </div>
+        </ng-template>
     </div>
 </div>

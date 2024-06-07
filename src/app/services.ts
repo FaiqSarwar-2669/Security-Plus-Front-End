@@ -8,8 +8,7 @@ export class Service {
   baseUrl = 'http://127.0.0.1:8000/api/';
 
   Heads = new HttpHeaders({
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Accept': 'application/json'
   })
 
   token: any = '';
@@ -25,6 +24,19 @@ export class Service {
       'Authorization': `Bearer ${token}`
     });
   }
+
+  private data: any;
+
+  setData(data: any) {
+    this.data = data;
+  }
+
+  getData() {
+    return this.data;
+  }
+
+
+
 
   registeration(formdata: registration) {
     return new Promise((resolve, reject) => {
@@ -62,6 +74,22 @@ export class Service {
     return new Promise((resolve, reject) => {
       this.http
         .post(this.baseUrl + 'forgetPassword/', forgetPassword, { headers: this.Heads })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  AllPortfolios() {
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'All-Portfolios/', { headers: this.Heads })
         .pipe()
         .subscribe({
           next: (res) => {

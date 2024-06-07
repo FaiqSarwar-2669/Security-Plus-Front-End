@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 export class NavigationComponent {
 
 
-  selectedImg: any;
+  selectedImg: string = "../../../assets/default.png";
+
   constructor(private services: Service, private routes:Router) {
     this.services.getAndUpdatePortfolio().then((res: any) => {
       if (res && res.data && res.data.length > 0) {
         const data = res.data[0];
-        this.selectedImg = data.logo ? data.logo : '../../../assets/default.png';
+        this.selectedImg = data.logo ? data.logo : this.selectedImg;
       }
     }).catch((err: any) => {
       if (err && err.error) {

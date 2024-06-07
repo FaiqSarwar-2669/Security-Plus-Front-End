@@ -19,7 +19,7 @@
         padding: 10px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
         width: 300px;
-        height: 300px;
+        height: auto;
 
         .baner-image {
             overflow: hidden;
@@ -65,16 +65,38 @@
         .learn-more {
             display: flex;
             justify-content: space-between;
-
+            align-items: center;
+            label{
+                color: #4C489D;
+                font-weight: bold;
+                margin-right: 5px;
+                font-size: 14px;
+            }
             .checked {
                 color: orange;
             }
 
             button {
-                padding: 5px;
-                font-weight: bold;
+                background: #fff;
+                font-size: 14px;
+                padding: 10px 20px;
+                border-radius: 26px;
+                border: 1px solid #D4D3E8;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                color: #4C489D;
                 cursor: pointer;
+                transition: .2s;
             }
+
+            button:active,
+            button:focus,
+            button:hover {
+                border-color: #6A679E;
+                outline: none;
+            }
+
         }
     }
 }

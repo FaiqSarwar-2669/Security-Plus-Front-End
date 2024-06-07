@@ -10,7 +10,7 @@ import { MakeFormComponent } from './services_provider/make-form/make-form.compo
 import { EditPortfolioComponent } from './services_provider/edit-portfolio/edit-portfolio.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeNevigationComponent } from './home-nevigation/home-nevigation.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
@@ -34,6 +34,7 @@ import { PreviewPortfolioComponent } from './services_provider/preview-portfolio
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
+import { CompanydetailComponent } from './companydetail/companydetail.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { ProviderChatComponent } from './services_provider/provider-chat/provide
     PreviewFormsComponent,
     TopNavComponent,
     ProviderChatComponent,
+    CompanydetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,7 @@ import { ProviderChatComponent } from './services_provider/provider-chat/provide
     AngularEditorModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

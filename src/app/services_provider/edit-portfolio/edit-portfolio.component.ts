@@ -4,6 +4,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Service } from 'src/app/services/provider_services';
 import { portfolio } from 'src/app/models/model';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,43 +14,82 @@ import Swal from 'sweetalert2';
 })
 export class EditPortfolioComponent {
 
-  constructor(private services:Service){
-
-  }
-
-  dataContent: portfolio = {
-    logo: '',
-    Banner_image: '',
-    portfolio: ''
-  }
-  htmlcontent:any;
+  credentials: any
+  htmlcontent: any;
   selectedImg: any = '../../../assets/default.png';
   selectedImg1: any = '../../../assets/default banner.png';
-  ImageFile:any;
-  ImageFile1:any;
+  ImageFile: File | null = null;
+  ImageFile1: File | null = null;
+  constructor(
+    private services: Service,
+    private fb: FormBuilder,
+  ) {
+    this._formGroup();
+    this.services.getAndUpdatePortfolio().then((res: any) => {
+      if (res && res.data && res.data.length > 0) {
+        const data = res.data[0]; 
+        this.selectedImg = data.logo ? data.logo : '../../../assets/default.png';
+        this.selectedImg1 = data.Banner_image ? data.Banner_image : '../../../assets/default banner.png';
+        this.htmlcontent = data.portfolio ? data.portfolio : '<h1>No content available</h1>';
+        this.logoimage.setValue(this.selectedImg)
+        this.Banner.setValue(this.selectedImg1)
+        this.htmlcon.setValue(this.htmlcontent)
+      }
+    }).catch((err: any) => {
+      if (err && err.error) {
+        Swal.fire({
+          icon: 'error',
+          title: err.error.error
+        })
+      }
+    })
+  }
+
+  public async _formGroup() {
+    this.credentials = this.fb.group({
+      logo: ['', [Validators.required]],
+      Banner_image: ['', [Validators.required]],
+      portfolio: ['', [Validators.required]]
+    });
+  }
+
+  get logoimage() {
+    return this.credentials.get('logo')
+  }
+  get Banner() {
+    return this.credentials.get('Banner_image')
+  }
+  get htmlcon() {
+    return this.credentials.get('portfolio')
+  }
+
+
+
+
+
 
   config: AngularEditorConfig = {
     editable: true,
-      spellcheck: true,
-      height: 'auto',
-      minHeight: '0',
-      maxHeight: 'auto',
-      width: 'auto',
-      minWidth: '0',
-      translate: 'yes',
-      enableToolbar: true,
-      showToolbar: true,
-      placeholder: 'Enter text here...',
-      defaultParagraphSeparator: '',
-      defaultFontName: 'times-new-roman',
-      defaultFontSize: '3',
-      fonts: [
-        {class: 'arial', name: 'Arial'},
-        {class: 'times-new-roman', name: 'Times New Roman'},
-        {class: 'calibri', name: 'Calibri'},
-        {class: 'comic-sans-ms', name: 'Comic Sans MS'}
-      ],
-      customClasses: [
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '0',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: 'times-new-roman',
+    defaultFontSize: '3',
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+    ],
+    customClasses: [
       {
         name: 'quote',
         class: 'quote',
@@ -70,8 +110,10 @@ export class EditPortfolioComponent {
         'insertVideo',
       ]
     ]
-   
+
   };
+
+  
 
 
   async takePicture() {
@@ -83,13 +125,12 @@ export class EditPortfolioComponent {
     });
 
     this.selectedImg = `data:image/jpeg;base64,${image.base64String}`;
-    this.dataContent.logo = this.selectedImg
-    // const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
-    // this.ImageFile = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
-    // if (this.ImageFile) {
-    //   this.dataContent.logo = this.ImageFile
-    //   console.log(this.ImageFile);
-    // }
+    const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
+    this.ImageFile = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
+    if (this.ImageFile) {
+      this.logoimage.setValue(this.ImageFile)
+      console.log(this.ImageFile);
+    }
   }
   async takePicture1() {
     const image = await Camera.getPhoto({
@@ -100,13 +141,12 @@ export class EditPortfolioComponent {
     });
 
     this.selectedImg1 = `data:image/jpeg;base64,${image.base64String}`;
-    this.dataContent.Banner_image = this.selectedImg1
-    // const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
-    // this.ImageFile1 = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
-    // if (this.ImageFile1) {
-    //   this.dataContent.Banner_image = this.ImageFile1
-    //   console.log(this.ImageFile1);
-    // }
+    const blobData = this.base64ToBlob(image.base64String, 'image/jpeg');
+    this.ImageFile1 = new File([blobData], 'image.jpeg', { type: 'image/jpeg' });
+    if (this.ImageFile1) {
+      this.Banner.setValue(this.ImageFile1)
+      console.log(this.ImageFile1);
+    }
   }
   base64ToBlob(base64: any, type: string) {
     const byteCharacters = atob(base64);
@@ -129,20 +169,26 @@ export class EditPortfolioComponent {
   }
 
 
-  addOrUpdatePortfolio(){
-    this.dataContent.portfolio = this.htmlcontent
-    this.services.addAndUpdatePortfolio(this.dataContent).then((res:any)=>{
-      if(res&& res.message){
+  addOrUpdatePortfolio() {
+    this.htmlcon.setValue(this.htmlcontent)
+    const formdata = new FormData();
+    formdata.append('logo', this.logoimage.value);
+    formdata.append('Banner_image', this.Banner.value);
+    formdata.append('portfolio', this.htmlcon.value);
+    console.log(formdata)
+
+    this.services.addAndUpdatePortfolio(formdata).then((res: any) => {
+      if (res && res.message) {
         Swal.fire({
           icon: 'success',
           title: res.message
         })
       }
       console.log(res);
-    }).catch((err:any)=>{
-      if(err && err.error){
+    }).catch((err: any) => {
+      if (err && err.error) {
         Swal.fire({
-          icon:'error',
+          icon: 'error',
           title: err.error.error
         })
       }

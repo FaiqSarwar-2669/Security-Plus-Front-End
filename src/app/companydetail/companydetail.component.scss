@@ -1,0 +1,184 @@
+.main-layout {
+    display: flex;
+
+    .part-2 {
+        background-color: white;
+        padding: 50px;
+        width: 100%;
+
+        .current-page {
+
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+
+            i {
+                font-size: 20px;
+                color: gray;
+                font-weight: bold;
+            }
+
+            label {
+                margin-left: 10px;
+                font-weight: bold;
+                color: #4C489D;
+                font-size: 20px;
+            }
+        }
+
+        .main-banner {
+            width: 100%;
+            height: 40vh;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                overflow: hidden;
+            }
+
+            .image-edit {
+                color: blue;
+                font-size: 25px;
+                position: absolute;
+                bottom: 20px;
+                left: 95%;
+            }
+
+        }
+
+        .main-page-content {
+            width: 100%;
+
+            .company-image {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                position: relative;
+                transform: translateY(-50%);
+                left: 10px;
+                overflow: hidden;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                .image-edit {
+                    color: blue;
+                    font-size: 25px;
+                    position: absolute;
+                    bottom: 20px;
+                    left: 70%;
+                }
+            }
+
+
+            .job-form {
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+
+                label{
+                    color: #4C489D;
+                    font-size: 20px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .job-btn {
+                    background: #fff;
+                    font-size: 14px;
+                    margin-top: 10px;
+                    padding: 10px 20px;
+                    border-radius: 26px;
+                    border: 1px solid #D4D3E8;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    display: flex;
+                    align-items: center;
+                    color: #4C489D;
+                    box-shadow: 0px 2px 2px #5C5696;
+                    cursor: pointer;
+                    transition: .2s;
+
+                    .button__icon {
+                        font-size: 24px;
+                        margin-left: auto;
+                        color: #7875B5;
+                    }
+                }
+
+                .job-btn:active,
+                .job-btn:focus,
+                .job-btn:hover {
+                    border-color: #6A679E;
+                    outline: none;
+                }
+
+            }
+
+
+        }
+
+        .htmlcontent {
+            padding: 15px;
+            background-color: #e7eefa;
+        }
+
+
+    }
+
+
+}
+
+
+
+@media (min-width: 750px) and (max-width: 850px) {
+    .main-layout {
+        app-navigation {
+            position: fixed;
+            z-index: 1;
+        }
+
+        .part-2 {
+            width: 100%;
+
+            .main-banner {
+                height: 30vh;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 355px) and (max-width: 450px) {
+    .main-layout {
+        app-navigation {
+            position: fixed;
+            z-index: 1;
+        }
+
+        .part-2 {
+            .main-banner {
+                height: 20vh;
+            }
+
+            .image-edit {
+                left: 90%;
+            }
+
+            .main-page-content {
+
+                .company-image {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+        }
+    }
+}

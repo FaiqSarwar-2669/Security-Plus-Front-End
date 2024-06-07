@@ -2,14 +2,14 @@
 <div class="main-companies">
     <h2>Select Company as you want</h2>
     <div class="outer">
-        <div class="register-companies" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+        <div class="register-companies" *ngFor="let item of portfolios">
             <div class="baner-image">
-                <img src="../../assets/default banner.png" alt="">
+                <img [src]="item.Banner_image" alt="">
             </div>
             <div class="Company-logo">
-                <img src="../../assets/default.png" alt="">
+                <img [src]="item.logo" alt="">
             </div>
-            <label class="Company-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, nesciunt!</label>
+            <label class="Company-name">{{item.bussiness_owner}}</label>
             <div class="learn-more">
                 <div>
                     <label>Rating: </label>
@@ -19,7 +19,7 @@
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
                 </div>
-                <button>Learn More</button>
+                <button (click)="learnmore(item)" class="learn">Learn More</button>
             </div>
         </div>
     </div>

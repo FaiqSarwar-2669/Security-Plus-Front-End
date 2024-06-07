@@ -19,10 +19,10 @@ export class Service {
     const token = localStorage.getItem('B_Token');
     return {
       'Accept': 'application/json',
-      'Content-Type': 'multipart/form-data',
       'Authorization': `Bearer ${token}`,
     };
   }
+  
 
   getHeaders() {
     const token = localStorage.getItem('B_Token');
@@ -54,28 +54,11 @@ export class Service {
 
   // add and update the portfolio
 
-  addAndUpdatePortfolio(portfolioData: portfolio) {
+  addAndUpdatePortfolio(portfolioData: FormData) {
     return new Promise((resolve, reject) => {
-
-
-      // const formData = new FormData();
-
-      // if (portfolioData.logo) {
-      //   formData.append('logo', portfolioData.logo, portfolioData.logo.name);
-      // }
-
-      // if (portfolioData.Banner_image) {
-      //   formData.append('Banner_image', portfolioData.Banner_image, portfolioData.Banner_image.name);
-      // }
-
-      // if (portfolioData.portfolio) {
-      //   formData.append('portfolio', JSON.stringify(portfolioData.portfolio));
-      // }
-
       const header = this.getFormHeaders();
-
-
-      this.http.post<any>(this.baseUrl + 'makePortfolio/', portfolioData, { headers: header })
+      console.log(portfolioData)
+      this.http.post(this.baseUrl + 'makePortfolio/', portfolioData, { headers: header })
         .subscribe({
           next: (res) => {
             resolve(res);

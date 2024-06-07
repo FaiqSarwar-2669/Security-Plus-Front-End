@@ -27,7 +27,7 @@ import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
 import { AdminChatComponent } from './Admin/admin-chat/admin-chat.component';
 import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
-
+import { CompanydetailComponent } from './companydetail/companydetail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,6 +44,8 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'top-navigation', component: TopNavComponent },
+  { path: 'company-detal', component: CompanydetailComponent },
+
   
 
   // for service provider
