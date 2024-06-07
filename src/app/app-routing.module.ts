@@ -24,10 +24,14 @@ import { UnregisterClientComponent } from './Admin/unregister-client/unregister-
 import { NewPasswordComponent } from './Admin/new-password/new-password.component';
 import { PreviewPortfolioComponent } from './services_provider/preview-portfolio/preview-portfolio.component';
 import { TopNavComponent } from './services_provider/top-nav/top-nav.component';
+import { GuardRegisterationsComponent } from './services_provider/guard-registerations/guard-registerations.component';
 import { AdminChatComponent } from './Admin/admin-chat/admin-chat.component';
 import { ProviderChatComponent } from './services_provider/provider-chat/provider-chat.component';
 import { PreviewFormsComponent } from './services_provider/preview-forms/preview-forms.component';
 import { CompanydetailComponent } from './companydetail/companydetail.component';
+import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
+import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
+import { ProfileComponent } from './services_provider/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,8 +59,11 @@ const routes: Routes = [
   { path: 'preview-form', component: PreviewFormsComponent },
   { path: 'edit-portfolio', component: EditPortfolioComponent },
   { path: 'preview-portfolio', component: PreviewPortfolioComponent },
+  { path: 'guardregisteration', component: GuardRegisterationsComponent },
   { path: 'provider-chat', component: ProviderChatComponent },
-
+  { path: 'job-application', component: JobapplicationComponent },
+  { path: 'register-guards', component: RegisterGuardsComponent },
+  { path: 'profile', component: ProfileComponent },
 
   // for admin
   { path: 'admin/dashboard', component: AdmindashboardComponent },
@@ -65,6 +72,8 @@ const routes: Routes = [
   { path: 'registerClient', component: RegisterClientComponent },
   { path: 'UnRegisterClient', component: UnregisterClientComponent },
   { path: 'admin/newpassword', component: NewPasswordComponent },
+  //for client
+  
   { path: 'admin/chat', component: AdminChatComponent },
 ];
 

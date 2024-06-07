@@ -225,12 +225,11 @@
 
                     .footer-chat {
                         width: calc(50% - 15px);
-                        height: 80px;
+                        height: 0px;
                         display: flex;
                         align-items: center;
                         position: absolute;
                         bottom: 0;
-                        // background-color: transparent;
                         border-top: 2px solid #EEE;
 
                         .icon {
