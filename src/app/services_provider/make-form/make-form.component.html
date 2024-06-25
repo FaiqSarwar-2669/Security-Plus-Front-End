@@ -1,4 +1,4 @@
-<app-top-nav></app-top-nav>
+<!-- <app-top-nav></app-top-nav>
 <div class="main-layout">
     <app-navigation></app-navigation>
     <div class="main">
@@ -22,6 +22,44 @@
             <label>Enter Data</label>
             <div class="working-space-2">
     
+            </div>
+        </div>
+    </div>
+</div> -->
+<app-top-nav></app-top-nav>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Make And Edit Form</label>
+        </div>
+        <div class="current-content">
+            <div class="main">
+                <div class="form-section-one">
+                    <label>Components</label>
+                    <div class="component">
+                        <div class="components" *ngFor="let item of formcomponents[0].form.elements" draggable="true"
+                            (dragstart)="onDragStart($event, item)">
+                            <label>{{item.type}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section-two" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+                    <label>Drop Here</label>
+                    <div class="working-space">
+
+                    </div>
+                    <button class="save" id="saveButton" (click)="Save()">Save Changes</button>
+                </div>
+                <div class="form-section-three">
+                    <label>Enter Data</label>
+                    <div class="working-space-2">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

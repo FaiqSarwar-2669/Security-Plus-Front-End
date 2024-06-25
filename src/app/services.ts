@@ -54,6 +54,22 @@ export class Service {
     });
   }
 
+  uploadApplication(formdata: FormData) {
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'jobAppication/', formdata, { headers: this.Heads })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
   login(login: login) {
     return new Promise((resolve, reject) => {
       this.http
@@ -101,7 +117,41 @@ export class Service {
         });
     });
   }
-  
+
+  getForm() {
+    const id = localStorage.getItem('FormID');
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'get-form/' + id, { headers: this.Heads })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  getReviews(id: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'get-reviews/' + id, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
   logout() {
     const header = this.getHeaders();
     return new Promise((resolve, reject) => {

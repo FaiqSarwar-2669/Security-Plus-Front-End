@@ -32,7 +32,7 @@ export interface forms {
   form_content: string | null;
 }
 
-export interface formContent {
+export interface FormContent {
   type?: string;
   Type?: string;
   id?: string;
@@ -46,6 +46,7 @@ export interface formContent {
   value2?: string;
   value3?: string;
   value4?: string;
+  options?: string[];
 }
 
 // for graphs

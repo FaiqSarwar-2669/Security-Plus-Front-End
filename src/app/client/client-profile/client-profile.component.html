@@ -1,7 +1,7 @@
-<app-top-nav></app-top-nav>
+<app-to></app-to>
 <div class="main-part">
     <div class="main-part-1">
-        <app-navigation></app-navigation>
+        <app-nav></app-nav>
     </div>
     <div class="main-part-2">
         <div class="current-page">
@@ -58,6 +58,13 @@
                             </label>
                         </div>
                     </section>
+                    <hr>
+                    <div class="image-section">
+                        <div class="image">
+                            <img [src]="selectedImg" alt="">
+                        </div>
+                        <button class="button" (click)="takePicture()">Upload image</button>
+                    </div>
                     <hr>
                     <div class="btn">
                         <button class="submit-btn" (click)="Update()"> Update </button>

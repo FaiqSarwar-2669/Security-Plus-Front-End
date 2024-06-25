@@ -1,0 +1,58 @@
+<app-to></app-to>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-nav></app-nav>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Visit Organization</label>
+        </div>
+        <div class="current-content">
+            <div class="main-layout">
+                <div class="part-2">
+                    <div class="main-banner">
+                        <img [src]="selectedImg1" alt="" />
+                    </div>
+                    <div class="main-page-content">
+                        <div class="company-image">
+                            <img [src]="selectedImg" alt="">
+                        </div>
+                        <div class="job-form">
+                            <label>{{pagaData.bussiness_owner}}</label>
+                            <button class="job-btn" >Chat</button>
+                        </div>
+                    </div>
+                    <div class="htmlcontent" [innerHTML]="htmlContent">
+                    </div>
+                </div>
+            </div>
+            <div class="reviews-container">
+                <h2>Reviews</h2>
+                <div class="review-body" *ngFor="let item of reviews">
+                    <div class="image">
+                        <img [src]="item.image" alt="">
+                    </div>
+                    <div class="comment">
+                        <label>{{item.review}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="review-container">
+                <h2>Leave a Review</h2>
+                <form id="reviewForm">
+                    <div class="star-rating">
+                        <input type="radio" name="rating" id="star5" value="5"><label for="star5">☆</label>
+                        <input type="radio" name="rating" id="star4" value="4"><label for="star4">☆</label>
+                        <input type="radio" name="rating" id="star3" value="3"><label for="star3">☆</label>
+                        <input type="radio" name="rating" id="star2" value="2"><label for="star2">☆</label>
+                        <input type="radio" name="rating" id="star1" value="1"><label for="star1">☆</label>
+                    </div>
+                    <textarea class="feedback-textarea" name="feedback"
+                        placeholder="Write your feedback here..."></textarea>
+                    <button type="submit" class="submit-button" (click)="Review($event)">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

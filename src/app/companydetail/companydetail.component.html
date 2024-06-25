@@ -15,6 +15,17 @@
         </div>
         <div class="htmlcontent" [innerHTML]="htmlContent">
         </div>
+        <div class="reviews-container">
+            <h2>Reviews</h2>
+            <div class="review-body" *ngFor="let items of reviews">
+                <div class="image">
+                    <img [src]="items.image" alt="">
+                </div>
+                <div class="comment">
+                    <label>{{items.review}}</label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>

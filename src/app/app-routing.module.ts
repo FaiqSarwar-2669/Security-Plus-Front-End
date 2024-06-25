@@ -32,6 +32,12 @@ import { CompanydetailComponent } from './companydetail/companydetail.component'
 import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
 import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
 import { ProfileComponent } from './services_provider/profile/profile.component';
+import { JobFormComponent } from './job-form/job-form.component';
+import { GuardsDataComponent } from './services_provider/guards-data/guards-data.component';
+import { ViewOrganizationComponent } from './client/view-organization/view-organization.component';
+import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
+import { SpecificOrganizationComponent } from './client/specific-organization/specific-organization.component';
+import { ClientProfileComponent } from './client/client-profile/client-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +55,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'top-navigation', component: TopNavComponent },
   { path: 'company-detal', component: CompanydetailComponent },
+  { path: 'form', component: JobFormComponent },
 
   
 
@@ -63,6 +70,7 @@ const routes: Routes = [
   { path: 'provider-chat', component: ProviderChatComponent },
   { path: 'job-application', component: JobapplicationComponent },
   { path: 'register-guards', component: RegisterGuardsComponent },
+  { path: 'guards-data', component: GuardsDataComponent },
   { path: 'profile', component: ProfileComponent },
 
   // for admin
@@ -74,7 +82,12 @@ const routes: Routes = [
   { path: 'admin/newpassword', component: NewPasswordComponent },
   //for client
   
+  { path: 'client-dashboard', component: ClientDashboardComponent },
   { path: 'admin/chat', component: AdminChatComponent },
+  { path: 'view-organization', component: ViewOrganizationComponent },
+  { path: 'specific-organization', component: SpecificOrganizationComponent },
+  { path: 'Client-profile', component: ClientProfileComponent },
+
 ];
 
 @NgModule({

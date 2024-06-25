@@ -1,0 +1,200 @@
+.main-part {
+    display: flex;
+
+    .main-part-2 {
+        width: 100%;
+        padding: 10px;
+
+        .current-page {
+
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+
+            i {
+                font-size: 20px;
+                color: gray;
+                font-weight: bold;
+            }
+
+            label {
+                margin-left: 10px;
+                font-weight: bold;
+                color: #4C489D;
+                font-size: 20px;
+            }
+        }
+
+        .current-content {
+            padding: 10px;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            gap: 15px;
+
+            .form-part-1 {
+                padding: 30px;
+                width: 60%;
+                background-color: #e7eefa;
+                border-radius: 26px;
+
+                h3 {
+                    display: block;
+                    text-align: center;
+                    color: #4C489D;
+                    font-weight: bold;
+                }
+
+                .form-data {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .label {
+                        label {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .input {
+                        input {
+                            width: 50%;
+                            height: 30px;
+                            font-size: 16px;
+                            border-radius: 10px;
+                            padding: 0px 10px;
+                            outline: none;
+                        }
+                        .required{
+                            color: red;
+                            font-size: 12px;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .checkbox {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        label {
+                            font-size: 17px;
+                            font-weight: bold;
+                        }
+
+                        .value {
+                            label {
+                                margin-left: 10px;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    .radio {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        label {
+                            font-size: 17px;
+                            font-weight: bold;
+                        }
+
+                        .outer {
+                            display: flex;
+
+                            .value {
+                                margin-left: 10px;
+
+                                label {
+                                    margin-left: 10px;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .button {
+                        button {
+                            color: white;
+                            background-color: rgb(130, 190, 130);
+                            font-size: 20px;
+                            padding: 5px 30px;
+                            border: none;
+                            outline: none;
+                            cursor: pointer;
+                            border-radius: 15px;
+                            // display: none;
+
+
+
+                        }
+
+                        button:hover {
+                            color: rgb(130, 190, 130);
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+
+            .form-part-2 {
+                background-color: #e7eefa;
+                ;
+                border-radius: 26px;
+                margin-left: 20px;
+                width: 300px;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    color: #4C489D;
+                    font-weight: bold;
+                }
+
+                .image {
+                    box-shadow: 0px 0px 5px #4C489D;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+            }
+        }
+
+        .no-record-found {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .image {
+                width: 350px;
+                height: 350px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+
+        }
+    }
+}

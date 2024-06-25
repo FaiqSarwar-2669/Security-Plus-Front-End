@@ -1,0 +1,38 @@
+<app-to></app-to>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-nav></app-nav>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>View Organizations</label>
+        </div>
+        <div class="current-content">
+            <div class="main-companies">
+                <div class="outer">
+                    <div class="register-companies" *ngFor="let item of portfolios">
+                        <div class="baner-image">
+                            <img [src]="item.Banner_image" alt="">
+                        </div>
+                        <div class="Company-logo">
+                            <img [src]="item.logo" alt="">
+                        </div>
+                        <label class="Company-name">{{item.bussiness_owner}}</label>
+                        <div class="learn-more">
+                            <div>
+                                <label>Rating: </label>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <button (click)="learnmore(item)" class="learn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

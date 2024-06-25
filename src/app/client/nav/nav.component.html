@@ -5,7 +5,7 @@
                 <img [src]="selectedImg" alt="">
             </div>
             <div class="organization-information">
-                <label>organization name</label>
+                <label>{{name}}</label>
             </div>
         </div>
         <div class="nevigation-main">
@@ -18,33 +18,19 @@
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
+                    <a class="link" [routerLink]="['/client-dashboard']">Dashboard</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
                 <div class="content">
-                    <label><span class="relative-icon"><i class="fa-solid fa-building"></i></span>Portfolio</label>
+                    <label><span class="relative-icon"><i class="fa-solid fa-building"></i></span>Organizations</label>
                     <div class="iocon">
                         <i id="down" class="fa-solid fa-angle-down"></i>
                         <i id="up" class="fa-solid fa-angle-up"></i>
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" [routerLink]="['/edit-portfolio']">Edit Portfolio</a>
-                    <a class="link" [routerLink]="['/preview-portfolio']">Preview Portfolio</a>
-                </div>
-            </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
-                <div class="content">
-                    <label><span class="relative-icon"><i class="fa-brands fa-wpforms"></i></span>Forms</label>
-                    <div class="iocon">
-                        <i id="down" class="fa-solid fa-angle-down"></i>
-                        <i id="up" class="fa-solid fa-angle-up"></i>
-                    </div>
-                </div>
-                <div class="body">
-                    <a class="link" [routerLink]="['/make-form']">Edit Forms</a>
-                    <a class="link" [routerLink]="['/preview-form']">Preview Forms</a>
+                    <a class="link" [routerLink]="['/view-organization']">View Organizations</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
@@ -56,9 +42,9 @@
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" [routerLink]="['/guards-data']">Guards Data</a>
+                    <!-- <a class="link" [routerLink]="['/guards-data']">Guards Data</a>
                     <a class="link" [routerLink]="['/register-guards']">Register Guards</a>
-                    <a class="link" [routerLink]="['/job-application']">Job Applications</a>
+                    <a class="link" [routerLink]="['/job-application']">Job Applications</a> -->
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
@@ -75,18 +61,6 @@
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">
                 <div class="content">
-                    <label><span class="relative-icon"><i class="fa-solid fa-user-pen"></i></span>Review</label>
-                    <div class="iocon">
-                        <i id="down" class="fa-solid fa-angle-down"></i>
-                        <i id="up" class="fa-solid fa-angle-up"></i>
-                    </div>
-                </div>
-                <div class="body">
-                    <a class="link" href="http://jehlum-information.surge.sh/" target="_blank">Open project</a>
-                </div>
-            </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
-                <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-user"></i></span>Profile</label>
                     <div class="iocon">
                         <i id="down" class="fa-solid fa-angle-down"></i>
@@ -94,7 +68,7 @@
                     </div>
                 </div>
                 <div class="body">
-                    <a class="link" [routerLink]="['/profile']">Profile</a>
+                    <a class="link" [routerLink]="['/Client-profile']">Profile</a>
                 </div>
             </div>
             <div class="nav-one mydiv" (click)="showMore($event)">

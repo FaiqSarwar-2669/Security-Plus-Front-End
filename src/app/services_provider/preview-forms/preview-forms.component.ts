@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
-import { formContent } from 'src/app/models/model';
+import { FormContent } from 'src/app/models/model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class PreviewFormsComponent implements OnInit{
   
-  formContent: formContent[] = []
+  formContent: FormContent[] = []
   constructor(private services:Service){
     
   }

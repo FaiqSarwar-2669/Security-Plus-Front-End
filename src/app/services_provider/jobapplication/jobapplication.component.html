@@ -6,73 +6,42 @@
     <div class="main-part-2">
         <div class="current-page">
             <i class="fa-solid fa-angle-right"></i>
-            <label>Job Applications</label>
+            <label>Job Applications List</label>
         </div>
-        <div class="search">
-            <label>All Applications List</label>
-            <label>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="search here ...........">
-            </label>
-            
-        </div>
-        <div class="job-content" *ngFor="let i of [1,2,3,4,5]">
-            <div class="img">
-                <img src="../../../assets/default.png" alt="">
+        <div class="main-content">
+            <div class="filter-section">
+                <label for="filter">Filter by Status:</label>
+                <select id="filter" (change)="filter($event)">
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="active">Accepted</option>
+                    <option value="reject">Rejected</option>
+                </select>
             </div>
-            <div class="content">
-                <label  class="email" for="">EMAIL</label>
-                <label class="date" for="">DATE</label>
-            </div>
-            <div class="actions">
-                <button class="b1">Reject</button>
-                <button class="b2">Accept</button>
-                <button class="b3">Download</button>
-            </div>
-        </div>
-        <!-- for accepted members -->
-        <div class="search">
-            <label>Active Members</label>
-            <label>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="search here ...........">
-            </label>
-        </div>
-        <div class="job-content" *ngFor="let i of [1,2,3,4,5]">
-            <div class="img">
-                <img src="../../../assets/default.png" alt="">
-            </div>
-            <div class="content">
-                <label  class="email" for="">EMAIL</label>
-                <label class="date" for="">DATE</label>
-            </div>
-            <div class="actions">
-                <button class="b2">Resign</button>
-                <button class="b3">Download</button>
-            </div>
-        </div>
-        <!-- for rejected members -->
-        <div class="search">
-            <label>Rejected Applications</label>
-            <label>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="search here ...........">
-            </label>
-            
-        </div>
-        <div class="job-content" *ngFor="let i of [1,2,3,4,5]">
-            <div class="img">
-                <img src="../../../assets/default.png" alt="">
-            </div>
-            <div class="content">
-                <label  class="email" for="">EMAIL</label>
-                <label class="date" for="">DATE</label>
-            </div>
-            <div class="actions">
-                <button class="b1">Delete</button>
-                <button class="b3">Download</button>
-            </div>
+            <ng-container *ngIf="renderApplication && renderApplication.length > 0; else nodata">
+                <div *ngFor="let item of renderApplication">
+                    <div class="application-list">
+                        <div class="application-item">
+                            <h2>Application # {{item.id}}</h2>
+                            <p>Date: {{item.date}}</p>
+                            <p>Time: {{item.time}}</p>
+                            <p>Status: {{item.status}}</p>
+                            <div class="btn-div">
+                                <button class="view-details-btn" (click)="view(item.id)">View Details</button>
+                                <button class="view-details-btn" (click)="Accepted(item.id)">Accepted</button>
+                                <button class="view-details-btn" (click)="Rejected(item.id)">Rejected</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #nodata>
+                <div class="no-record-found">
+                    <div class="image">
+                        <img src="../../../assets/no-data.gif" alt="No Record Found">
+                    </div>
+                </div>
+            </ng-template>
         </div>
     </div>
 </div>
-

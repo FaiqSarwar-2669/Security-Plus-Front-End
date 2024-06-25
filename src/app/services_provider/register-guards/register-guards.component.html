@@ -1,1 +1,113 @@
-<p>register-guards works!</p>
+<app-top-nav></app-top-nav>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Guard Registraion</label>
+        </div>
+        <div class="current-content">
+            <section class="registration-container">
+                <h2> Registration </h2>
+                <section class="details-section">
+                    <!-- <form action="" class="registration-form"> -->
+                    <!-- Personal Details Section -->
+                    <h4> Personal Details </h4>
+                    <section class="personal-details">
+                        <div class="three-details-item">
+                            <label for="name">
+                                <p style="margin-bottom: 7px;">First Name</p>
+                                <input type="text" name="name" id="name" placeholder="Enter first name" [(ngModel)]="data.fname">
+                            </label>
+                            <label for="fName">
+                                <p style="margin-bottom: 7px;">Last Name </p>
+                                <input type="text" name="fName" id="fName" placeholder="Enter last name" [(ngModel)]="data.lname">
+                            </label>
+                            <label for="mName">
+                                <p style="margin-bottom: 7px;">Father Name</p>
+                                <input type="text" name="mName" id="mName" placeholder="Enter father name" [(ngModel)]="data.fathername">
+                            </label>
+                        </div>
+
+                        <div class="three-details-item">
+                            <label for="DOB">
+                                <p style="margin-bottom: 7px;">Date of Birth</p>
+                                <input type="text" name="DOB" id="DOB" placeholder="Enter your DOB" [(ngModel)]="data.dob">
+                            </label>
+                            <label for="aadharNo">
+                                <p style="margin-bottom: 7px;">Gender</p>
+                                <input type="text" name="aadharNo" id="aadharNo" placeholder="Enter gender number" [(ngModel)]="data.gender">
+                            </label>
+                            <label for="email">
+                                <p style="margin-bottom: 7px;">Email</p>
+                                <input type="email" name="email" id="email" placeholder="Enter your email" [(ngModel)]="data.email">
+                            </label>
+                        </div>
+
+                        <div class="three-details-item">
+                            <label for="ph">
+                                <p style="margin-bottom: 7px;"> Mobile Number</p>
+                                <input type="tel" name="phone" id="ph" placeholder="Enter mobile number" [(ngModel)]="data.number">
+                            </label>
+
+                            <label for="gender">
+                                <p style="margin-bottom: 7px;">Emergency Contact</p>
+                                <input type="text" name="gender" id="gender"
+                                    placeholder="Enter emergency contact number" [(ngModel)]="data.enumber">
+                            </label>
+
+                            <label for="address">
+                                <p style="margin-bottom: 7px;"> Address </p>
+                                <input type="text" name="address" id="address" placeholder="Enter your Address" [(ngModel)]="data.address">
+                            </label>
+                        </div>
+                    </section>
+
+                    <hr>
+
+                    <!-- Identity Details Section -->
+                    <h4> Other Details </h4>
+                    <section class="identity-details">
+                        <div class="three-details-item">
+                            <label for="stream">
+                                <p style="margin-bottom: 7px;"> City </p>
+                                <input type="text" name="stream" id="stream" placeholder="Enter your city" [(ngModel)]="data.city">
+                            </label>
+                            <label for="previousClass">
+                                <p style="margin-bottom: 7px;"> Qualification </p>
+                                <input type="text" name="previousClass" id="previousClass"
+                                    placeholder="Enter qualification" [(ngModel)]="data.qualify">
+                            </label>
+                            <label for="hobbies">
+                                <p style="margin-bottom: 7px;"> Hobbies </p>
+                                <input type="text" name="hobbies" id="hobbies" placeholder="Enter your hobbies" [(ngModel)]="data.hobbies">
+                            </label>
+                        </div>
+                        <div class="three-details-item">
+                            <label for="accNo">
+                                <p style="margin-bottom: 7px;"> Postal Code </p>
+                                <input type="text" name="accNo" id="accNo" placeholder="Enter postal code" [(ngModel)]="data.pcode">
+                            </label>
+                            <label for="religion">
+                                <p style="margin-bottom: 7px;"> Religion </p>
+                                <input type="text" name="religion" id="religion" placeholder="Enter your religion" [(ngModel)]="data.religion">
+                            </label>
+                            <label for="category">
+                                <p style="margin-bottom: 7px;"> Category </p>
+                                <input type="text" name="category" id="category" placeholder="Enter your category" [(ngModel)]="data.category">
+                            </label>
+                        </div>
+                    </section>
+                    <hr>
+                    <div class="btn">
+                        <button class="submit-btn" (click)="submit()"> Submit </button>
+                    </div>
+
+                    <!-- </form> -->
+                </section>
+            </section>
+        </div>
+    </div>
+</div>

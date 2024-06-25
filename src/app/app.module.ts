@@ -39,6 +39,14 @@ import { CompanydetailComponent } from './companydetail/companydetail.component'
 import { JobapplicationComponent } from './services_provider/jobapplication/jobapplication.component';
 import { RegisterGuardsComponent } from './services_provider/register-guards/register-guards.component';
 import { ProfileComponent } from './services_provider/profile/profile.component';
+import { JobFormComponent } from './job-form/job-form.component';
+import { GuardsDataComponent } from './services_provider/guards-data/guards-data.component';
+import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
+import { ToComponent } from './client/to/to.component';
+import { NavComponent } from './client/nav/nav.component';
+import { ViewOrganizationComponent } from './client/view-organization/view-organization.component';
+import { SpecificOrganizationComponent } from './client/specific-organization/specific-organization.component';
+import { ClientProfileComponent } from './client/client-profile/client-profile.component';
 
 
 
@@ -78,6 +86,14 @@ import { ProfileComponent } from './services_provider/profile/profile.component'
     JobapplicationComponent,
     RegisterGuardsComponent,
     ProfileComponent,
+    JobFormComponent,
+    GuardsDataComponent,
+    ClientDashboardComponent,
+    ToComponent,
+    NavComponent,
+    ViewOrganizationComponent,
+    SpecificOrganizationComponent,
+    ClientProfileComponent,
   ],
   imports: [
     BrowserModule,

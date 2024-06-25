@@ -46,7 +46,7 @@ export class LoginComponent {
           } else if (res.role.toLowerCase() === 'provider') {
             this.routes.navigate(['/dashboard']);
           } else if (res.role.toLowerCase() === 'taker') {
-
+            this.routes.navigate(['/client-dashboard'])
           }
         } else {
           Swal.fire({
