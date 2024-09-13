@@ -70,4 +70,14 @@ export class SpecificOrganizationComponent implements OnInit {
     }
   }
 
+  chat(id:any){
+    const formdata = new FormData()
+    formdata.append('member',id);
+    this.services.makeChatMember(formdata).then((res:any)=>{
+      console.log(res)
+    }).catch((err:any)=>{
+      console.log(err)
+    })
+  }
+
 }

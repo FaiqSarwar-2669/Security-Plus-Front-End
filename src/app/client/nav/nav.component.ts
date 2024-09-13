@@ -11,8 +11,9 @@ import { Router } from '@angular/router';
 export class NavComponent {
   selectedImg: string = "../../../assets/default.png";
   name:any
-
+  access: any
   constructor(private services: Service, private routes: Router) {
+    this.access = localStorage.getItem('activation')
     this.services.getsidebar().then((res: any) => {
       if (res) {
         this.selectedImg = res.pic ? res.pic : this.selectedImg;

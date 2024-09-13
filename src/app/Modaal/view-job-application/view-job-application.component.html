@@ -1,0 +1,38 @@
+<div class="current-page">
+    <i class="fa-solid fa-angle-right"></i>
+    <label>Job Application Data</label>
+    <div class="actions">
+        <button class="submit-btn" (click)="closeModal()">Close</button>
+        <button class="submit-btn" (click)="download()">Download</button>
+    </div>
+</div>
+
+<div class="job-application-container">
+    <div class="job-data">
+        <div class="job-content">
+            <div *ngFor="let item of data">
+
+                <div class="label-input" *ngIf="item.type === 'Input' || item.type === 'Label'">
+                    <label *ngIf="item.type === 'Label'">{{ item.text }}</label>
+                    <span *ngIf="item.type === 'Input'">{{ item.data }}</span>
+                </div>
+
+
+                <div class="check-box" *ngIf="item.type === 'Checkbox'">
+                    <label>{{ item.text }}</label><br>
+                    <div>
+                        <span *ngFor="let option of item.options">o {{ option }}</span><br>
+                    </div>
+                </div>
+
+
+                <div class="radio-box" *ngIf="item.type === 'Radio Button'">
+                    <label>{{ item.text }}</label>
+                    <span>{{ item.data }}</span>
+                </div>
+
+            </div>
+            <div class="job-image"></div>
+        </div>
+    </div>
+</div>

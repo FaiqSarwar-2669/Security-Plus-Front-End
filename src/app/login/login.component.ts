@@ -41,12 +41,22 @@ export class LoginComponent {
             title: res.message
           });
           localStorage.setItem('B_Token', res.token);
+          localStorage.setItem('activation', res.activation);
+          localStorage.setItem('UserID', res.userLoged);
           if (res.role.toLowerCase() === 'admin') {
             this.routes.navigate(['/admin/dashboard']);
           } else if (res.role.toLowerCase() === 'provider') {
-            this.routes.navigate(['/dashboard']);
+            if (res.activation == 1) {
+              this.routes.navigate(['/dashboard']);
+            } else if (res.activation == 0) {
+              this.routes.navigate(['/profile']);
+            }
           } else if (res.role.toLowerCase() === 'taker') {
-            this.routes.navigate(['/client-dashboard'])
+            if (res.activation == 1) {
+              this.routes.navigate(['/client-dashboard'])
+            } else if (res.activation == 0) {
+              this.routes.navigate(['/Client-profile']);
+            }
           }
         } else {
           Swal.fire({
@@ -56,7 +66,7 @@ export class LoginComponent {
         }
         console.log(res)
       }).catch((err: any) => {
-        if(err && err.error){
+        if (err && err.error) {
           Swal.fire({
             icon: 'error',
             title: err.error.error

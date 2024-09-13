@@ -1,0 +1,78 @@
+.current-page {
+
+    padding: 10px;
+    background-color: #e7eefa;
+    margin-bottom: 10px;
+
+    i {
+        font-size: 20px;
+        color: gray;
+        font-weight: bold;
+    }
+
+    label {
+        margin-left: 10px;
+        font-weight: bold;
+        color: #4C489D;
+        font-size: 20px;
+    }
+
+    .actions {
+        position: relative;
+        float: right;
+
+        .submit-btn {
+            background: #fff;
+            font-size: 14px;
+            padding: 5px 20px;
+            border-radius: 26px;
+            border: 1px solid #D4D3E8;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #4C489D;
+            box-shadow: 0px 2px 2px #5C5696;
+            cursor: pointer;
+            transition: .2s;
+        }
+    }
+}
+
+.job-application-container {
+    padding: 10px;
+
+    .job-data {
+        display: flex;
+        justify-content: space-between;
+
+        .job-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .label-input {
+                label {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            }
+
+            .check-box {
+                label {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            }
+
+            .radio-box {
+                display: flex;
+                flex-direction: column;
+                gap: 10;
+
+                label {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

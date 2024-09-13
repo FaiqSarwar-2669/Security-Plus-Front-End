@@ -175,11 +175,27 @@ export class Service {
     });
   }
 
-  //view the job application
+  //download the job application 
   viewJobApplication(id: any) {
     const header = this.getHeaders();
     return new Promise((resolve, reject) => {
       this.http.get(this.baseUrl + 'viewApplications/' + id, { headers: header }).pipe()
+        .subscribe({
+          next: (res: any) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          }
+        });
+    });
+  }
+
+  //view the job application 
+  viewJob(id: any) {
+    const header = this.getHeaders();
+    return new Promise((resolve, reject) => {
+      this.http.get(this.baseUrl + 'viewApp/' + id, { headers: header }).pipe()
         .subscribe({
           next: (res: any) => {
             resolve(res);
@@ -233,6 +249,59 @@ export class Service {
     return new Promise((resolve, reject) => {
       this.http
         .post(this.baseUrl + 'registerGuard/', form, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // get the all chat members
+  getChatMembers() {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'chatmembers/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  sendmessage(data: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'messages/', data, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // get message
+  getmessage(id: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'getmessages/'+id, { headers: header })
         .pipe()
         .subscribe({
           next: (res) => {

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./companies.component.scss']
 })
 export class CompaniesComponent implements OnInit {
-
+  rating: number = 0;
   portfolios:any
   constructor(
     private services: Service,
@@ -18,6 +18,7 @@ export class CompaniesComponent implements OnInit {
     this.services.AllPortfolios().then((res:any)=>{
       console.log(res.data)
       this.portfolios = res.data;
+      this.rating = Math.round(res.data.rating / 20);
     }).catch((err:any)=>{
       console.log(err)
     })

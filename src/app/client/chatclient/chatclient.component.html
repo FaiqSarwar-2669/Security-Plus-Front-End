@@ -11,7 +11,7 @@
                 <div class="row">
                     <section class="discussions">
                         <div class="discussion search">
-                                <input type="text" placeholder="search members">
+                            <input type="text" placeholder="search members">
                         </div>
                         <div class="discussion" *ngFor="let itmes of chatMembers" (click)="specificUser(itmes.id)">
                             <div class="photo">
@@ -38,8 +38,10 @@
                             </div>
                         </div>
                         <div class="footer-chat">
-                            <input type="text" class="write-message" placeholder="Type your message here" [(ngModel)]="newMessage">
-                            <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true" (click)="sendMessage()"></i>
+                            <input type="text" class="write-message" placeholder="Type your message here"
+                                [(ngModel)]="newMessage">
+                            <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"
+                                (click)="sendMessage()"></i>
                         </div>
                     </section>
                 </div>

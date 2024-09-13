@@ -14,7 +14,9 @@ export class NavigationComponent {
 
   selectedImg: string = "../../../assets/default.png";
 
-  constructor(private services: Service, private routes:Router) {
+  access: any
+  constructor(private services: Service, private routes: Router) {
+    this.access = localStorage.getItem('activation')
     this.services.getAndUpdatePortfolio().then((res: any) => {
       if (res && res.data && res.data.length > 0) {
         const data = res.data[0];
@@ -28,6 +30,7 @@ export class NavigationComponent {
         })
       }
     })
+    console.log(this.access)
   }
 
   showMore(event: MouseEvent) {
@@ -64,18 +67,18 @@ export class NavigationComponent {
 
   logout() {
     this.services.logout().then((res: any) => {
-      if(res){
+      if (res) {
         Swal.fire({
-          icon:'success',
+          icon: 'success',
           title: res.message
         })
         this.routes.navigate(['/login']);
         localStorage.clear();
       }
     }).catch((err: any) => {
-      if(err.error){
+      if (err.error) {
         Swal.fire({
-          icon:'error',
+          icon: 'error',
           title: err.error.message
         })
       }

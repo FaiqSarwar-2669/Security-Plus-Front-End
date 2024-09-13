@@ -47,7 +47,11 @@ import { NavComponent } from './client/nav/nav.component';
 import { ViewOrganizationComponent } from './client/view-organization/view-organization.component';
 import { SpecificOrganizationComponent } from './client/specific-organization/specific-organization.component';
 import { ClientProfileComponent } from './client/client-profile/client-profile.component';
-
+import { ChatclientComponent } from './client/chatclient/chatclient.component';
+import { ViewOrganizationsComponent } from './Admin/view-organizations/view-organizations.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IonicModule } from '@ionic/angular';
+import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
 
 
 @NgModule({
@@ -94,6 +98,9 @@ import { ClientProfileComponent } from './client/client-profile/client-profile.c
     ViewOrganizationComponent,
     SpecificOrganizationComponent,
     ClientProfileComponent,
+    ChatclientComponent,
+    ViewOrganizationsComponent,
+    ViewJobApplicationComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +108,9 @@ import { ClientProfileComponent } from './client/client-profile/client-profile.c
     AngularEditorModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    IonicModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

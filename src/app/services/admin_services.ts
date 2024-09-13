@@ -12,6 +12,7 @@ export class Service {
         'Content-Type': 'application/json'
     })
 
+    getviewOrganizationid:any
     constructor(private http: HttpClient) {
 
     }

@@ -10,7 +10,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.2.0",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
@@ -21,6 +20,8 @@
     "@capacitor/camera": "^5.0.9",
     "@capacitor/cli": "^5.7.4",
     "@capacitor/core": "^5.7.4",
+    "@ionic/angular": "^8.3.0",
+    "@ionic/core": "^8.3.0",
     "@ionic/pwa-elements": "^3.2.2",
     "@kolkov/angular-editor": "^3.0.0-beta.0",
     "angular-font-awesome": "^3.1.2",

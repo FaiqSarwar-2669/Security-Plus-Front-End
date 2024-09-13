@@ -45,19 +45,19 @@ export class Service {
     logout() {
         const header = this.getHeaders();
         return new Promise((resolve, reject) => {
-          this.http
-            .get(this.baseUrl + 'logout/', { headers: header })
-            .pipe()
-            .subscribe({
-              next: (res) => {
-                resolve(res);
-              },
-              error: (err) => {
-                reject(err);
-              },
-            });
+            this.http
+                .get(this.baseUrl + 'logout/', { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
         });
-      }
+    }
 
     getPortfolios() {
         const header = this.getHeaders()
@@ -96,7 +96,6 @@ export class Service {
 
 
     // get side nav
-
     getsidebar() {
         const header = this.getHeaders()
         return new Promise((resolve, reject) => {
@@ -113,6 +112,7 @@ export class Service {
                 });
         });
     }
+
     // update client
     updateClient(form: FormData) {
         const header = this.getHeaders()
@@ -150,11 +150,11 @@ export class Service {
     }
 
     // get the reviews 
-    getReviews(id:any) {
+    getReviews(id: any) {
         const header = this.getHeaders()
         return new Promise((resolve, reject) => {
             this.http
-                .get(this.baseUrl + 'get-review/'+id, { headers: header })
+                .get(this.baseUrl + 'get-review/' + id, { headers: header })
                 .pipe()
                 .subscribe({
                     next: (res) => {
@@ -166,5 +166,78 @@ export class Service {
                 });
         });
     }
+
+    // make the chat members
+    makeChatMember(form: FormData) {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .post(this.baseUrl + 'makeMember/', form, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
+    // get the all chat members
+    getChatMembers() {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'chatmembers/', { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
+    // send message
+    sendMessage(data: any) {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .post(this.baseUrl + 'messages/', data, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
+    // get message
+    getmessage(id: any) {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'getmessages/' + id, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
 
 }

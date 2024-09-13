@@ -155,6 +155,104 @@
                             }
                         }
                     }
+
+                    .identity-vefication {
+                        h3 {
+                            display: block;
+                            text-align: center;
+                        }
+
+                        .image-outer {
+                            display: flex;
+                            justify-content: center;
+                            flex-wrap: wrap;
+                            gap: 10px;
+
+                            .front-side {
+                                width: 400px;
+                                height: 250px;
+                                overflow: hidden;
+                                position: relative;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                    object-position: center;
+                                }
+
+                                .fa-camera {
+                                    position: absolute;
+                                    right: 10px;
+                                    bottom: 10px;
+                                    z-index: 1;
+                                    color: blue;
+                                    font-size: 30px;
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .back-side {
+                                width: 400px;
+                                height: 250px;
+                                overflow: hidden;
+                                position: relative;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                    object-position: center;
+                                }
+
+                                .fa-camera {
+                                    position: absolute;
+                                    right: 10px;
+                                    bottom: 10px;
+                                    z-index: 1;
+                                    color: blue;
+                                    font-size: 30px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+
+                    .certificate-vefication {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        h3 {
+                            display: block;
+                            text-align: center;
+                        }
+
+                        .certificate-pic {
+                            position: relative;
+                            width: 300px;
+                            height: 500px;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                                object-position: center;
+                            }
+
+                            .fa-camera {
+                                position: absolute;
+                                right: 10px;
+                                bottom: 10px;
+                                z-index: 1;
+                                color: blue;
+                                font-size: 30px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
                 }
             }
         }

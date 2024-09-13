@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Service } from 'src/app/services/provider_services';
+import { Service } from 'src/app/services/client_services';
 import Pusher from 'pusher-js';
-import { literalMap } from '@angular/compiler';
 
 @Component({
-  selector: 'app-provider-chat',
-  templateUrl: './provider-chat.component.html',
-  styleUrls: ['./provider-chat.component.scss']
+  selector: 'app-chatclient',
+  templateUrl: './chatclient.component.html',
+  styleUrls: ['./chatclient.component.scss']
 })
-export class ProviderChatComponent implements OnInit {
-
+export class ChatclientComponent implements OnInit {
   chatMembers: any
   chatHeaderProfile: any
   chatHeadername: any
@@ -31,15 +29,6 @@ export class ProviderChatComponent implements OnInit {
     })
   }
 
-  specificUser(id: any) {
-    console.log(id)
-    this.receiverId = id
-    this.setuppusher();
-    this.getMessageChat();
-    const data = this.chatMembers.find((member: any) => member.id === id);
-    this.chatHeaderProfile = data.profile
-    this.chatHeadername = data.name
-  }
 
   setuppusher() {
     Pusher.logToConsole = true;
@@ -53,31 +42,24 @@ export class ProviderChatComponent implements OnInit {
       }
     });
 
-    // const channel = pusher.subscribe(`chat`);
     const channel = pusher.subscribe(`chat.${this.receiverId}`);
 
     // Bind to the event
     channel.bind('message', (data: any) => {
       console.log('Received data:', data.message);
-      alert(data.message)
+      alert(data)
     });
   }
 
-  sendMessage() {
-    const messageData = {
-      receiver_id: this.receiverId,
-      message: this.newMessage
-    };
-
-    this.services.sendmessage(messageData).then((message: any) => {
-      this.messages.push(message.data)
-      this.newMessage = '';
-      console.log(message)
-    }).catch((err: any) => {
-      console.log(err)
-    });
+  specificUser(id: any) {
+    console.log(id)
+    this.receiverId = id
+    this.setuppusher();
+    this.getMessageChat();
+    const data = this.chatMembers.find((member: any) => member.id === id);
+    this.chatHeaderProfile = data.profile
+    this.chatHeadername = data.name
   }
-
 
   getMessageChat() {
     this.services.getmessage(this.receiverId).then((res: any) => {
@@ -88,5 +70,17 @@ export class ProviderChatComponent implements OnInit {
     })
   }
 
+  sendMessage() {
+    const messageData = {
+      receiver_id: this.receiverId,
+      message: this.newMessage
+    };
 
+    this.services.sendMessage(messageData).then((message: any) => {
+      this.messages.push(message.data)
+      this.newMessage = '';
+    }).catch((err: any) => {
+      console.log(err)
+    });
+  }
 }

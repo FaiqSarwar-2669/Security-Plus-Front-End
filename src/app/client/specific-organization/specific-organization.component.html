@@ -20,7 +20,7 @@
                         </div>
                         <div class="job-form">
                             <label>{{pagaData.bussiness_owner}}</label>
-                            <button class="job-btn" >Chat</button>
+                            <button class="job-btn" (click)="chat(pagaData.id)">Chat</button>
                         </div>
                     </div>
                     <div class="htmlcontent" [innerHTML]="htmlContent">

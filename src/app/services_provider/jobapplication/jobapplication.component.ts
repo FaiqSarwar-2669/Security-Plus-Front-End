@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
 import Swal from 'sweetalert2';
+import { ModalController } from '@ionic/angular';
+import { ViewJobApplicationComponent } from 'src/app/Modaal/view-job-application/view-job-application.component';
 
 @Component({
   selector: 'app-jobapplication',
@@ -12,7 +14,8 @@ export class JobapplicationComponent implements OnInit {
   renderApplication: any
   originalApplications: any
   constructor(
-    private services: Service
+    private services: Service,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -63,22 +66,13 @@ export class JobapplicationComponent implements OnInit {
       }
     })
   }
-  view(id: any) {
-    this.services.viewJobApplication(id).then((res: any) => {
-      const blob = new Blob([res], { type: 'application/pdf' });
-      const downloadURL = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = downloadURL;
-      link.download = 'example.pdf';
-      link.click();
-    }).catch((err: any) => {
-      if (err && err.error.errors) {
-        Swal.fire({
-          icon: "error",
-          title: err.error.errors.message,
-        });
-      }
-    })
+  async view(id: any) {
+    console.log(id)
+    const modal = await this.modalController.create({
+      component: ViewJobApplicationComponent,
+      componentProps: { value: id }
+    });
+    await modal.present();
   }
 
   filter(evt: any) {

@@ -1,12 +1,15 @@
-<app-to></app-to>
 <div class="main-part">
     <div class="main-part-1">
-        <app-nav></app-nav>
+        <!-- <app-navigation></app-navigation> -->
     </div>
     <div class="main-part-2">
         <div class="current-page">
             <i class="fa-solid fa-angle-right"></i>
             <label>Company Profile</label>
+            <div class="actions">
+                <button class="submit-btn" (click)="back()">Back</button>
+                <button class="submit-btn" (click)="activate(profiledata.id)">Active</button>
+            </div>
         </div>
         <div class="current-content">
             <section class="registration-container">
@@ -39,7 +42,7 @@
                                     [(ngModel)]="profiledata.number">
                             </label>
 
-                            <label for="address" *ngIf="access == 0">
+                            <label for="address">
                                 <p style="margin-bottom: 7px;"> Cnic Number </p>
                                 <input type="text" name="address" id="address" placeholder="Enter your Address"
                                     [(ngModel)]="profiledata.cnic">
@@ -51,7 +54,6 @@
                                     [(ngModel)]="profiledata.province">
                             </label>
 
-
                         </div>
                     </section>
                     <section class="identity-details">
@@ -61,58 +63,38 @@
                                 <input type="text" name="stream" id="stream" placeholder="Enter your city"
                                     [(ngModel)]="profiledata.city">
                             </label>
-
-                            <label for="address">
-                                <p style="margin-bottom: 7px;"> Address </p>
-                                <input type="text" name="address" id="address" placeholder="Enter your Address"
-                                    [(ngModel)]="profiledata.adresss">
-                            </label>
-
                             <label for="accNo">
                                 <p style="margin-bottom: 7px;"> Postal Code </p>
                                 <input type="text" name="accNo" id="accNo" placeholder="Enter postal code"
                                     [(ngModel)]="profiledata.postal">
                             </label>
+                            <label for="address">
+                                <p style="margin-bottom: 7px;"> Address </p>
+                                <input type="text" name="address" id="address" placeholder="Enter your Address"
+                                    [(ngModel)]="profiledata.adresss">
+                            </label>
                         </div>
                     </section>
                     <hr>
-                    <div class="image-section">
-                        <h3>Upload Profile picture</h3>
-                        <div class="image">
-                            <img [src]="selectedImg" alt="">
-                        </div>
-                        <button class="button" (click)="takePicture()">Upload image</button>
-                    </div>
-                    <hr>
-
-                    <section class="identity-vefication" *ngIf="access == 0">
-                        <h3>Upload the front and back picture of the National ID card</h3>
+                    <section class="identity-vefication">
+                        <h3>pictures of the National ID card</h3>
                         <div class="image-outer">
                             <div class="front-side">
                                 <img [src]="frontimage" alt="">
-                                <i class="fa-solid fa-camera" (click)="frontPic()"></i>
                             </div>
                             <div class="back-side">
                                 <img [src]="backtimage" alt="">
-                                <i class="fa-solid fa-camera" (click)="backPic()"></i>
                             </div>
                         </div>
                     </section>
                     <hr>
-                    <section class="certificate-vefication" *ngIf="access == 0">
-                        <h3>Upload the company registeration certificate (Optional)</h3>
+                    <section class="certificate-vefication">
+                        <h3>Company Registeration Certificate</h3>
                         <div class="certificate-pic">
                             <img [src]="certificateimage" alt="">
-                            <i class="fa-solid fa-camera" (click)="certPic()"></i>
                         </div>
                     </section>
                     <hr>
-
-                    <div class="btn">
-                        <button class="submit-btn" (click)="Update()"> Update </button>
-                    </div>
-
-                    <!-- </form> -->
                 </section>
             </section>
         </div>

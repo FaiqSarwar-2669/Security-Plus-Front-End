@@ -38,6 +38,10 @@ import { ViewOrganizationComponent } from './client/view-organization/view-organ
 import { ClientDashboardComponent } from './client/client-dashboard/client-dashboard.component';
 import { SpecificOrganizationComponent } from './client/specific-organization/specific-organization.component';
 import { ClientProfileComponent } from './client/client-profile/client-profile.component';
+import { ChatclientComponent } from './client/chatclient/chatclient.component';
+import { ViewOrganizationsComponent } from './Admin/view-organizations/view-organizations.component';
+import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -57,6 +61,9 @@ const routes: Routes = [
   { path: 'company-detal', component: CompanydetailComponent },
   { path: 'form', component: JobFormComponent },
 
+  { path: 'test', component: ViewJobApplicationComponent },
+
+  
   
 
   // for service provider
@@ -80,10 +87,12 @@ const routes: Routes = [
   { path: 'registerClient', component: RegisterClientComponent },
   { path: 'UnRegisterClient', component: UnregisterClientComponent },
   { path: 'admin/newpassword', component: NewPasswordComponent },
+  { path: 'view', component: ViewOrganizationsComponent },
+
   //for client
   
   { path: 'client-dashboard', component: ClientDashboardComponent },
-  { path: 'admin/chat', component: AdminChatComponent },
+  { path: 'chat-client', component: ChatclientComponent },
   { path: 'view-organization', component: ViewOrganizationComponent },
   { path: 'specific-organization', component: SpecificOrganizationComponent },
   { path: 'Client-profile', component: ClientProfileComponent },

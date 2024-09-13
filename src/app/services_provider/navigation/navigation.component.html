@@ -5,11 +5,11 @@
                 <img [src]="selectedImg" alt="">
             </div>
             <div class="organization-information">
-                <label>organization name</label>
+                <!-- <label>organization name</label> -->
             </div>
         </div>
         <div class="nevigation-main">
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-house"></i></span>Dashboard</label>
                     <div class="iocon">
@@ -21,7 +21,7 @@
                     <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
                 </div>
             </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-building"></i></span>Portfolio</label>
                     <div class="iocon">
@@ -34,7 +34,7 @@
                     <a class="link" [routerLink]="['/preview-portfolio']">Preview Portfolio</a>
                 </div>
             </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-brands fa-wpforms"></i></span>Forms</label>
                     <div class="iocon">
@@ -47,7 +47,7 @@
                     <a class="link" [routerLink]="['/preview-form']">Preview Forms</a>
                 </div>
             </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-person-military-rifle"></i></span>Guards</label>
                     <div class="iocon">
@@ -61,7 +61,7 @@
                     <a class="link" [routerLink]="['/job-application']">Job Applications</a>
                 </div>
             </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-comment"></i></span>Chat</label>
                     <div class="iocon">
@@ -73,7 +73,7 @@
                     <a class="link" [routerLink]="['/provider-chat']">Open Chat</a>
                 </div>
             </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-user-pen"></i></span>Review</label>
                     <div class="iocon">
@@ -97,7 +97,7 @@
                     <a class="link" [routerLink]="['/profile']">Profile</a>
                 </div>
             </div>
-            <div class="nav-one mydiv" (click)="showMore($event)">
+            <div class="nav-one mydiv" (click)="showMore($event)" *ngIf="access == 1">
                 <div class="content">
                     <label><span class="relative-icon"><i class="fa-solid fa-credit-card"></i></span>Pay Role</label>
                     <div class="iocon">

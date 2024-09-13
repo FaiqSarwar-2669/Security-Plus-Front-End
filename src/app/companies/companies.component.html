@@ -2,7 +2,7 @@
 <div class="main-companies">
     <h2>Select Company as you want</h2>
     <div class="outer">
-        <div class="register-companies" *ngFor="let item of portfolios">
+        <div class="register-companies" *ngFor="let item of portfolios;let i = index">
             <div class="baner-image">
                 <img [src]="item.Banner_image" alt="">
             </div>
@@ -13,11 +13,8 @@
             <div class="learn-more">
                 <div>
                     <label>Rating: </label>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star" *ngFor="let stars of [1,2,3,4,5]"
+                    [ngClass]="{'checked': stars <= item.rating}"></span>
                 </div>
                 <button (click)="learnmore(item)" class="learn">Learn More</button>
             </div>
