@@ -173,6 +173,7 @@
                         scrollbar-width: thin;
                         display: flex;
                         flex-direction: column;
+                        gap: 10px;
 
                         .sender {
                             align-self: flex-end;

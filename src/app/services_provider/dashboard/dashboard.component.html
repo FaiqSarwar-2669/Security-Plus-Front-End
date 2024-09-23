@@ -6,7 +6,25 @@
             <i class="fa-solid fa-angle-right"></i>
             <label>Dashboard</label>
         </div>
-        <div class="frist">
+        <div class="first">
+            <div class="expense one">
+                <label> Total Guards</label>
+                <label class="lab"> {{total}} </label>
+            </div>
+            <div class="expense one">
+                <label> Contract Conpanies</label> 
+                <label class="lab"> {{contracts}} </label>
+            </div>
+            <div class="expense one">
+                <label> Remaing Guards</label>
+                <label class="lab"> {{available}} </label>
+            </div>
+            <div class="expense one">
+                <label> On Duty</label>
+                <label class="lab"> {{onduty}} </label>
+            </div>
+        </div>
+        <div class="second">
             <div class="graph">
                 <canvas id="doughnutchart"></canvas>
             </div>

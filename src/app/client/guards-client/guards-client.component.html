@@ -1,0 +1,39 @@
+<app-to></app-to>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-nav></app-nav>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>View Contracts</label>
+        </div>
+        <div class="current-content">
+            <div class="current-content1">
+                <div class="availabel-guards" *ngFor="let contract of contractcompanies">
+                    <div class="data-header">
+                        <label>{{contract.OrganizationName}}</label>
+                    </div>
+                    <div class="data">
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile_Number</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Address</th>
+                            </tr>
+                            <tr *ngFor="let Guard of contract.Guards">
+                                <td>{{Guard.Name}}</td>
+                                <td>{{Guard.Mobile_Number}}</td>
+                                <td>{{Guard.Email}}</td>
+                                <td>{{Guard.City}}</td>
+                                <td>{{Guard.Address}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

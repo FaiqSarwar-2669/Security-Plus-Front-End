@@ -51,6 +51,24 @@ export class Service {
   }
 
 
+  dashBoard() {
+    const header = this.getHeaders();
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'dashBoardData/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+
   // add and update the portfolio
 
   addAndUpdatePortfolio(portfolioData: FormData) {
@@ -301,7 +319,134 @@ export class Service {
     const header = this.getHeaders()
     return new Promise((resolve, reject) => {
       this.http
-        .get(this.baseUrl + 'getmessages/'+id, { headers: header })
+        .get(this.baseUrl + 'getmessages/' + id, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+
+  // get guards
+  getguardse() {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'getAllGuards/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // get the client organization for giving the guards
+  getDataForGivingGuads(data: FormData) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'getComapanyForGuards/', data, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // get the client organization for giving the guards
+  assignContracts(data: FormData) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'assignContrct/', data, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // get the contract organization for giving the guards
+  getContracts() {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'getcontract/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // fired the guards
+  firedDuard(id: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'firedGuard/' + id, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // deactivate the guard from contract
+  deactivateGuard(id: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'deactivateGuard/' + id, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // deactivate the guard from contract
+  specificGuard(id: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'viewGuard/' + id, { headers: header })
         .pipe()
         .subscribe({
           next: (res) => {

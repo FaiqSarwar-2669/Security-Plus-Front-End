@@ -8,5 +8,62 @@
             <i class="fa-solid fa-angle-right"></i>
             <label>Guard Data</label>
         </div>
+
+        <div class="current-content">
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." class="search-input" [(ngModel)]="searchdata">
+                <button class="search-button" (click)="fetchdata()">
+                    <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-4.35-4.35m2.45-3.65a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="guards-data">
+            <div class="current-content">
+                <div class="availabel-guards">
+                    <div class="data-header">
+                        <label>Remaing Guards</label>
+                    </div>
+                    <div class="data">
+                        <table>
+                            <tr *ngFor="let items of guardsArray">
+                                <td>{{items.First_Name}} <span>{{items.Last_Name}}</span></td>
+                                <td>{{items.Mobile_Number}}</td>
+                                <td>{{items.Email}}</td>
+                                <td>
+                                    <button class="btn view-btn" (click)="view(items.id)">View</button>
+                                    <button class="btn deactivate-btn" (click)="fired(items.id)">Fired</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="current-content1">
+                <div class="availabel-guards" *ngFor="let contract of contractcompanies">
+                    <div class="data-header">
+                        <label>{{contract.CompanyName}}</label>
+                    </div>
+                    <div class="data">
+                        <table>
+                            <tr *ngFor="let Guard of contract.Guards">
+                                <td>{{Guard.Name}}</td>
+                                <td>{{Guard.Mobile_Number}}</td>
+                                <td>{{Guard.Email}}</td>
+                                <td>
+                                    <button class="btn view-btn" (click)="view(Guard.Guards_id)">View</button>
+                                    <button class="btn deactivate-btn" (click)="contrctDeactive(Guard.Guards_id)">Deactivate</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

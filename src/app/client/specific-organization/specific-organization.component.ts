@@ -13,7 +13,7 @@ export class SpecificOrganizationComponent implements OnInit {
   selectedImg: any;
   selectedImg1: any;
   htmlContent: any;
-  reviews:any
+  reviews: any
   constructor(
     private route: Router,
     private services: Service,
@@ -70,12 +70,15 @@ export class SpecificOrganizationComponent implements OnInit {
     }
   }
 
-  chat(id:any){
+  chat(id: any) {
     const formdata = new FormData()
-    formdata.append('member',id);
-    this.services.makeChatMember(formdata).then((res:any)=>{
-      console.log(res)
-    }).catch((err:any)=>{
+    formdata.append('member', id);
+    this.services.makeChatMember(formdata).then((res: any) => {
+      Swal.fire({
+        icon: 'success',
+        title: res.message
+      });
+    }).catch((err: any) => {
       console.log(err)
     })
   }

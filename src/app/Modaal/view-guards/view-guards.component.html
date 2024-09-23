@@ -1,0 +1,95 @@
+<div class="current-page">
+    <i class="fa-solid fa-angle-right"></i>
+    <label>Guard Data</label>
+    <div class="actions">
+        <button class="submit-btn" (click)="closeModal()">Close</button>
+    </div>
+</div>
+<section class="details-section">
+    <h4> Personal Details </h4>
+    <section class="personal-details">
+        <div class="three-details-item">
+            <label for="name">
+                <p style="margin-bottom: 7px;">First Name</p>
+                <input type="text" name="name" id="name" disabled [(ngModel)]="data.First_Name">
+            </label>
+            <label for="fName">
+                <p style="margin-bottom: 7px;">Last Name </p>
+                <input type="text" name="fName" id="fName" disabled [(ngModel)]="data.Last_Name">
+            </label>
+            <label for="mName">
+                <p style="margin-bottom: 7px;">Father Name</p>
+                <input type="text" name="mName" id="mName" disabled [(ngModel)]="data.Father_Name">
+            </label>
+        </div>
+
+        <div class="three-details-item">
+            <label for="DOB">
+                <p style="margin-bottom: 7px;">Date of Birth</p>
+                <input type="text" name="DOB" id="DOB" disabled [(ngModel)]="data.DOB">
+            </label>
+            <label for="aadharNo">
+                <p style="margin-bottom: 7px;">Gender</p>
+                <input type="text" name="aadharNo" id="aadharNo" disabled [(ngModel)]="data.Gender">
+            </label>
+            <label for="email">
+                <p style="margin-bottom: 7px;">Email</p>
+                <input type="email" name="email" id="email" disabled [(ngModel)]="data.Email">
+            </label>
+        </div>
+
+        <div class="three-details-item">
+            <label for="ph">
+                <p style="margin-bottom: 7px;"> Mobile Number</p>
+                <input type="tel" name="phone" id="ph" disabled [(ngModel)]="data.Mobile_Number">
+            </label>
+
+            <label for="gender">
+                <p style="margin-bottom: 7px;">Emergency Contact</p>
+                <input type="text" name="gender" id="gender"
+                disabled [(ngModel)]="data.Emergency_Contact">
+            </label>
+
+            <label for="address">
+                <p style="margin-bottom: 7px;"> Address </p>
+                <input type="text" name="address" id="address" disabled [(ngModel)]="data.Address">
+            </label>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Identity Details Section -->
+    <h4> Other Details </h4>
+    <section class="identity-details">
+        <div class="three-details-item">
+            <label for="stream">
+                <p style="margin-bottom: 7px;"> City </p>
+                <input type="text" name="stream" id="stream" disabled [(ngModel)]="data.City">
+            </label>
+            <label for="previousClass">
+                <p style="margin-bottom: 7px;"> Qualification </p>
+                <input type="text" name="previousClass" id="previousClass"
+                disabled [(ngModel)]="data.Qualification">
+            </label>
+            <label for="hobbies">
+                <p style="margin-bottom: 7px;"> Hobbies </p>
+                <input type="text" name="hobbies" id="hobbies" disabled [(ngModel)]="data.Hobbies">
+            </label>
+        </div>
+        <div class="three-details-item">
+            <label for="accNo">
+                <p style="margin-bottom: 7px;"> Postal Code </p>
+                <input type="text" name="accNo" id="accNo" disabled [(ngModel)]="data.Postal_Code">
+            </label>
+            <label for="religion">
+                <p style="margin-bottom: 7px;"> Religion </p>
+                <input type="text" name="religion" id="religion" disabled [(ngModel)]="data.Religion">
+            </label>
+            <label for="category">
+                <p style="margin-bottom: 7px;"> Category </p>
+                <input type="text" name="category" id="category" disabled [(ngModel)]="data.Category">
+            </label>
+        </div>
+    </section>
+</section>

@@ -59,6 +59,23 @@ export class Service {
         });
     }
 
+    dashBoard() {
+        const header = this.getHeaders();
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'dashBoardClient/', { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
     getPortfolios() {
         const header = this.getHeaders()
         return new Promise((resolve, reject) => {
@@ -227,6 +244,24 @@ export class Service {
         return new Promise((resolve, reject) => {
             this.http
                 .get(this.baseUrl + 'getmessages/' + id, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
+    // get guards contracts
+    getContracts() {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'getContracts/', { headers: header })
                 .pipe()
                 .subscribe({
                     next: (res) => {

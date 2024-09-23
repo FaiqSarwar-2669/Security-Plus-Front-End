@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { Service } from 'src/app/services/provider_services';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  constructor() {}
-  data = [ 
+export class DashboardComponent implements OnInit {
+
+  onduty: any; available: any; total: any; contracts: any;
+  constructor(private service: Service) { }
+
+
+  data = [
     { year: 2010, count: 10 },
     { year: 2011, count: 20 },
     { year: 2012, count: 15 },
@@ -35,8 +41,21 @@ export class DashboardComponent {
     this.doughnutchart();
     this.initializeBarChart();
     this.Piechart();
+    this.dashboardData()
+
   }
-  doughnutchart(){
+
+  dashboardData() {
+    this.service.dashBoard().then((res: any) => {
+      this.total = res.total;
+      this.onduty = res.duty;
+      this.available = res.remaining;
+      this.contracts = res.totalcontract;
+    }).catch((err: any) => {
+      console.log(err)
+    })
+  }
+  doughnutchart() {
     // doughnut
     const ctx = document.getElementById('doughnutchart') as HTMLCanvasElement;
     new Chart(ctx, {
@@ -103,7 +122,7 @@ export class DashboardComponent {
       },
     });
   }
-  Piechart(){
+  Piechart() {
     // doughnut
     const ctx = document.getElementById('piechart') as HTMLCanvasElement;
     new Chart(ctx, {

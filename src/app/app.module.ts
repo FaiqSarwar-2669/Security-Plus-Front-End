@@ -52,6 +52,8 @@ import { ViewOrganizationsComponent } from './Admin/view-organizations/view-orga
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
+import { GuardsClientComponent } from './client/guards-client/guards-client.component';
+import { ViewGuardsComponent } from './Modaal/view-guards/view-guards.component';
 
 
 @NgModule({
@@ -101,6 +103,8 @@ import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-
     ChatclientComponent,
     ViewOrganizationsComponent,
     ViewJobApplicationComponent,
+    GuardsClientComponent,
+    ViewGuardsComponent,
   ],
   imports: [
     BrowserModule,

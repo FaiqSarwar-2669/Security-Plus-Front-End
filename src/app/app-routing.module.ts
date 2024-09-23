@@ -41,7 +41,7 @@ import { ClientProfileComponent } from './client/client-profile/client-profile.c
 import { ChatclientComponent } from './client/chatclient/chatclient.component';
 import { ViewOrganizationsComponent } from './Admin/view-organizations/view-organizations.component';
 import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
-
+import { GuardsClientComponent } from './client/guards-client/guards-client.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -96,6 +96,7 @@ const routes: Routes = [
   { path: 'view-organization', component: ViewOrganizationComponent },
   { path: 'specific-organization', component: SpecificOrganizationComponent },
   { path: 'Client-profile', component: ClientProfileComponent },
+  { path: 'Client-contracts', component: GuardsClientComponent },
 
 ];
 

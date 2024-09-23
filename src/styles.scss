@@ -1,14 +1,26 @@
-
-
-
 @import '../node_modules/font-awesome/css/font-awesome.css';
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     // background-color: #e7eefa;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.custom-modal-class {
+    --width: 80%;
+    overflow-y: auto;
+}

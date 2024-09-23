@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
 import Pusher from 'pusher-js';
-import { literalMap } from '@angular/compiler';
+import Echo from 'laravel-echo';
 
 @Component({
   selector: 'app-provider-chat',
@@ -22,7 +22,7 @@ export class ProviderChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentUserId = localStorage.getItem('UserID');
+    this.currentUserId = Number(localStorage.getItem('UserID'));
     this.services.getChatMembers().then((res: any) => {
       this.chatMembers = res.data
       console.log(res.data)
@@ -35,6 +35,7 @@ export class ProviderChatComponent implements OnInit {
     console.log(id)
     this.receiverId = id
     this.setuppusher();
+    // this.setupEcho();
     this.getMessageChat();
     const data = this.chatMembers.find((member: any) => member.id === id);
     this.chatHeaderProfile = data.profile
@@ -61,6 +62,30 @@ export class ProviderChatComponent implements OnInit {
       console.log('Received data:', data.message);
       alert(data.message)
     });
+  }
+
+
+  setupEcho() {
+    Pusher.logToConsole = true;
+
+    const echo = new Echo({
+      broadcaster: 'pusher',
+      key: 'd44187673912a3531af2',
+      cluster: 'ap2',
+      forceTLS: true,
+      authEndpoint: 'http://127.0.0.1:8000/broadcasting/auth',
+      auth: {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('B_Token')}`
+        }
+      }
+    });
+
+    echo.private(`chat.${this.receiverId}`)
+      .listen('.message', (data: any) => {
+        console.log(data);
+        alert(data.message);
+      });
   }
 
   sendMessage() {

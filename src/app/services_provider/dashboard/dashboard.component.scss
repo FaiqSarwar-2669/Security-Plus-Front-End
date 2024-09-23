@@ -1,8 +1,10 @@
 .main {
     display: flex;
+
     .main-content {
         width: 100%;
         padding: 10px;
+
         .current-page {
 
             padding: 10px;
@@ -22,7 +24,52 @@
                 font-size: 20px;
             }
         }
-        .frist{
+
+        .first {
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: rgb(255, 255, 255);
+            width: 90%;
+            // height: 60%;
+            margin-left: 40px;
+
+            margin-top: 40px;
+            gap: 10px;
+            border-radius: 10px;
+
+            .one {
+                width: 260px;
+                height: 150px;
+                border-radius: 14px;
+                font-size: 30px;
+                color: aliceblue;
+                padding: 15px;
+
+            }
+
+
+            .expense {
+                background-color: #0dcaf0;
+                display: flex;
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 3px;
+
+                label {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .lab {
+                    font-size: 40px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .second {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -30,28 +77,28 @@
             width: 100%;
             padding: 20px;
 
-        .graph2{
+            .graph2 {
                 cursor: pointer;
                 width: 600px;
                 height: 450px;
 
 
-                canvas{
+                canvas {
                     height: 600px;
                 }
             }
-        
-        .graph{
-            cursor: pointer;
-            width: 270px;
-            height: 450px;
-        }
 
-        
-        .graph:hover,
-        .graph2:hover {
+            .graph {
+                cursor: pointer;
+                width: 270px;
+                height: 450px;
+            }
+
+
+            .graph:hover,
+            .graph2:hover {
                 box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
             }
-    }
+        }
     }
 }
