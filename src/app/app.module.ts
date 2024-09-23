@@ -54,6 +54,17 @@ import { IonicModule } from '@ionic/angular';
 import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
 import { GuardsClientComponent } from './client/guards-client/guards-client.component';
 import { ViewGuardsComponent } from './Modaal/view-guards/view-guards.component';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD0vwv6U3qMdNZBVCuOzbZNZlPYaQRNFAw",
+  authDomain: "chat-system-cb753.firebaseapp.com",
+  projectId: "chat-system-cb753",
+  storageBucket: "chat-system-cb753.appspot.com",
+  messagingSenderId: "950287806778",
+  appId: "1:950287806778:web:875950959a5356bd686003"
+};
 
 
 @NgModule({
@@ -115,6 +126,8 @@ import { ViewGuardsComponent } from './Modaal/view-guards/view-guards.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
