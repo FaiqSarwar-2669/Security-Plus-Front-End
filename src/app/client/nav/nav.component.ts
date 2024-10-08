@@ -15,6 +15,7 @@ export class NavComponent {
   constructor(private services: Service, private routes: Router) {
     this.access = localStorage.getItem('activation')
     this.services.getsidebar().then((res: any) => {
+      console.log(res);
       if (res) {
         this.selectedImg = res.pic ? res.pic : this.selectedImg;
         this.name = res.name
@@ -26,6 +27,29 @@ export class NavComponent {
           title: err.error.message
         })
       }
+    })
+let profileData:any = {}
+    this.services.getClient().then((res:any)=>{
+      profileData.id = res.data.id
+      profileData.bussines_name = res.data.bussiness_owner
+      profileData.first_name = res.data.bussiness_fname
+      profileData.last_name = res.data.bussiness_lname
+      profileData.number = res.data.phone_number
+      profileData.province = res.data.province
+      profileData.adresss = res.data.street_address
+      profileData.city = res.data.city_name
+      profileData.postal = res.data.area_code
+      if (res.data.profile === '') {
+        this.selectedImg = '../../../assets/default.png';
+      } else {
+        this.selectedImg = res.data.profile
+      }
+      profileData.cnic = res.data.cnic
+      profileData.image = res.data.profile
+      console.clear()
+      console.log(profileData)
+      localStorage.setItem('user',JSON.stringify(profileData))
+
     })
   }
 

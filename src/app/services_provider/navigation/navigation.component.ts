@@ -31,6 +31,29 @@ export class NavigationComponent {
       }
     })
     console.log(this.access)
+    let profileData: any = {}
+    this.services.getProvider().then((res: any) => {
+      profileData.id = res.data.id
+      profileData.bussines_name = res.data.bussiness_owner
+      profileData.first_name = res.data.bussiness_fname
+      profileData.last_name = res.data.bussiness_lname
+      profileData.number = res.data.phone_number
+      profileData.province = res.data.province
+      profileData.adresss = res.data.street_address
+      profileData.city = res.data.city_name
+      profileData.postal = res.data.area_code
+      if (res.data.profile === '') {
+        this.selectedImg = '../../../assets/default.png';
+      } else {
+        this.selectedImg = res.data.profile
+      }
+      profileData.cnic = res.data.cnic
+      profileData.image = res.data.profile
+      console.clear()
+      console.log(profileData)
+      localStorage.setItem('user', JSON.stringify(profileData))
+
+    })
   }
 
   showMore(event: MouseEvent) {

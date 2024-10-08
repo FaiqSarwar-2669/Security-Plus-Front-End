@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
 import Pusher from 'pusher-js';
 import Echo from 'laravel-echo';
+import { ChatService } from 'src/app/services/firebase';
 
 @Component({
   selector: 'app-provider-chat',
@@ -17,29 +18,41 @@ export class ProviderChatComponent implements OnInit {
   newMessage: any
   messages: any
   currentUserId: any;
-  constructor(private services: Service) {
+  chatId:string = ''
+  selectedUser:any = {}
+  constructor(private services: Service,
+    private chatS: ChatService
+  ) {
 
   }
 
   ngOnInit() {
     this.currentUserId = Number(localStorage.getItem('UserID'));
-    this.services.getChatMembers().then((res: any) => {
-      this.chatMembers = res.data
-      console.log(res.data)
-    }).catch((err: any) => {
-      console.log(err)
+    this.chatS.getConverstions(this.currentUserId).subscribe({
+      next: (conversations) => {
+        this.chatMembers = conversations
+      },error:(err) =>{
+        console.error(err)
+      }
     })
+
+    // this.services.getChatMembers().then((res: any) => {
+    //   this.chatMembers = res.data
+    //   console.log(res.data)
+    // }).catch((err: any) => {
+    //   console.log(err)
+    // })
   }
 
-  specificUser(id: any) {
-    console.log(id)
-    this.receiverId = id
-    this.setuppusher();
+  specificUser(user: any) {
+    console.log(user)
+    this.selectedUser = user
+    this.receiverId = user.id
+    let currentUser = JSON.parse(localStorage.getItem('user') || '')
+    // this.setuppusher();
     // this.setupEcho();
-    this.getMessageChat();
-    const data = this.chatMembers.find((member: any) => member.id === id);
-    this.chatHeaderProfile = data.profile
-    this.chatHeadername = data.name
+    this.chatId =user.id + currentUser.id
+    this.getMessageChat(this.chatId);
   }
 
   setuppusher() {
@@ -91,25 +104,33 @@ export class ProviderChatComponent implements OnInit {
   sendMessage() {
     const messageData = {
       receiver_id: this.receiverId,
-      message: this.newMessage
+      message: this.newMessage,
+      created_at:new Date().toISOString()
     };
 
-    this.services.sendmessage(messageData).then((message: any) => {
-      this.messages.push(message.data)
-      this.newMessage = '';
-      console.log(message)
-    }).catch((err: any) => {
-      console.log(err)
-    });
+    this.chatS.sendMessage(this.chatId,messageData).then(() =>{
+      this.newMessage = ''
+    })
+
+    // this.services.sendmessage(messageData).then((message: any) => {
+    //   this.messages.push(message.data)
+    //   this.newMessage = '';
+    //   console.log(message)
+    // }).catch((err: any) => {
+    //   console.log(err)
+    // });
   }
 
 
-  getMessageChat() {
-    this.services.getmessage(this.receiverId).then((res: any) => {
-      console.log(res)
-      this.messages = res.data;
-    }).catch((err: any) => {
-      console.log(err)
+  getMessageChat(chatId:string) {
+    this.chatS.getChat(chatId).subscribe({
+      next:(chat) =>{
+        console.log(chat)
+        this.messages = chat
+      },
+      error:(err) =>{
+        console.error(err)
+      }
     })
   }
 

@@ -56,6 +56,7 @@ import { GuardsClientComponent } from './client/guards-client/guards-client.comp
 import { ViewGuardsComponent } from './Modaal/view-guards/view-guards.component';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import { ChatService } from './services/firebase';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0vwv6U3qMdNZBVCuOzbZNZlPYaQRNFAw",
@@ -129,7 +130,9 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [
+    ChatService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
