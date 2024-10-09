@@ -57,6 +57,7 @@ import { ViewGuardsComponent } from './Modaal/view-guards/view-guards.component'
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { ChatService } from './services/firebase';
+import { AttendenceComponent } from './client/attendence/attendence.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0vwv6U3qMdNZBVCuOzbZNZlPYaQRNFAw",
@@ -117,6 +118,7 @@ const firebaseConfig = {
     ViewJobApplicationComponent,
     GuardsClientComponent,
     ViewGuardsComponent,
+    AttendenceComponent,
   ],
   imports: [
     BrowserModule,

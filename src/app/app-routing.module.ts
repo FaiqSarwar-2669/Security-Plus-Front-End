@@ -42,6 +42,7 @@ import { ChatclientComponent } from './client/chatclient/chatclient.component';
 import { ViewOrganizationsComponent } from './Admin/view-organizations/view-organizations.component';
 import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
 import { GuardsClientComponent } from './client/guards-client/guards-client.component';
+import { AttendenceComponent } from './client/attendence/attendence.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -97,6 +98,7 @@ const routes: Routes = [
   { path: 'specific-organization', component: SpecificOrganizationComponent },
   { path: 'Client-profile', component: ClientProfileComponent },
   { path: 'Client-contracts', component: GuardsClientComponent },
+  { path: 'attendence', component: AttendenceComponent },
 
 ];
 
