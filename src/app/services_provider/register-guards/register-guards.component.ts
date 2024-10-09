@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
 import Swal from 'sweetalert2';
+declare const faceapi: any;
 
 @Component({
   selector: 'app-register-guards',
   templateUrl: './register-guards.component.html',
   styleUrls: ['./register-guards.component.scss']
 })
-export class RegisterGuardsComponent {
+export class RegisterGuardsComponent implements OnInit {
 
+  video: any
+  descriptorArray:any
   data = {
     fname: '',
     lname: '',
@@ -30,7 +33,61 @@ export class RegisterGuardsComponent {
     private services: Service
   ) { }
 
-  submit() {
+  ngOnInit() {
+    this.startVideo();
+  }
+
+  startVideo() {
+    this.video = document.getElementById('video') as HTMLVideoElement;
+
+    navigator.mediaDevices.getUserMedia({ video: {} })
+      .then(stream => {
+        this.video.srcObject = stream;
+        this.addVideoPlayListener(this.video);
+      })
+      .catch(err => {
+        console.error('Error accessing the camera: ', err);
+      });
+  }
+
+  addVideoPlayListener(video: HTMLVideoElement): void {
+    video.addEventListener('play', () => {
+      const canvas = faceapi.createCanvasFromMedia(video);
+      this.video.parentNode.insertBefore(canvas, video.nextSibling);
+      const displaySize = { width: video.width, height: video.height };
+      faceapi.matchDimensions(canvas, displaySize);
+
+      setInterval(async () => {
+        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+          .withFaceLandmarks()
+          .withFaceExpressions();
+        const resizedDetections = faceapi.resizeResults(detections, displaySize);
+        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        faceapi.draw.drawDetections(canvas, resizedDetections);
+        faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+        faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+      }, 50);
+    });
+  }
+
+  async saveCredentialsBtn(): Promise<void> {
+
+    const detections = await faceapi.detectSingleFace(this.video, new faceapi.TinyFaceDetectorOptions())
+      .withFaceLandmarks()
+      .withFaceDescriptor();
+    if (!detections) {
+      Swal.fire({
+        icon: 'error',
+        title: 'No face detected. Please make sure your face is clearly visible.'
+      });
+    }else{
+      this.descriptorArray = Array.from(detections.descriptor);
+      console.log(this.descriptorArray);
+    }
+  }
+
+  async submit() {
+    await this.saveCredentialsBtn();
     const postalPattern = /^[0-9]+$/;
     const numberPattern = /^[0-9]{11}$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -130,6 +187,11 @@ export class RegisterGuardsComponent {
         icon: 'error',
         title: 'Enter Category'
       });
+    }else if(this.descriptorArray.trim === ''){
+      Swal.fire({
+        icon: 'error',
+        title: 'Verify Identity'
+      });
     } else {
       const formdata = new FormData()
       formdata.append('First_Name', this.data.fname)
@@ -147,7 +209,10 @@ export class RegisterGuardsComponent {
       formdata.append('Postal_Code', this.data.pcode)
       formdata.append('Religion', this.data.religion)
       formdata.append('Category', this.data.category)
+      formdata.append('identity', this.descriptorArray)
+      console.log(formdata)
       this.services.registerGuard(formdata).then((res: any) => {
+        console.log(res)
         Swal.fire({
           icon: 'success',
           title: res.message

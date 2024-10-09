@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from 'src/app/services/client_services';
+import { ChatService } from 'src/app/services/firebase';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-specific-organization',
@@ -17,6 +18,7 @@ export class SpecificOrganizationComponent implements OnInit {
   constructor(
     private route: Router,
     private services: Service,
+    private chatS: ChatService
   ) {
   }
 
@@ -70,17 +72,45 @@ export class SpecificOrganizationComponent implements OnInit {
     }
   }
 
-  chat(id: any) {
+  chat(data: any) {
+    console.log(data)
     const formdata = new FormData()
-    formdata.append('member', id);
-    this.services.makeChatMember(formdata).then((res: any) => {
-      Swal.fire({
-        icon: 'success',
-        title: res.message
-      });
-    }).catch((err: any) => {
-      console.log(err)
+    formdata.append('member', data.id);
+    let clientData = JSON.parse(localStorage.getItem('user') || '')
+    this.chatS.checkConversation(clientData.id, data.id).once('value', val => {
+      if (val.exists()) {
+        //conversation already exists
+        // clientData.updated_at = new Date().toISOString()
+        this.chatS.updateConversationForProvider(data.id, clientData)
+        this.chatS.updateConversationForClient(clientData.id, data).then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Conversation already exists!'
+          });
+        });
+      } else {
+        //new conversation
+        clientData.updated_at = new Date().toISOString()
+        this.chatS.updateConversationForProvider(data.id, clientData)
+        this.chatS.updateConversationForClient(clientData.id, data).then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Conversation has started!'
+          });
+        });
+      }
     })
+
+    // this.services.makeChatMember(formdata).then((res: any) => {
+    //   Swal.fire({
+    //     icon: 'success',
+    //     title: res.message
+    //   });
+    // }).catch((err: any) => {
+    //   console.log(err)
+    // })
+    // })
+
   }
 
 }

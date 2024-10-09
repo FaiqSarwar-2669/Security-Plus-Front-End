@@ -274,5 +274,59 @@ export class Service {
         });
     }
 
+    // get guards for attendence
+    GuardsForAttendance() {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'GuardsForAttendance/', { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
+    // get attendence
+    getAttendance(id: any) {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'getAttendence/' + id, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
+    // get guards for attendence
+    markAttendance(data: any) {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .post(this.baseUrl + 'markAttendence/', data, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
 
 }

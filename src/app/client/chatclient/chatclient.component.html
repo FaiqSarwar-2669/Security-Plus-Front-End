@@ -13,12 +13,12 @@
                         <div class="discussion search">
                             <input type="text" placeholder="search members">
                         </div>
-                        <div class="discussion" *ngFor="let itmes of chatMembers" (click)="specificUser(itmes.id)">
+                        <div class="discussion" *ngFor="let itmes of chatMembers" (click)="specificUser(itmes)">
                             <div class="photo">
-                                <img [src]="itmes.profile" alt="">
+                                <img [src]="itmes.logo" alt="">
                             </div>
                             <div class="desc-contact">
-                                <p class="name">{{itmes.name}}</p>
+                                <p class="name">{{itmes.bussiness_owner}}</p>
                             </div>
                             <div class="timer">12</div>
                         </div>
@@ -26,13 +26,13 @@
                     <section class="chat">
                         <div class="header-chat">
                             <div class="photo">
-                                <img [src]="chatHeaderProfile" alt="">
+                                <img [src]="selectedUser.logo" alt="">
                             </div>
-                            <p class="name">{{chatHeadername}}</p>
+                            <p class="name">{{selectedUser.bussiness_owner}}</p>
                         </div>
                         <div class="messages-chat">
                             <div *ngFor="let message of messages"
-                                [ngClass]="{'sender': message.sender_id === currentUserId, 'receiver': message.sender_id !== currentUserId}">
+                                [ngClass]="{'sender': message.receiver_id === currentUserId, 'receiver': message.receiver_id !== currentUserId}">
                                 <p class="message-content">{{ message.message }}</p>
                                 <p class="message-time">{{ message.created_at | date: 'short' }}</p>
                             </div>
