@@ -44,6 +44,9 @@ import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-
 import { GuardsClientComponent } from './client/guards-client/guards-client.component';
 import { AttendenceComponent } from './client/attendence/attendence.component';
 
+import { TeamMemberComponent } from './Component/team-member/team-member.component';
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home-nevigation', component: HomeNevigationComponent },
@@ -62,7 +65,7 @@ const routes: Routes = [
   { path: 'company-detal', component: CompanydetailComponent },
   { path: 'form', component: JobFormComponent },
 
-  { path: 'test', component: ViewJobApplicationComponent },
+  { path: 'test', component: TeamMemberComponent },
 
   
   

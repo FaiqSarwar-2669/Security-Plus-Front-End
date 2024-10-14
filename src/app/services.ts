@@ -70,6 +70,22 @@ export class Service {
     });
   }
 
+  uploadImage(formdata: FormData) {
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'ApplicationImage/', formdata, { headers: this.Heads })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
   login(login: login) {
     return new Promise((resolve, reject) => {
       this.http

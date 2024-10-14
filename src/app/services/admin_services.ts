@@ -12,7 +12,7 @@ export class Service {
         'Content-Type': 'application/json'
     })
 
-    getviewOrganizationid:any
+    getviewOrganizationid: any
     constructor(private http: HttpClient) {
 
     }
@@ -20,7 +20,6 @@ export class Service {
         const token = localStorage.getItem('B_Token');
         return new HttpHeaders({
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         });
     }
@@ -113,7 +112,7 @@ export class Service {
     // in-Activate the  all the un-register or inactive organizations and companies
     inActivationOrganizations(id: any) {
         const payload = {
-            'id' : id
+            'id': id
         }
         const header = this.getHeaders();
         return new Promise((resolve, reject) => {
@@ -133,7 +132,7 @@ export class Service {
     // Activate the  all the un-register or inactive organizations and companies
     ActivationOrganizations(id: any) {
         const payload = {
-            'id' : id
+            'id': id
         }
         const header = this.getHeaders();
         return new Promise((resolve, reject) => {
@@ -151,10 +150,7 @@ export class Service {
     }
 
     // remind  all the un-register or inactive organizations and companies for the complete your registeration
-    remindOrganizations(id: any) {
-        const payload = {
-            'id' : id
-        }
+    remindOrganizations(payload: FormData) {
         const header = this.getHeaders();
         return new Promise((resolve, reject) => {
             this.http.post(this.baseUrl + 'remindRegisteration/', payload, { headers: header })

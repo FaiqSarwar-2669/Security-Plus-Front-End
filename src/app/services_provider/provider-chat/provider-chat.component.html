@@ -15,7 +15,7 @@
                         </div>
                         <div class="discussion" *ngFor="let itmes of chatMembers" (click)="specificUser(itmes)">
                             <div class="photo">
-                                <img [src]="itmes.logo" alt="">
+                                <img [src]="itmes.image" alt="">
                             </div>
                             <div class="desc-contact">
                                 <p class="name">{{itmes.bussiness_owner}}</p>
@@ -26,13 +26,13 @@
                     <section class="chat">
                         <div class="header-chat">
                             <div class="photo">
-                                <img [src]="selectedUser.logo" alt="">
+                                <img [src]="selectedUser.image" alt="">
                             </div>
                             <p class="name">{{selectedUser.bussiness_owner}}</p>
                         </div>
                         <div class="messages-chat">
                             <div *ngFor="let message of messages"
-                                [ngClass]="{'sender': message.receiver_id === currentUserId, 'receiver': message.receiver_id !== currentUserId}">
+                                [ngClass]="{'sender': message.receiver_id !== currentUserId, 'receiver': message.receiver_id === currentUserId}">
                                 <p class="message-content">{{ message.message }}</p>
                                 <p class="message-time">{{ message.created_at | date: 'short' }}</p>
                             </div>

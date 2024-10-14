@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Service } from 'src/app/services/client_services';
 import { ChatService } from 'src/app/services/firebase';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-specific-organization',
   templateUrl: './specific-organization.component.html',
@@ -73,6 +74,7 @@ export class SpecificOrganizationComponent implements OnInit {
   }
 
   chat(data: any) {
+    
     console.log(data)
     const formdata = new FormData()
     formdata.append('member', data.id);

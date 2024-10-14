@@ -7,7 +7,6 @@ import { enableProdMode } from '@angular/core';
 const environment = {
   production: false,
 };
-
 defineCustomElements(window);
 if (environment.production) {
   enableProdMode();

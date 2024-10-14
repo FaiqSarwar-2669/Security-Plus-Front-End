@@ -1,28 +1,57 @@
 .faq-main {
-    .page-content {
+    .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        height: 100vh;
+        width: 100%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: 200px;
+        gap: 30px;
+
+        .hero-text {
+            color: white;
+            max-width: 50%;
+
+            h1 {
+                font-size: 60px;
+            }
+
+            p {
+                font-size: 25px;
+                text-align: justify;
+            }
+        }
+
+        .image {
+            width: 500px;
+            height: 600px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
     }
-    .outer{
+
+    .outer {
         width: 100%;
         display: flex;
         justify-content: center;
-        .main-content{
+
+        .main-content {
             padding: 20px;
             max-width: 80%;
-            label{
+
+            label {
                 display: block;
                 margin-bottom: 10px;
                 font-size: 25px;
                 font-weight: bold;
                 color: #0077ff;
             }
-            p{
+
+            p {
                 margin-bottom: 10px;
                 display: block;
                 font-size: 19px;
@@ -30,23 +59,62 @@
             }
         }
     }
-    
+
 
 }
 
-@media (min-width: 355px) and (max-width: 450px) {
-    .faq-main {
-        .page-content {
-            margin-top: 15px;
-            display: block;
 
-            h1,
-            h3 {
-                display: block;
-                text-align: center;
+@media (min-width: 750px) and (max-width: 850px) {
+    .faq-main {
+        .hero-image {
+            height: 50vh;
+
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    font-size: 50px;
+                }
             }
         }
 
-    }
 
+
+    }
+}
+
+@media (min-width: 355px) and (max-width: 450px) {
+
+    .faq-main {
+        .hero-image {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    font-size: 40px;
+                }
+
+                p {
+                    display: none;
+                }
+            }
+
+            .image {
+                display: none;
+            }
+        }
+    }
 }

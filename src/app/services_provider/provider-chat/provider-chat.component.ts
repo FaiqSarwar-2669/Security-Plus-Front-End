@@ -104,8 +104,10 @@ export class ProviderChatComponent implements OnInit {
   sendMessage() {
     const messageData = {
       receiver_id: this.receiverId,
+      sender_id: this.currentUserId,
       message: this.newMessage,
-      created_at:new Date().toISOString()
+      created_at:new Date().toISOString(),
+      seen: false
     };
 
     this.chatS.sendMessage(this.chatId,messageData).then(() =>{

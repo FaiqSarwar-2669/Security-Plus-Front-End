@@ -18,9 +18,9 @@ export class ChatclientComponent implements OnInit {
   newMessage: any
   messages: any
   currentUserId: any;
-  chatId:string = ''
-  selectedUser:any = {}
-  constructor(private services: Service,private chatS:ChatService) {
+  chatId: string = ''
+  selectedUser: any = {}
+  constructor(private services: Service, private chatS: ChatService) {
 
   }
 
@@ -30,7 +30,7 @@ export class ChatclientComponent implements OnInit {
       next: (conversations) => {
         console.log(conversations)
         this.chatMembers = conversations
-      },error:(err) =>{
+      }, error: (err) => {
         console.error(err)
       }
     })
@@ -117,21 +117,21 @@ export class ChatclientComponent implements OnInit {
     let currentUser = JSON.parse(localStorage.getItem('user') || '')
     // this.setuppusher();
     // this.setupEcho();
-    this.chatId = currentUser.id+user.id
+    this.chatId = currentUser.id + user.id
     this.getMessageChat(this.chatId);
     // const data = this.chatMembers.find((member: any) => member.id === id);
     // this.chatHeaderProfile = data.profile
     // this.chatHeadername = data.name
   }
 
-  getMessageChat(chatId:string) {
-    
+  getMessageChat(chatId: string) {
+
     this.chatS.getChat(chatId).subscribe({
-      next:(chat) =>{
+      next: (chat) => {
         console.log(chat)
         this.messages = chat
       },
-      error:(err) =>{
+      error: (err) => {
         console.error(err)
       }
     })
@@ -146,11 +146,13 @@ export class ChatclientComponent implements OnInit {
   sendMessage() {
     const messageData = {
       receiver_id: this.receiverId,
+      sender_id: this.currentUserId,
       message: this.newMessage,
-      created_at:new Date().toISOString()
+      created_at: new Date().toISOString(),
+      seen: false
     };
 
-    this.chatS.sendMessage(this.chatId,messageData).then(() =>{
+    this.chatS.sendMessage(this.chatId, messageData).then(() => {
       this.newMessage = ''
     })
 

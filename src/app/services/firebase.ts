@@ -36,4 +36,10 @@ export class ChatService {
     return this.db.database.ref(this.conversationsPath).child(userId).orderByChild('id').equalTo(targetUserId)
   }
 
+  getUnseenMessageCountForChat(chatId: string): Observable<number> {
+    return this.db.list(`${this.chatPath}/${chatId}`, ref => ref.orderByChild('seen').equalTo(false))
+      .valueChanges()
+      .pipe(map(messages => messages.length));
+  }
+
 }

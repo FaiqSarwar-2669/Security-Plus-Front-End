@@ -22,8 +22,8 @@ export class MakeFormComponent {
         for (let i = 0; i < data.length; i++) {
           this.createInputField(data[i]);
         }
-        this.newJsonArray = data; 
-
+        this.newJsonArray = data;
+        this.idCounter = data.length + 1
         console.log(data)
       }
     }).catch((err: any) => {
@@ -76,7 +76,7 @@ export class MakeFormComponent {
             "type": "Image",
             "id": "",
             "title": "Image Title",
-            "data": File,
+            "data": "",
           }
         ]
       }
@@ -86,18 +86,30 @@ export class MakeFormComponent {
 
   Save() {
     console.log(this.newJsonArray);
-    let found: boolean = false;
+    let foundButton = false;
+    let foundEmail = false;
     for (let i = 0; i < this.newJsonArray.length; i++) {
       if (this.newJsonArray[i].type === 'Button') {
-        found= true;
-        break;
+        foundButton = true;
+      }
+      if (this.newJsonArray[i].Type === 'email') {
+        foundEmail = true;
       }
     }
-    if (!found) {
-      alert("Button not found!!!!!");
-      return
+    if (!foundButton) {
+      Swal.fire({
+        icon: 'error',
+        text: "Button not found!!!!!"
+      })
+      return;
     }
-
+    if (!foundEmail) {
+      Swal.fire({
+        icon: 'error',
+        text: "Enter at least one email field"
+      })
+      return;
+    }
     this.services.addAndUpdateform(this.newJsonArray).then((res: any) => {
       if (res && res.message) {
         Swal.fire({
@@ -160,6 +172,65 @@ export class MakeFormComponent {
     }
   }
 
+  labelStyling(label: HTMLElement) {
+    label.style.marginLeft = '10px';
+    label.style.fontWeight = 'bold';
+    label.style.color = '#4C489D';
+    label.style.fontSize = '16px';
+    return label
+  }
+
+  inputStyling(input: HTMLElement) {
+    input.style.height = '35px';
+    input.style.border = 'none';
+    input.style.borderBottom = '2px solid #D1D1D4';
+    input.style.outline = 'none';
+    input.style.color = 'gray';
+    input.style.background = 'none';
+    input.style.borderRadius = '26px';
+    input.style.padding = '10px';
+    input.style.width = '100%';
+    input.style.boxShadow = 'inset 2px 2px 5px rgba(0, 0, 0, 0.2)';
+    input.style.transition = '.2s';
+    return input
+  }
+
+  selectStyling(select: HTMLElement) {
+    select.style.width = '100%';
+    select.style.padding = '8px 16px';
+    select.style.fontSize = '16px';
+    select.style.borderRadius = '26px';
+    select.style.border = '2px solid #4C489D';
+    select.style.borderRadius = '8px';
+    select.style.backgroundColor = '#f8f8f8';
+    select.style.color = 'gray';
+    select.style.boxShadow = 'inset 2px 2px 5px rgba(0, 0, 0, 0.2)';
+    select.style.appearance = 'none';
+    select.style.backgroundImage = 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 140 140\'%3E%3Cpolyline points=\'15,50 70,105 125,50\' stroke=\'%234C489D\' stroke-width=\'20\' fill=\'none\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E")';
+    select.style.backgroundRepeat = 'no-repeat';
+    select.style.backgroundPosition = 'right 16px center';
+    select.style.backgroundSize = '16px';
+    select.style.transition = 'all 0.3s ease';
+    select.style.cursor = 'pointer';
+    return select;
+  }
+
+  styledButton(button: HTMLElement) {
+    button.style.padding = '12px 24px';
+    button.style.fontSize = '16px';
+    button.style.fontWeight = 'bold';
+    button.style.color = 'white';
+    button.style.backgroundColor = '#4C489D';
+    button.style.border = 'none';
+    button.style.borderRadius = '8px';
+    button.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    button.style.cursor = 'pointer';
+    button.style.transition = 'all 0.3s ease';
+    return button
+  }
+
+
+
   //Update the data of specific element of html tags
   upDateSpecificElement(element: any) {
     let formElement: HTMLInputElement | HTMLLabelElement | HTMLDivElement | HTMLButtonElement | undefined;
@@ -174,8 +245,9 @@ export class MakeFormComponent {
       const lineBreak = document.createElement('br');
       const label = document.createElement('label');
       label.innerText = 'Enter label Name';
+      this.labelStyling(label)
       const input = document.createElement('input');
-      input.style.height = '25px';
+      this.inputStyling(input)
       input.value = element.text;
       input.addEventListener('input', (event) => {
         element.text = (event.target as HTMLInputElement).value;
@@ -188,18 +260,22 @@ export class MakeFormComponent {
       const lineBreak = document.createElement('br');
       const label = document.createElement('label');
       label.innerText = 'Enter the placeholder';
+      this.labelStyling(label)
       const input = document.createElement('input');
-      input.style.height = '25px';
+      this.inputStyling(input)
       input.value = element.placeholder;
       const label_2 = document.createElement('label');
+      this.labelStyling(label_2)
       label_2.innerText = 'This field is required or not';
       const select = document.createElement('select');
+      this.selectStyling(select)
       const options = ['', 'Required', 'Not Required'];
       const label_3 = document.createElement('label');
+      this.labelStyling(label_3)
       label_3.innerText = 'Set the type of Input';
       const type = ['text', 'email', 'password'];
       const selectType = document.createElement('select');
-      selectType.style.height = '25px';
+      this.selectStyling(selectType)
       type.forEach(element => {
         const option = document.createElement('option');
         option.setAttribute('value', element);
@@ -213,7 +289,6 @@ export class MakeFormComponent {
         option.textContent = optionText;
         select.appendChild(option);
       });
-      select.style.height = '25px';
       select.addEventListener('change', (event) => {
         element.required = (event.target as HTMLSelectElement).value;
         this.UpdatedSpace(this.newJsonArray);
@@ -241,8 +316,9 @@ export class MakeFormComponent {
       const lineBreak = document.createElement('br');
       const label = document.createElement('label');
       label.innerText = 'Enter Button Name';
+      this.labelStyling(label)
       const input = document.createElement('input');
-      input.style.height = '25px';
+      this.inputStyling(input)
       input.value = element.text;
       input.addEventListener('input', (event) => {
         element.text = (event.target as HTMLSelectElement).value;
@@ -254,30 +330,35 @@ export class MakeFormComponent {
     } else if (element.type === 'Checkbox') {
       const lineBreak = document.createElement('br');
       const label = document.createElement('label');
+      this.labelStyling(label)
       label.innerText = 'Writer the question of this Check-Box';
       const input = document.createElement('input');
-      input.style.height = '25px';
+      this.inputStyling(input)
       input.value = element.text;
       const label_1 = document.createElement('label');
       label_1.innerText = 'Write the content of first Check-Box';
+      this.labelStyling(label_1)
       const input_1 = document.createElement('input');
-      input_1.style.height = '25px';
+      this.inputStyling(input_1)
       input_1.value = element.value1;
       const label_2 = document.createElement('label');
       label_2.innerText = 'Write the content of second Check-Box';
+      this.labelStyling(label_2)
       const input_2 = document.createElement('input');
-      input_2.style.height = '25px';
       input_2.value = element.value2
+      this.inputStyling(input_2)
       const label_3 = document.createElement('label');
       label_3.innerText = 'Write the content of third Check-Box';
+      this.labelStyling(label_3)
       const input_3 = document.createElement('input');
-      input_3.style.height = '25px';
       input_3.value = element.value3
+      this.inputStyling(input_3)
       const label_4 = document.createElement('label');
       label_4.innerText = 'Write the content of fourth Check-Box';
+      this.labelStyling(label_4)
       const input_4 = document.createElement('input');
-      input_4.style.height = '25px';
       input_4.value = element.value4
+      this.inputStyling(input_4)
       input.addEventListener('input', (event) => {
         element.text = (event.target as HTMLSelectElement).value;
         this.UpdatedSpace(this.newJsonArray);
@@ -321,24 +402,28 @@ export class MakeFormComponent {
     } else if (element.type === 'Radio Button') {
       const lineBreak = document.createElement('br');
       const label = document.createElement('label');
+      this.labelStyling(label)
       label.innerText = 'Writer the question of this Radio button';
       const input = document.createElement('input');
-      input.style.height = '25px';
+      this.inputStyling(input)
       input.value = element.text;
       const label_1 = document.createElement('label');
       label_1.innerText = 'Write the content of first radio button';
+      this.labelStyling(label_1)
       const input_1 = document.createElement('input');
-      input_1.style.height = '25px';
       input_1.value = element.value1;
+      this.inputStyling(input_1)
       const label_2 = document.createElement('label');
       label_2.innerText = 'Write the content of second radio button';
+      this.labelStyling(label_2)
       const input_2 = document.createElement('input');
-      input_2.style.height = '25px';
+      this.inputStyling(input_2)
       input_2.value = element.value2
       const label_3 = document.createElement('label');
       label_3.innerText = 'Write the content of third radio button';
+      this.labelStyling(label_3)
       const input_3 = document.createElement('input');
-      input_3.style.height = '25px';
+      this.inputStyling(input_3)
       input_3.value = element.value3
       input.addEventListener('input', (event) => {
         element.text = (event.target as HTMLSelectElement).value;
@@ -376,6 +461,7 @@ export class MakeFormComponent {
     if (formElement) {
       const button = document.createElement('button');
       button.innerText = 'delete';
+      this.styledButton(button)
       button.addEventListener('click', (event) => {
         const item = this.newJsonArray.findIndex(obj => obj.id === element.id);
         if (item) {
@@ -393,7 +479,7 @@ export class MakeFormComponent {
 
   // Create the instance of html elements
   createInputField(data: any) {
-    let inputElement: HTMLInputElement | HTMLButtonElement | HTMLLabelElement | HTMLDivElement | undefined;
+    let inputElement: HTMLInputElement | HTMLButtonElement | HTMLLabelElement | HTMLDivElement | HTMLImageElement | undefined;
     const workingSpace = document.querySelector('.working-space');
     const workingSpace2 = document.querySelector('.working-space-2');
     const submit = document.getElementById('saveButton');
@@ -409,13 +495,14 @@ export class MakeFormComponent {
       inputElement.setAttribute('type', 'text');
       inputElement.setAttribute('placeholder', data.placeholder);
       inputElement.setAttribute('id', data.id);
-      inputElement.style.height = '25px';
+      this.inputStyling(inputElement)
     } else if (data.type === 'Checkbox') {
       inputElement = document.createElement('div');
       inputElement.setAttribute('id', data.id);
       const lineBreak = document.createElement('br');
       const textofcheckbox = document.createElement('label');
       textofcheckbox.innerText = data.text;
+      this.labelStyling(textofcheckbox)
       inputElement.appendChild(textofcheckbox);
       inputElement.appendChild(lineBreak);
       for (let i = 1; i <= 4; i++) {
@@ -425,6 +512,7 @@ export class MakeFormComponent {
         const label = document.createElement('label');
         label.innerText = data['value' + i];
         label.style.marginLeft = '10px';
+        this.labelStyling(label)
         inputElement.appendChild(checkbox);
         inputElement.appendChild(label);
         inputElement.appendChild(lineBreak);
@@ -435,6 +523,7 @@ export class MakeFormComponent {
       const lineBreak = document.createElement('br');
       const textofcheckbox = document.createElement('label');
       textofcheckbox.innerText = data.text;
+      this.labelStyling(textofcheckbox)
       inputElement.appendChild(textofcheckbox);
       inputElement.appendChild(lineBreak);
       for (let i = 1; i <= 3; i++) {
@@ -442,6 +531,7 @@ export class MakeFormComponent {
         const radiobox = document.createElement('input');
         radiobox.setAttribute('type', 'radio');
         const label = document.createElement('label');
+        this.labelStyling(label)
         label.innerText = data['value' + i];
         radiobox.style.marginLeft = '10px';
         inputElement.appendChild(radiobox);
@@ -450,22 +540,30 @@ export class MakeFormComponent {
     } else if (data.type === 'Button') {
       const existingButton = workingSpace.querySelector('button');
       if (existingButton) {
-        alert("You can only add One button");
+        Swal.fire({
+          icon: 'error',
+          text: 'You can only add One button'
+        })
         return;
       } else {
         inputElement = document.createElement('button');
         inputElement.innerText = data.text;
+        this.styledButton(inputElement)
         inputElement.setAttribute('id', data.id);
       }
 
     } else if (data.type === 'Label') {
       inputElement = document.createElement('label');
       inputElement.innerText = data.text;
+      this.labelStyling(inputElement)
       inputElement.setAttribute('id', data.id);
     } else if (data.type === 'Image') {
       const existingImage = workingSpace.querySelector('img');
       if (existingImage) {
-        alert("You can only add one image");
+        Swal.fire({
+          icon: 'error',
+          text: 'You can only add one image'
+        })
         return;
       } else {
         inputElement = document.createElement('img');
@@ -502,22 +600,25 @@ export class MakeFormComponent {
 
       if (data.type === 'Input') {
         inputElement = document.createElement('input');
+        this.inputStyling(inputElement)
         inputElement.setAttribute('type', data.Type);
         inputElement.setAttribute('placeholder', data.placeholder);
         inputElement.setAttribute('id', data.id);
-        inputElement.style.height = '25px';
       } else if (data.type === 'Button') {
         inputElement = document.createElement('button');
+        this.styledButton(inputElement)
         inputElement.innerText = data.text;
         inputElement.setAttribute('id', data.id);
       } else if (data.type === 'Label') {
         inputElement = document.createElement('label');
+        this.labelStyling(inputElement)
         inputElement.innerText = data.text;
         inputElement.setAttribute('id', data.id);
       } else if (data.type === 'Checkbox') {
         inputElement = document.createElement('div');
         inputElement.setAttribute('id', data.id);
         const textofcheckbox = document.createElement('label');
+        this.labelStyling(textofcheckbox)
         textofcheckbox.innerText = data.text;
         inputElement.appendChild(textofcheckbox);
         for (let i = 1; i <= 4; i++) {
@@ -525,6 +626,7 @@ export class MakeFormComponent {
           const checkbox = document.createElement('input');
           checkbox.setAttribute('type', 'checkbox');
           const label = document.createElement('label');
+          this.labelStyling(label)
           label.innerText = data['value' + i];
           label.style.marginLeft = '10px';
           inputElement.appendChild(lineBreak);
@@ -537,6 +639,7 @@ export class MakeFormComponent {
         inputElement.setAttribute('id', data.id);
         const lineBreak = document.createElement('br');
         const textofcheckbox = document.createElement('label');
+        this.labelStyling(textofcheckbox)
         textofcheckbox.innerText = data.text;
         inputElement.appendChild(textofcheckbox);
         inputElement.appendChild(lineBreak);
@@ -544,6 +647,7 @@ export class MakeFormComponent {
           const radiobox = document.createElement('input');
           radiobox.setAttribute('type', 'radio');
           const label = document.createElement('label');
+          this.labelStyling(label)
           label.innerText = data['value' + i];
           radiobox.style.marginLeft = '10px';
           inputElement.appendChild(radiobox);
