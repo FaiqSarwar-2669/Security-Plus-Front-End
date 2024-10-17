@@ -123,7 +123,7 @@ export class AdmindashboardComponent {
       data: {
         datasets: [
           {
-            label: 'Abdur Rehman',
+            label: 'Qasim Farooq',
             data: this.data1.map((item) => item.count),
             backgroundColor: [
               '#55efc4',
@@ -157,7 +157,7 @@ export class AdmindashboardComponent {
           {
             label: 'Abdur Rehman',
             data: this.data.map((item) => item.count),
-            backgroundColor: 'rgba(54, 162, 235, 0.5)', // Example background color
+            backgroundColor: 'rgba(54, 162, 235, 0.5)', 
             borderColor: 'rgba(54, 162, 235, 1)', // Example border color
             borderWidth: 1,
           },
@@ -195,7 +195,7 @@ export class AdmindashboardComponent {
             data: this.data.map((item) => item.count),
             backgroundColor: 'rgba(54, 162, 235, 0.5)', // Example background color
             borderColor: 'rgba(54, 162, 235, 1)', // Example border color
-            borderWidth: 1,
+            borderWidth: 5,
           },
         ],
       },
