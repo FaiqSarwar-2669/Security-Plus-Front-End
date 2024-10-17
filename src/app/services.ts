@@ -5,7 +5,7 @@ import { registration, login, forgetPassword } from "./models/model";
 @Injectable({ providedIn: "root" })
 export class Service {
 
-  baseUrl = 'http://127.0.0.1:8000/api/';
+  baseUrl = 'https://www.securityplus.live/api/';
 
   Heads = new HttpHeaders({
     'Accept': 'application/json'
@@ -58,6 +58,22 @@ export class Service {
     return new Promise((resolve, reject) => {
       this.http
         .post(this.baseUrl + 'jobAppication/', formdata, { headers: this.Heads })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  uploadImage(formdata: FormData) {
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'ApplicationImage/', formdata, { headers: this.Heads })
         .pipe()
         .subscribe({
           next: (res) => {

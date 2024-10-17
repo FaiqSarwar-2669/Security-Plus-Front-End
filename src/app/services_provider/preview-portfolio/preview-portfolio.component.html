@@ -6,16 +6,23 @@
             <i class="fa-solid fa-angle-right"></i>
             <label>Preview Portfolio</label>
         </div>
-        <div class="main-banner">
-            <img [src]="selectedImg1" alt="" />
-        </div>
-        <div class="main-page-content">
-            <div class="company-image">
-                <img [src]="selectedImg" alt="">
+        <ng-container *ngIf="responcedata && responcedata.length > 0; else noReviewsTemplate">
+            <div class="main-banner">
+                <img [src]="selectedImg1" alt="" />
             </div>
-        </div>
-        <div class="htmlcontent" [innerHTML]="htmlContent">
-            <h1>hello</h1>
-        </div>
+            <div class="main-page-content">
+                <div class="company-image">
+                    <img [src]="selectedImg" alt="">
+                </div>
+            </div>
+            <div class="htmlcontent" [innerHTML]="htmlContent">
+                <h1>hello</h1>
+            </div>
+        </ng-container>
+        <ng-template #noReviewsTemplate>
+            <div class="no-reviews-message">
+                <p>No Portfolio exists make a Portfolio first</p>
+            </div>
+        </ng-template>
     </div>
 </div>

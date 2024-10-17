@@ -13,13 +13,15 @@ export class ProviderChatComponent implements OnInit {
 
   chatMembers: any
   chatHeaderProfile: any
+  filteredChatMembers: any
   chatHeadername: any
   receiverId: any
   newMessage: any
   messages: any
   currentUserId: any;
-  chatId:string = ''
-  selectedUser:any = {}
+  chatId: string = ''
+  searchTerm: any
+  selectedUser: any = {}
   constructor(private services: Service,
     private chatS: ChatService
   ) {
@@ -30,8 +32,9 @@ export class ProviderChatComponent implements OnInit {
     this.currentUserId = Number(localStorage.getItem('UserID'));
     this.chatS.getConverstions(this.currentUserId).subscribe({
       next: (conversations) => {
+        this.filteredChatMembers = conversations;
         this.chatMembers = conversations
-      },error:(err) =>{
+      }, error: (err) => {
         console.error(err)
       }
     })
@@ -44,6 +47,17 @@ export class ProviderChatComponent implements OnInit {
     // })
   }
 
+  filterChatMembers() {
+    if (this.searchTerm.trim() === '') {
+      this.chatMembers = this.filteredChatMembers
+      console.log("empty search")
+    } else {
+      this.chatMembers = this.chatMembers.filter((member: any) =>
+        member.bussines_name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  }
+
   specificUser(user: any) {
     console.log(user)
     this.selectedUser = user
@@ -51,7 +65,7 @@ export class ProviderChatComponent implements OnInit {
     let currentUser = JSON.parse(localStorage.getItem('user') || '')
     // this.setuppusher();
     // this.setupEcho();
-    this.chatId =user.id + currentUser.id
+    this.chatId = user.id + currentUser.id
     this.getMessageChat(this.chatId);
   }
 
@@ -104,11 +118,13 @@ export class ProviderChatComponent implements OnInit {
   sendMessage() {
     const messageData = {
       receiver_id: this.receiverId,
+      sender_id: this.currentUserId,
       message: this.newMessage,
-      created_at:new Date().toISOString()
+      created_at: new Date().toISOString(),
+      seen: false
     };
 
-    this.chatS.sendMessage(this.chatId,messageData).then(() =>{
+    this.chatS.sendMessage(this.chatId, messageData, this.currentUserId, this.receiverId).then(() => {
       this.newMessage = ''
     })
 
@@ -122,13 +138,13 @@ export class ProviderChatComponent implements OnInit {
   }
 
 
-  getMessageChat(chatId:string) {
-    this.chatS.getChat(chatId).subscribe({
-      next:(chat) =>{
+  getMessageChat(chatId: string) {
+    this.chatS.getChat(chatId, this.currentUserId, this.receiverId).subscribe({
+      next: (chat) => {
         console.log(chat)
         this.messages = chat
       },
-      error:(err) =>{
+      error: (err) => {
         console.error(err)
       }
     })

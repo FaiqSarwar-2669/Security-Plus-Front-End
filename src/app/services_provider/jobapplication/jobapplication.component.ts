@@ -48,6 +48,7 @@ export class JobapplicationComponent implements OnInit {
       }
     })
   }
+  
   Rejected(id: any) {
     this.services.rejectJobApplication(id).then((res: any) => {
       if (res && res.message) {
@@ -66,6 +67,7 @@ export class JobapplicationComponent implements OnInit {
       }
     })
   }
+
   async view(id: any) {
     console.log(id)
     const modal = await this.modalController.create({

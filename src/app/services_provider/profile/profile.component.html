@@ -40,7 +40,7 @@
                             </label>
 
                             <label for="address" *ngIf="access == 0">
-                                <p style="margin-bottom: 7px;"> Cnic Number </p>
+                                <p style="margin-bottom: 7px;"> Company Registeration Number </p>
                                 <input type="text" name="address" id="address" placeholder="Enter your Address"
                                     [(ngModel)]="profiledata.cnic">
                             </label>
@@ -88,7 +88,7 @@
                     </section>
                     <hr>
                     <section class="certificate-vefication" *ngIf="access == 0">
-                        <h3>Upload the company registeration certificate (Optional)</h3>
+                        <h3>Upload the company registeration certificate (Required)</h3>
                         <div class="certificate-pic">
                             <img [src]="certificateimage" alt="">
                             <i class="fa-solid fa-camera" (click)="certPic()"></i>

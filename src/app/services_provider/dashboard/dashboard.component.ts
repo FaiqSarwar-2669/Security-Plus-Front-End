@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
       this.onduty = res.duty;
       this.available = res.remaining;
       this.contracts = res.totalcontract;
+      console.log(res)
     }).catch((err: any) => {
       console.log(err)
     })

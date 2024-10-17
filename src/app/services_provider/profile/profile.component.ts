@@ -92,6 +92,10 @@ export class ProfileComponent implements OnInit {
         this.ngOnInit()
       }).catch((err: any) => {
         console.log(err)
+        Swal.fire({
+          icon: 'error',
+          title: err.errors.error
+        });
       })
     }
   }

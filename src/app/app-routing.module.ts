@@ -43,6 +43,9 @@ import { ViewOrganizationsComponent } from './Admin/view-organizations/view-orga
 import { ViewJobApplicationComponent } from './Modaal/view-job-application/view-job-application.component';
 import { GuardsClientComponent } from './client/guards-client/guards-client.component';
 import { AttendenceComponent } from './client/attendence/attendence.component';
+import { ReviewsComponent } from './services_provider/reviews/reviews.component';
+import { TeamMemberComponent } from './Component/team-member/team-member.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,7 +65,7 @@ const routes: Routes = [
   { path: 'company-detal', component: CompanydetailComponent },
   { path: 'form', component: JobFormComponent },
 
-  { path: 'test', component: ViewJobApplicationComponent },
+  { path: 'test', component: TeamMemberComponent },
 
   
   
@@ -80,6 +83,7 @@ const routes: Routes = [
   { path: 'register-guards', component: RegisterGuardsComponent },
   { path: 'guards-data', component: GuardsDataComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'review', component: ReviewsComponent },
 
   // for admin
   { path: 'admin/dashboard', component: AdmindashboardComponent },

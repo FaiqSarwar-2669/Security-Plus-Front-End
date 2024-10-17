@@ -58,6 +58,8 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { ChatService } from './services/firebase';
 import { AttendenceComponent } from './client/attendence/attendence.component';
+import { TeamMemberComponent } from './Component/team-member/team-member.component';
+import { ReviewsComponent } from './services_provider/reviews/reviews.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0vwv6U3qMdNZBVCuOzbZNZlPYaQRNFAw",
@@ -119,6 +121,8 @@ const firebaseConfig = {
     GuardsClientComponent,
     ViewGuardsComponent,
     AttendenceComponent,
+    TeamMemberComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

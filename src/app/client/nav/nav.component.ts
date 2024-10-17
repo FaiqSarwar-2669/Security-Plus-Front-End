@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class NavComponent {
   selectedImg: string = "../../../assets/default.png";
-  name:any
+  name: any
   access: any
   constructor(private services: Service, private routes: Router) {
     this.access = localStorage.getItem('activation')
     this.services.getsidebar().then((res: any) => {
-      console.log(res);
+      // console.log(res);
       if (res) {
         this.selectedImg = res.pic ? res.pic : this.selectedImg;
         this.name = res.name
@@ -28,8 +28,8 @@ export class NavComponent {
         })
       }
     })
-let profileData:any = {}
-    this.services.getClient().then((res:any)=>{
+    let profileData: any = {}
+    this.services.getClient().then((res: any) => {
       profileData.id = res.data.id
       profileData.bussines_name = res.data.bussiness_owner
       profileData.first_name = res.data.bussiness_fname
@@ -48,7 +48,7 @@ let profileData:any = {}
       profileData.image = res.data.profile
       console.clear()
       console.log(profileData)
-      localStorage.setItem('user',JSON.stringify(profileData))
+      localStorage.setItem('user', JSON.stringify(profileData))
 
     })
   }

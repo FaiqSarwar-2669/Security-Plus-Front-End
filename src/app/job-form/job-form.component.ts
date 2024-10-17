@@ -15,11 +15,12 @@ export class JobFormComponent implements OnInit {
   formContent: FormContent[] = []
   error: boolean[] = []
   selectedImg: any = "../../../assets/default.png"
+  defaultImagIntoFile: any
   ImageFile: any
 
   constructor(
     private services: Service,
-    private routes:Router
+    private routes: Router
   ) {
   }
 
@@ -27,10 +28,32 @@ export class JobFormComponent implements OnInit {
     this.services.getForm().then((res: any) => {
       this.formContent = JSON.parse(res.data[0].form_content)
       this.error = new Array(this.formContent.length).fill(false);
-      console.log(this.error)
+      console.log(this.formContent)
     }).catch((err: any) => {
       console.log(err)
     })
+    this.convertImageToFile(this.selectedImg)
+  }
+
+
+  async convertImageToFile(imageUrl: string) {
+    return fetch(imageUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.blob();
+      })
+      .then(blob => {
+        const fileName = 'image.jpeg';
+        const file = new File([blob], fileName, { type: 'image/jpeg' });
+        this.ImageFile = file
+        return file;
+      })
+      .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+        throw error;
+      });
   }
 
 
@@ -78,6 +101,7 @@ export class JobFormComponent implements OnInit {
       console.log(this.ImageFile);
     }
   }
+
   base64ToBlob(base64: any, type: string) {
     const byteCharacters = atob(base64);
     const byteArrays = [];
@@ -112,28 +136,56 @@ export class JobFormComponent implements OnInit {
       }
     }
     if (!hasError) {
-      const formdata = new FormData()
-      const id = localStorage.getItem("FormID")
-      formdata.append('id', id!)
-      formdata.append('Form', JSON.stringify(this.formContent))
-      this.services.uploadApplication(formdata).then((res: any) => {
-        if (res.message) {
-          Swal.fire({
-            icon: "success",
-            title: res.message,
+      let foundimage = false;
+      for (let i = 0; i < this.formContent.length; i++) {
+        if (this.formContent[i].type === 'Image') {
+          foundimage = true;
+        }
+      }
+      if (foundimage) {
+        const formdata = new FormData()
+        formdata.append('image', this.ImageFile)
+        console.log(formdata)
+        this.services.uploadImage(formdata).then((res: any) => {
+          this.formContent.forEach(item => {
+            if (item.type === 'Image') {
+              item.data = res.data;
+            }
           });
-          this.routes.navigate(['/companies'])
-        }
-      }).catch((err: any) => {
-        if (err && err.error) {
-          Swal.fire({
-            icon: 'error',
-            title: err.error.error
-          })
-        }
-      })
-
+          console.log(res)
+          this.submit()
+        }).catch((err: any) => {
+          console.log(err)
+        })
+      } else {
+        this.submit()
+      }
     }
   }
+
+  submit() {
+    const formdata = new FormData()
+    const id = localStorage.getItem("FormID")
+    formdata.append('id', id!)
+    formdata.append('Form', JSON.stringify(this.formContent))
+    this.services.uploadApplication(formdata).then((res: any) => {
+      if (res.message) {
+        Swal.fire({
+          icon: "success",
+          title: res.message,
+        });
+        this.routes.navigate(['/companies'])
+      }
+    }).catch((err: any) => {
+      if (err && err.error) {
+        Swal.fire({
+          icon: 'error',
+          title: err.error.error
+        })
+      }
+    })
+  }
 }
+
+
 
