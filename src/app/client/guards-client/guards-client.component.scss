@@ -72,7 +72,8 @@
                             tr {
                                 width: 100%;
 
-                                td,th {
+                                td,
+                                th {
                                     padding: 5px;
                                     text-align: center;
                                     border-bottom: 1px solid #adacac;
@@ -84,6 +85,17 @@
                     }
 
                 }
+            }
+
+            .no-reviews-message {
+                text-align: center;
+                margin: 20px 0;
+                color: #4C489D;
+                font-size: 18px;
+                background-color: #f9f9f9;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
         }
     }

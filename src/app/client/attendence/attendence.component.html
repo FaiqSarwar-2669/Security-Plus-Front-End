@@ -22,163 +22,170 @@
                         <label>On Duty Guards</label>
                     </div>
                     <div class="data">
-                        <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>Alert 1</th>
-                                <th>Alert 2</th>
-                                <th>Alert 3</th>
-                                <th>Alert 4</th>
-                                <th>Alert 5</th>
-                                <th>Percentage</th>
-                            </tr>
-                            <tr *ngFor="let attendance of displayattendence">
-                                <td>{{ attendance.Name }}</td>
-                                <td>
-                                    <ng-container *ngIf="attendance.Alert1 === 'present'; else crossIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#c8e6c9"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#4caf50"
-                                                d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
-                                            </path>
-                                        </svg>
-                                    </ng-container>
-                                    <ng-template #crossIcon>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#f44336"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
-                                            </path>
-                                        </svg>
-                                    </ng-template>
-                                </td>
-                                <td>
-                                    <ng-container *ngIf="attendance.Alert2 === 'present'; else crossIcon2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#c8e6c9"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#4caf50"
-                                                d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
-                                            </path>
-                                        </svg>
-                                    </ng-container>
-                                    <ng-template #crossIcon2>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#f44336"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
-                                            </path>
-                                        </svg>
-                                    </ng-template>
-                                </td>
-                                <td>
-                                    <ng-container *ngIf="attendance.Alert3 === 'present'; else crossIcon3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#c8e6c9"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#4caf50"
-                                                d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
-                                            </path>
-                                        </svg>
-                                    </ng-container>
-                                    <ng-template #crossIcon3>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#f44336"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
-                                            </path>
-                                        </svg>
-                                    </ng-template>
-                                </td>
-                                <td>
-                                    <ng-container *ngIf="attendance.Alert4 === 'present'; else crossIcon4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#c8e6c9"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#4caf50"
-                                                d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
-                                            </path>
-                                        </svg>
-                                    </ng-container>
-                                    <ng-template #crossIcon4>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#f44336"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
-                                            </path>
-                                        </svg>
-                                    </ng-template>
-                                </td>
-                                <td>
-                                    <ng-container *ngIf="attendance.Alert5 === 'present'; else crossIcon5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#c8e6c9"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#4caf50"
-                                                d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
-                                            </path>
-                                        </svg>
-                                    </ng-container>
-                                    <ng-template #crossIcon5>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                                            viewBox="0 0 48 48">
-                                            <path fill="#f44336"
-                                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
-                                            </path>
-                                            <path fill="#fff"
-                                                d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
-                                            </path>
-                                        </svg>
-                                    </ng-template>
-                                </td>
-                                <td>
-                                    <ng-container *ngIf="attendance.Percentage != ''; else crossIcon6">
-                                        {{ attendance.Percentage }}%
-                                    </ng-container>
-                                    <ng-template #crossIcon6>
-                                        0%
-                                    </ng-template>
-                                </td>
-                            </tr>
-                        </table>
+                        <ng-container *ngIf="displayattendence && displayattendence.length > 0; else noReviewsTemplate">
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Alert 1</th>
+                                    <th>Alert 2</th>
+                                    <th>Alert 3</th>
+                                    <th>Alert 4</th>
+                                    <th>Alert 5</th>
+                                    <th>Percentage</th>
+                                </tr>
+                                <tr *ngFor="let attendance of displayattendence">
+                                    <td>{{ attendance.Name }}</td>
+                                    <td>
+                                        <ng-container *ngIf="attendance.Alert1 === 'present'; else crossIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#c8e6c9"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#4caf50"
+                                                    d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
+                                                </path>
+                                            </svg>
+                                        </ng-container>
+                                        <ng-template #crossIcon>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#f44336"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
+                                                </path>
+                                            </svg>
+                                        </ng-template>
+                                    </td>
+                                    <td>
+                                        <ng-container *ngIf="attendance.Alert2 === 'present'; else crossIcon2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#c8e6c9"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#4caf50"
+                                                    d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
+                                                </path>
+                                            </svg>
+                                        </ng-container>
+                                        <ng-template #crossIcon2>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#f44336"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
+                                                </path>
+                                            </svg>
+                                        </ng-template>
+                                    </td>
+                                    <td>
+                                        <ng-container *ngIf="attendance.Alert3 === 'present'; else crossIcon3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#c8e6c9"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#4caf50"
+                                                    d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
+                                                </path>
+                                            </svg>
+                                        </ng-container>
+                                        <ng-template #crossIcon3>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#f44336"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
+                                                </path>
+                                            </svg>
+                                        </ng-template>
+                                    </td>
+                                    <td>
+                                        <ng-container *ngIf="attendance.Alert4 === 'present'; else crossIcon4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#c8e6c9"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#4caf50"
+                                                    d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
+                                                </path>
+                                            </svg>
+                                        </ng-container>
+                                        <ng-template #crossIcon4>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#f44336"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
+                                                </path>
+                                            </svg>
+                                        </ng-template>
+                                    </td>
+                                    <td>
+                                        <ng-container *ngIf="attendance.Alert5 === 'present'; else crossIcon5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#c8e6c9"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#4caf50"
+                                                    d="M34.586,14.586l-13.57,13.586l-5.602-5.586l-2.828,2.828l8.434,8.414l16.395-16.414L34.586,14.586z">
+                                                </path>
+                                            </svg>
+                                        </ng-container>
+                                        <ng-template #crossIcon5>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                                                height="30" viewBox="0 0 48 48">
+                                                <path fill="#f44336"
+                                                    d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
+                                                </path>
+                                            </svg>
+                                        </ng-template>
+                                    </td>
+                                    <td>
+                                        <ng-container *ngIf="attendance.Percentage != ''; else crossIcon6">
+                                            {{ attendance.Percentage }}%
+                                        </ng-container>
+                                        <ng-template #crossIcon6>
+                                            0%
+                                        </ng-template>
+                                    </td>
+                                </tr>
+                            </table>
+                        </ng-container>
+                        <ng-template #noReviewsTemplate>
+                            <div class="no-reviews-message">
+                                <p>No Guards On Duty</p>
+                            </div>
+                        </ng-template>
                     </div>
                 </div>
             </div>

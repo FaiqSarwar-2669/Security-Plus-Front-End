@@ -29,39 +29,54 @@
                         <label>Remaing Guards</label>
                     </div>
                     <div class="data">
-                        <table>
-                            <tr *ngFor="let items of guardsArray">
-                                <td>{{items.First_Name}} <span>{{items.Last_Name}}</span></td>
-                                <td>{{items.Mobile_Number}}</td>
-                                <td>{{items.Email}}</td>
-                                <td>
-                                    <button class="btn view-btn" (click)="view(items.id)">View</button>
-                                    <button class="btn deactivate-btn" (click)="fired(items.id)">Fired</button>
-                                </td>
-                            </tr>
-                        </table>
+                        <ng-container *ngIf="guardsArray && guardsArray.length > 0; else noReviewsTemplate">
+                            <table>
+                                <tr *ngFor="let items of guardsArray">
+                                    <td>{{items.First_Name}} <span>{{items.Last_Name}}</span></td>
+                                    <td>{{items.Mobile_Number}}</td>
+                                    <td>{{items.Email}}</td>
+                                    <td>
+                                        <button class="btn view-btn" (click)="view(items.id)">View</button>
+                                        <button class="btn deactivate-btn" (click)="fired(items.id)">Fired</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </ng-container>
+                        <ng-template #noReviewsTemplate>
+                            <div class="no-reviews-message">
+                                <p>No guards available</p>
+                            </div>
+                        </ng-template>
                     </div>
                 </div>
             </div>
             <div class="current-content1">
-                <div class="availabel-guards" *ngFor="let contract of contractcompanies">
-                    <div class="data-header">
-                        <label>{{contract.CompanyName}}</label>
+                <ng-container *ngIf="contractcompanies && contractcompanies.length > 0; else noReviews">
+                    <div class="availabel-guards" *ngFor="let contract of contractcompanies">
+                        <div class="data-header">
+                            <label>{{contract.CompanyName}}</label>
+                        </div>
+                        <div class="data">
+                            <table>
+                                <tr *ngFor="let Guard of contract.Guards">
+                                    <td>{{Guard.Name}}</td>
+                                    <td>{{Guard.Mobile_Number}}</td>
+                                    <td>{{Guard.Email}}</td>
+                                    <td>
+                                        <button class="btn view-btn" (click)="view(Guard.Guards_id)">View</button>
+                                        <button class="btn deactivate-btn"
+                                            (click)="contrctDeactive(Guard.Guards_id)">Deactivate</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="data">
-                        <table>
-                            <tr *ngFor="let Guard of contract.Guards">
-                                <td>{{Guard.Name}}</td>
-                                <td>{{Guard.Mobile_Number}}</td>
-                                <td>{{Guard.Email}}</td>
-                                <td>
-                                    <button class="btn view-btn" (click)="view(Guard.Guards_id)">View</button>
-                                    <button class="btn deactivate-btn" (click)="contrctDeactive(Guard.Guards_id)">Deactivate</button>
-                                </td>
-                            </tr>
-                        </table>
+                </ng-container>
+                <ng-template #noReviews>
+                    <div class="no-reviews-message">
+                        <p>No Contracts Available Now</p>
                     </div>
-                </div>
+                </ng-template>
             </div>
         </div>
 

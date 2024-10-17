@@ -11,7 +11,8 @@
                 <div class="row">
                     <section class="discussions">
                         <div class="discussion search">
-                            <input type="text" placeholder="search members">
+                            <input type="text" placeholder="search members" [(ngModel)]="searchTerm"
+                                (input)="filterChatMembers()" class="search-input">
                         </div>
                         <div class="discussion" *ngFor="let itmes of chatMembers" (click)="specificUser(itmes)">
                             <div class="photo">
@@ -20,7 +21,7 @@
                             <div class="desc-contact">
                                 <p class="name">{{itmes.bussiness_owner}}</p>
                             </div>
-                            <div class="timer" >12</div>
+                            <div class="timer" *ngIf="itmes.unseenMessages > 0">{{itmes.unseenMessages}}</div>
                         </div>
                     </section>
                     <section class="chat">

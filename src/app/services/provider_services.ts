@@ -459,4 +459,22 @@ export class Service {
     });
   }
 
+  // get reviews of the organzation
+  getReviews(id: any) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'get-reviews/' + id, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
 }

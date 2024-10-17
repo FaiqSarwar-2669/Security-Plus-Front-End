@@ -14,10 +14,12 @@ export class ChatclientComponent implements OnInit {
   chatMembers: any
   chatHeaderProfile: any
   chatHeadername: any
+  filteredChatMembers: any
   receiverId: any
   newMessage: any
   messages: any
   currentUserId: any;
+  searchTerm: any
   chatId: string = ''
   selectedUser: any = {}
   constructor(private services: Service, private chatS: ChatService) {
@@ -29,6 +31,7 @@ export class ChatclientComponent implements OnInit {
     this.chatS.getConverstions(this.currentUserId).subscribe({
       next: (conversations) => {
         console.log(conversations)
+        this.filteredChatMembers = conversations;
         this.chatMembers = conversations
       }, error: (err) => {
         console.error(err)
@@ -42,6 +45,16 @@ export class ChatclientComponent implements OnInit {
     // })
   }
 
+  filterChatMembers() {
+    if (this.searchTerm.trim() === '') {
+      this.chatMembers = this.filteredChatMembers
+      console.log("empty search")
+    } else {
+      this.chatMembers = this.chatMembers.filter((member: any) =>
+        member.bussiness_owner.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  }
 
   setuppusher() {
     Pusher.logToConsole = true;
@@ -125,8 +138,7 @@ export class ChatclientComponent implements OnInit {
   }
 
   getMessageChat(chatId: string) {
-
-    this.chatS.getChat(chatId).subscribe({
+    this.chatS.getChat(chatId, this.currentUserId, this.receiverId).subscribe({
       next: (chat) => {
         console.log(chat)
         this.messages = chat
@@ -135,6 +147,8 @@ export class ChatclientComponent implements OnInit {
         console.error(err)
       }
     })
+
+
     // this.services.getmessage(this.receiverId).then((res: any) => {
     //   console.log(res)
     //   this.messages = res.data;
@@ -152,7 +166,7 @@ export class ChatclientComponent implements OnInit {
       seen: false
     };
 
-    this.chatS.sendMessage(this.chatId, messageData).then(() => {
+    this.chatS.sendMessage(this.chatId, messageData, this.currentUserId, this.receiverId).then(() => {
       this.newMessage = ''
     })
 

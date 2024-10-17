@@ -10,29 +10,36 @@
         </div>
         <div class="current-content">
             <div class="current-content1">
-                <div class="availabel-guards" *ngFor="let contract of contractcompanies">
-                    <div class="data-header">
-                        <label>{{contract.OrganizationName}}</label>
+                <ng-container *ngIf="contractcompanies && contractcompanies.length > 0; else noReviewsTemplate">
+                    <div class="availabel-guards" *ngFor="let contract of contractcompanies">
+                        <div class="data-header">
+                            <label>{{contract.OrganizationName}}</label>
+                        </div>
+                        <div class="data">
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Mobile_Number</th>
+                                    <th>Email</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                </tr>
+                                <tr *ngFor="let Guard of contract.Guards">
+                                    <td>{{Guard.Name}}</td>
+                                    <td>{{Guard.Mobile_Number}}</td>
+                                    <td>{{Guard.Email}}</td>
+                                    <td>{{Guard.City}}</td>
+                                    <td>{{Guard.Address}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="data">
-                        <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>Mobile_Number</th>
-                                <th>Email</th>
-                                <th>City</th>
-                                <th>Address</th>
-                            </tr>
-                            <tr *ngFor="let Guard of contract.Guards">
-                                <td>{{Guard.Name}}</td>
-                                <td>{{Guard.Mobile_Number}}</td>
-                                <td>{{Guard.Email}}</td>
-                                <td>{{Guard.City}}</td>
-                                <td>{{Guard.Address}}</td>
-                            </tr>
-                        </table>
+                </ng-container>
+                <ng-template #noReviewsTemplate>
+                    <div class="no-reviews-message">
+                        <p>No Contracts Available Now</p>
                     </div>
-                </div>
+                </ng-template>
             </div>
         </div>
     </div>

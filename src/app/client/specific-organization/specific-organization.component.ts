@@ -76,8 +76,8 @@ export class SpecificOrganizationComponent implements OnInit {
   chat(data: any) {
     
     console.log(data)
-    const formdata = new FormData()
-    formdata.append('member', data.id);
+    // const formdata = new FormData()
+    // formdata.append('member', data.id);
     let clientData = JSON.parse(localStorage.getItem('user') || '')
     this.chatS.checkConversation(clientData.id, data.id).once('value', val => {
       if (val.exists()) {

@@ -186,6 +186,10 @@ export class ClientProfileComponent implements OnInit {
         });
         this.ngOnInit()
       }).catch((err: any) => {
+        Swal.fire({
+          icon: 'error',
+          title: err.errors.error
+        });
         console.log(err)
       })
     }
