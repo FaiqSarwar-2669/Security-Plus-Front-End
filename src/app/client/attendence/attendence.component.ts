@@ -26,9 +26,8 @@ export class AttendenceComponent implements OnInit {
       faceapi.nets.faceRecognitionNet.loadFromUri('/assets/models'),
       faceapi.nets.faceExpressionNet.loadFromUri('/assets/models')
     ]).then(() => this.startVideo());
-
     this.startVideo()
-    setTimeout(() => this.callRandomFunction(5), 10000);
+    this.checkAndCallFunctionOnceADay();
   }
 
   getGuardsAttendence() {
@@ -38,6 +37,16 @@ export class AttendenceComponent implements OnInit {
     }).catch((err: any) => {
       console.log(err)
     })
+  }
+
+  checkAndCallFunctionOnceADay() {
+    const lastCalledDate = localStorage.getItem('lastCalledDate');
+    const today = new Date().toDateString();
+
+    if (lastCalledDate !== today) {
+      setTimeout(() => this.callRandomFunction(5), 10000);
+      localStorage.setItem('lastCalledDate', today);
+    }
   }
 
   getAtendence() {
