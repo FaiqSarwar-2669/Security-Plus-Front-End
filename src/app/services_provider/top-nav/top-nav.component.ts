@@ -14,16 +14,8 @@ export class TopNavComponent {
   constructor(private services: Service, private routes: Router) {
 
   }
-  display(event: MouseEvent) {
-    const mydive = event.currentTarget as HTMLElement;
-    const element = mydive.querySelector('.drop-down') as HTMLElement | null;
-    if (element) {
-      if (element.style.display === 'none' || !element.style.display) {
-        element.style.display = 'block';
-      } else {
-        element.style.display = 'none';
-      }
-    }
+  chat() {
+    this.routes.navigate(['/provider-chat'])
   }
 
   logout() {

@@ -22,6 +22,10 @@ export class ToComponent implements OnInit {
     this.setuppusher()
   }
 
+  chat() {
+    this.routes.navigate(['/chat-client'])
+  }
+
   setuppusher() {
     Pusher.logToConsole = true;
     var pusher = new Pusher('d44187673912a3531af2', {

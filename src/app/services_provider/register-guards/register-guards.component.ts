@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/provider_services';
 import Swal from 'sweetalert2';
+import { FaceApiService } from 'src/app/services/face-api.service';
+
 declare const faceapi: any;
 
 @Component({
@@ -11,7 +13,7 @@ declare const faceapi: any;
 export class RegisterGuardsComponent implements OnInit {
 
   video: any
-  descriptorArray:any
+  descriptorArray: any
   data = {
     fname: '',
     lname: '',
@@ -30,11 +32,16 @@ export class RegisterGuardsComponent implements OnInit {
     category: '',
   }
   constructor(
-    private services: Service
+    private services: Service,
+    private faceApiService: FaceApiService
   ) { }
 
   ngOnInit() {
-    this.startVideo();
+    if (!this.faceApiService.areModelsLoaded()) {
+      this.faceApiService.loadModels().then(() => this.startVideo());
+    } else {
+      this.startVideo();
+    }
   }
 
   startVideo() {
@@ -53,20 +60,41 @@ export class RegisterGuardsComponent implements OnInit {
   addVideoPlayListener(video: HTMLVideoElement): void {
     video.addEventListener('play', () => {
       const canvas = faceapi.createCanvasFromMedia(video);
-      this.video.parentNode.insertBefore(canvas, video.nextSibling);
-      const displaySize = { width: video.width, height: video.height };
-      faceapi.matchDimensions(canvas, displaySize);
+      if (video.parentNode) {
+        const parentElement = video.parentNode as HTMLElement;
+        parentElement.style.position = 'relative';
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '1';
 
-      setInterval(async () => {
-        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
-          .withFaceLandmarks()
-          .withFaceExpressions();
-        const resizedDetections = faceapi.resizeResults(detections, displaySize);
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-        faceapi.draw.drawDetections(canvas, resizedDetections);
-        faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-        faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
-      }, 50);
+        parentElement.insertBefore(canvas, video.nextSibling);
+
+        const displaySize = { width: video.videoWidth, height: video.videoHeight };
+        faceapi.matchDimensions(canvas, displaySize);
+
+        setInterval(async () => {
+          const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+            .withFaceLandmarks()
+            .withFaceExpressions();
+
+          // Resize the detected faces to match the display size of the canvas
+          const resizedDetections = faceapi.resizeResults(detections, displaySize);
+
+          // Clear the previous canvas drawings to avoid overlapping results
+          const context = canvas.getContext('2d');
+          if (context) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+          }
+
+          // Draw the detected face landmarks and expressions on the canvas
+          faceapi.draw.drawDetections(canvas, resizedDetections);
+          faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+          faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+        }, 50);
+      } else {
+        console.error('Video element does not have a parent node.');
+      }
     });
   }
 
@@ -80,7 +108,7 @@ export class RegisterGuardsComponent implements OnInit {
         icon: 'error',
         title: 'No face detected. Please make sure your face is clearly visible.'
       });
-    }else{
+    } else {
       this.descriptorArray = Array.from(detections.descriptor);
       console.log(this.descriptorArray);
     }
@@ -187,7 +215,7 @@ export class RegisterGuardsComponent implements OnInit {
         icon: 'error',
         title: 'Enter Category'
       });
-    }else if(this.descriptorArray.trim === ''){
+    } else if (this.descriptorArray.trim === '') {
       Swal.fire({
         icon: 'error',
         title: 'Verify Identity'
