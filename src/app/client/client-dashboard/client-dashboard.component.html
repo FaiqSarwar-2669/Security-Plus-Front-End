@@ -12,9 +12,13 @@
                 <label class="lab">{{guards}} </label>
             </div>
             <div class="expense one">
-                <label> Contracts</label> 
+                <label> Contracts</label>
                 <label class="lab">{{contracts}} </label>
             </div>
+            <audio #audio controls loop style="display: none;">
+                <source [src]="audioPath" type="audio/mp3">
+            </audio>
+
             <!-- <div class="expense one">
                 <label> Expense</label>
                 <label class="lab">$50 </label>

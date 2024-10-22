@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 declare const faceapi: any;
 import { Service } from 'src/app/services/client_services';
 import Swal from 'sweetalert2';
+import { FaceApiService } from 'src/app/services/face-api.service';
+
+
 @Component({
   selector: 'app-attendence',
   templateUrl: './attendence.component.html',
@@ -15,20 +18,21 @@ export class AttendenceComponent implements OnInit {
   faceidentifications: any
   displayattendence: any
   matchedIds: Number[] = [];
-  constructor(private services: Service) { }
+  constructor(private services: Service,
+    private faceApiService: FaceApiService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log('ngOnInit called');
     this.getGuardsAttendence()
-    this.getAtendence()
-    Promise.all([
-      faceapi.nets.tinyFaceDetector.loadFromUri('/assets/models'),
-      faceapi.nets.faceLandmark68Net.loadFromUri('/assets/models'),
-      faceapi.nets.faceRecognitionNet.loadFromUri('/assets/models'),
-      faceapi.nets.faceExpressionNet.loadFromUri('/assets/models')
-    ]).then(() => this.startVideo());
-
-    this.startVideo()
-    setTimeout(() => this.callRandomFunction(5), 10000);
+    if (!this.faceApiService.areModelsLoaded()) {
+      this.faceApiService.loadModels().then(() => this.startVideo());
+    } else {
+      this.startVideo();
+    }
+    // this.checkAndCallFunctionOnceADay();
+    // setTimeout(() => this.callRandomFunction(5), 10000);
+    setTimeout(() => this.checkAndCallFunctionOnceADay(), 5000);
   }
 
   getGuardsAttendence() {
@@ -38,6 +42,19 @@ export class AttendenceComponent implements OnInit {
     }).catch((err: any) => {
       console.log(err)
     })
+  }
+
+  checkAndCallFunctionOnceADay() {
+    console.log('checkAndCallFunctionOnceADay called');
+    const lastCalledDate = localStorage.getItem('lastCalledDate');
+    const today = new Date().toDateString();
+
+    if (lastCalledDate !== today) {
+      setTimeout(() => this.callRandomFunction(5), 10000);
+      localStorage.setItem('lastCalledDate', today);
+    } else {
+      console.log("Not Allow for second time")
+    }
   }
 
   getAtendence() {
@@ -75,7 +92,6 @@ export class AttendenceComponent implements OnInit {
       formdata.append('users[]', data);
     })
     formdata.append('beep', this.numberofattendence)
-    console.log("form data" + formdata)
     this.services.markAttendance(formdata).then((res: any) => {
       this.matchedIds = []
       this.getAtendence()
@@ -88,7 +104,7 @@ export class AttendenceComponent implements OnInit {
 
 
 
-  startVideo(): void {
+  startVideo() {
     this.video = document.getElementById('video') as HTMLVideoElement;
 
     navigator.mediaDevices.getUserMedia({ video: {} })
@@ -104,22 +120,45 @@ export class AttendenceComponent implements OnInit {
   addVideoPlayListener(video: HTMLVideoElement): void {
     video.addEventListener('play', () => {
       const canvas = faceapi.createCanvasFromMedia(video);
-      this.video.parentNode.insertBefore(canvas, video.nextSibling);
-      const displaySize = { width: video.width, height: video.height };
-      faceapi.matchDimensions(canvas, displaySize);
 
-      setInterval(async () => {
-        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
-          .withFaceLandmarks()
-          .withFaceExpressions();
-        const resizedDetections = faceapi.resizeResults(detections, displaySize);
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-        faceapi.draw.drawDetections(canvas, resizedDetections);
-        faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-        faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
-      }, 50);
+      if (video.parentNode) {
+        const parentElement = video.parentNode as HTMLElement;
+        parentElement.style.position = 'relative';
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '1';
+
+        parentElement.insertBefore(canvas, video.nextSibling);
+
+        const displaySize = { width: video.videoWidth, height: video.videoHeight };
+        faceapi.matchDimensions(canvas, displaySize);
+
+        setInterval(async () => {
+          const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+            .withFaceLandmarks()
+            .withFaceExpressions();
+
+          // Resize the detected faces to match the display size of the canvas
+          const resizedDetections = faceapi.resizeResults(detections, displaySize);
+
+          // Clear the previous canvas drawings to avoid overlapping results
+          const context = canvas.getContext('2d');
+          if (context) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+          }
+
+          // Draw the detected face landmarks and expressions on the canvas
+          faceapi.draw.drawDetections(canvas, resizedDetections);
+          faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+          faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+        }, 50);
+      } else {
+        console.error('Video element does not have a parent node.');
+      }
     });
   }
+
 
   async markAttendanceBtn(): Promise<void> {
     const video = document.getElementById('video') as HTMLVideoElement;
@@ -130,10 +169,7 @@ export class AttendenceComponent implements OnInit {
       .withFaceDescriptors();
 
     if (!detections.length) {
-      Swal.fire({
-        'icon': 'error',
-        'text': 'No faces detected. Please make sure your faces are clearly visible.'
-      })
+      console.log("no face detected")
       return;
     }
 

@@ -40,6 +40,8 @@ export class LoginComponent {
             icon: 'success',
             title: res.message
           });
+          const today = new Date().toDateString();
+          localStorage.setItem("lastCalledDate",today)
           localStorage.setItem('B_Token', res.token);
           localStorage.setItem('activation', res.activation);
           localStorage.setItem('UserID', res.userLoged);

@@ -45,6 +45,12 @@
                 display: flex;
                 justify-content: space-between;
 
+                .two {
+                    .blink {
+                        animation: blinkAnimation 1s infinite;
+                    }
+                }
+
                 .one,
                 .two {
                     position: relative;
@@ -145,7 +151,21 @@
     }
 }
 
-@media (min-width: 750px) and (max-width: 850px){
+@keyframes blinkAnimation {
+    0% {
+        color: red;
+    }
+
+    50% {
+        color: transparent;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 850px) {
     .top-nav {
         .top-nav-part-1 {
             width: 150px;
