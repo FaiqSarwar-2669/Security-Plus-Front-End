@@ -9,7 +9,6 @@ import Chart from 'chart.js/auto';
 export class AdmindashboardComponent {
   constructor() {}
 
-  // data[] = []
   data = [
     { year: 2010, count: 10 },
     { year: 2011, count: 20 },
@@ -18,62 +17,35 @@ export class AdmindashboardComponent {
     { year: 2014, count: 22 },
     { year: 2015, count: 30 },
     { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
-    { year: 2016, count: 28 },
   ];
 
-  data1 = [
-    { count: 80 },
-    { count: 20 },
-  ]
+  data1 = [{ count: 80 }, { count: 20 }];
 
   ngOnInit(): void {
     this.initializeBarChart();
-    this.doughnutchart();
+    this.doughnutChart();
     this.lineChart();
-    this.Piechart();
-    this.percentageGraphOne();
+    this.pieChart();
+    this.percentageGraph();
   }
 
-  doughnutchart() {
-    // doughnut
+  doughnutChart() {
     const ctx = document.getElementById('secondgraph') as HTMLCanvasElement;
     new Chart(ctx, {
       type: 'doughnut',
       data: {
-        // labels: this.data.map((item) => item.year),
         datasets: [
           {
             label: 'Abdur Rehman',
             data: this.data.map((item) => item.count),
-            backgroundColor: 'pink', // Example background color
-            borderColor: 'rgba(54, 162, 235, 1)', // Example border color
-            // borderColor: 'pink', // Example border color
-            // borderWidth: 1,
+            backgroundColor: 'pink',
+            borderColor: 'rgba(54, 162, 235, 1)',
           },
         ],
       },
       options: {
         layout: {
-          padding: {
-            top: 0,
-            bottom: 20,
-            left: 20,
-            right: 20,
-          },
+          padding: 20,
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -81,32 +53,23 @@ export class AdmindashboardComponent {
     });
   }
 
-  Piechart() {
-    // doughnut
+  pieChart() {
     const ctx = document.getElementById('piechart') as HTMLCanvasElement;
     new Chart(ctx, {
       type: 'pie',
       data: {
-        // labels: this.data.map((item) => item.year),
         datasets: [
           {
             label: 'Abdur Rehman',
             data: this.data.map((item) => item.count),
-            backgroundColor: 'pink', // Example background color
-            borderColor: 'rgba(54, 162, 235, 1)', // Example border color
-            // borderColor: 'pink', // Example border color
-            // borderWidth: 1,
+            backgroundColor: 'pink',
+            borderColor: 'rgba(54, 162, 235, 1)',
           },
         ],
       },
       options: {
         layout: {
-          padding: {
-            top: 0,
-            bottom: 20,
-            left: 20,
-            right: 20,
-          },
+          padding: 20,
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -114,9 +77,7 @@ export class AdmindashboardComponent {
     });
   }
 
-
-  percentageGraphOne() {
-    // doughnut
+  percentageGraph() {
     const ctx = document.getElementById('percentageGraph') as HTMLCanvasElement;
     new Chart(ctx, {
       type: 'pie',
@@ -125,21 +86,13 @@ export class AdmindashboardComponent {
           {
             label: 'Qasim Farooq',
             data: this.data1.map((item) => item.count),
-            backgroundColor: [
-              '#55efc4',
-              '#e7eefa'
-            ]
+            backgroundColor: ['#55efc4', '#e7eefa'],
           },
         ],
       },
       options: {
         layout: {
-          padding: {
-            top: 0,
-            bottom: 20,
-            left: 20,
-            right: 20,
-          },
+          padding: 20,
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -147,7 +100,7 @@ export class AdmindashboardComponent {
     });
   }
 
-  initializeBarChart(): void {
+  initializeBarChart() {
     const ctx = document.getElementById('acquisitions') as HTMLCanvasElement;
     new Chart(ctx, {
       type: 'bar',
@@ -157,8 +110,8 @@ export class AdmindashboardComponent {
           {
             label: 'Abdur Rehman',
             data: this.data.map((item) => item.count),
-            backgroundColor: 'rgba(54, 162, 235, 0.5)', 
-            borderColor: 'rgba(54, 162, 235, 1)', // Example border color
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1,
           },
         ],
@@ -170,12 +123,7 @@ export class AdmindashboardComponent {
           },
         },
         layout: {
-          padding: {
-            top: 20,
-            bottom: 20,
-            left: 20,
-            right: 20,
-          },
+          padding: 20,
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -183,7 +131,7 @@ export class AdmindashboardComponent {
     });
   }
 
-  lineChart(): void {
+  lineChart() {
     const ctx = document.getElementById('Linegraph') as HTMLCanvasElement;
     new Chart(ctx, {
       type: 'line',
@@ -193,8 +141,8 @@ export class AdmindashboardComponent {
           {
             label: 'Abdur Rehman',
             data: this.data.map((item) => item.count),
-            backgroundColor: 'rgba(54, 162, 235, 0.5)', // Example background color
-            borderColor: 'rgba(54, 162, 235, 1)', // Example border color
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 5,
           },
         ],
@@ -206,12 +154,7 @@ export class AdmindashboardComponent {
           },
         },
         layout: {
-          padding: {
-            top: 20,
-            bottom: 20,
-            left: 20,
-            right: 20,
-          },
+          padding: 20,
         },
         maintainAspectRatio: false,
         responsive: true,
