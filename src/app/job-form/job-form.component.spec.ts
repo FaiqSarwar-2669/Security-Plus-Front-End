@@ -11,7 +11,7 @@ describe('JobFormComponent', () => {
       declarations: [JobFormComponent]
     });
     fixture = TestBed.createComponent(JobFormComponent);
-    component = fixture.componentInstance;
+    component= fixture.componentInstance;
     fixture.detectChanges();
   });
 
