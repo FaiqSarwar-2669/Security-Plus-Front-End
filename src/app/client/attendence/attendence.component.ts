@@ -22,17 +22,15 @@ export class AttendenceComponent implements OnInit {
     private faceApiService: FaceApiService
   ) { }
 
-  ngOnInit() {
-    console.log('ngOnInit called');
+  async ngOnInit() {
     this.getGuardsAttendence()
     if (!this.faceApiService.areModelsLoaded()) {
       this.faceApiService.loadModels().then(() => this.startVideo());
     } else {
       this.startVideo();
     }
-    // this.checkAndCallFunctionOnceADay();
-    // setTimeout(() => this.callRandomFunction(5), 10000);
-    setTimeout(() => this.checkAndCallFunctionOnceADay(), 5000);
+    await setTimeout(() => this.checkAndCallFunctionOnceADay(), 5000);
+    this.getAtendence()
   }
 
   getGuardsAttendence() {
@@ -45,7 +43,6 @@ export class AttendenceComponent implements OnInit {
   }
 
   checkAndCallFunctionOnceADay() {
-    console.log('checkAndCallFunctionOnceADay called');
     const lastCalledDate = localStorage.getItem('lastCalledDate');
     const today = new Date().toDateString();
 
@@ -57,6 +54,8 @@ export class AttendenceComponent implements OnInit {
     }
   }
 
+
+
   getAtendence() {
     const id = localStorage.getItem('UserID')
     this.services.getAttendance(id).then((res: any) => {
@@ -66,7 +65,8 @@ export class AttendenceComponent implements OnInit {
     })
   }
 
-  callRandomFunction(timesLeft: any) {
+  async callRandomFunction(timesLeft: any) {
+    await this.services.SendBep().then((res: any) => { }).catch((err: any) => { })
     if (timesLeft > 0) {
       console.log(`Function is called. Remaining times: ${timesLeft}`);
       const randomDelay = Math.floor(Math.random() * 30000);
