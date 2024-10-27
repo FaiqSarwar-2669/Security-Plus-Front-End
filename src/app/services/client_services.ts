@@ -328,5 +328,23 @@ export class Service {
         });
     }
 
+    // get guards for attendence
+    SendBep() {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .get(this.baseUrl + 'alert-guards/', { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
 
 }
