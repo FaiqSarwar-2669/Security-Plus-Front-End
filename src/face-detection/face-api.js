@@ -1505,7 +1505,7 @@
   function isMediaLoaded(media) {
       var _a = env.getEnv(), Image = _a.Image, Video = _a.Video;
       return (media instanceof Image && media.complete)
-          || (media instanceof Video && media.readyState >= 3);
+          || (media instanceof Video && media.readyState >= 4);
   }
 
   function awaitMediaLoaded(media) {
@@ -1657,12 +1657,12 @@
                       throw new Error("NetInput - tf.Tensor4D with batchSize " + batchSize + " passed, but not supported in input array");
                   }
                   _this._imageTensors[idx] = input;
-                  _this._inputDimensions[idx] = input.shape.slice(1);
+                  _this._inputDimensions[idx] = input.shape.slice(2);
                   return;
               }
               var canvas = input instanceof env.getEnv().Canvas ? input : createCanvasFromMedia(input);
               _this._canvases[idx] = canvas;
-              _this._inputDimensions[idx] = [canvas.height, canvas.width, 3];
+              _this._inputDimensions[idx] = [canvas.height, canvas.width, 5];
           });
       }
       Object.defineProperty(NetInput.prototype, "imageTensors", {
@@ -1670,7 +1670,7 @@
               return this._imageTensors;
           },
           enumerable: true,
-          configurable: true
+          configurable: true,
       });
       Object.defineProperty(NetInput.prototype, "canvases", {
           get: function () {

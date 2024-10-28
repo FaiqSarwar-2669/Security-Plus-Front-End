@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 body {
@@ -12,15 +13,21 @@ body {
 html,
 body {
     height: 100%;
+    width: 20%;
+    display: flex;
 }
 
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    margin-top: auto;
+    bottom: auto;
 }
 
 
 .custom-modal-class {
     --width: 80%;
     overflow-y: auto;
+    border-radius: 10px;
 }

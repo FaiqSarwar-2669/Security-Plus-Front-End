@@ -1,5 +1,5 @@
+// nevigation.component.spec.ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NevigationComponent } from './nevigation.component';
 
 describe('NevigationComponent', () => {
@@ -17,5 +17,16 @@ describe('NevigationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should toggle height correctly in showMore', () => {
+    const eventMock = {
+      currentTarget: {
+        style: { height: '40px' },
+        querySelector: (selector: string) => ({ style: { display: 'none' } })
+      }
+    } as unknown as MouseEvent & { currentTarget: HTMLElement };
+    component.showMore(eventMock);
+    expect(eventMock.currentTarget.style.height).toBe('auto');
   });
 });
