@@ -477,4 +477,39 @@ export class Service {
     });
   }
 
+  // get data for filter
+  getoldcompanypayments() {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'get-old-company-payments/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+  // get the filter data of companies
+  filtercompanypayments(formData: FormData) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'get-filter-data/', formData, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
 }

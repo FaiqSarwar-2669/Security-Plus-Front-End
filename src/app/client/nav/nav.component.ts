@@ -39,6 +39,7 @@ export class NavComponent {
       profileData.adresss = res.data.street_address
       profileData.city = res.data.city_name
       profileData.postal = res.data.area_code
+      profileData.email = res.data.email
       if (res.data.profile === '') {
         this.selectedImg = '../../../assets/default.png';
       } else {

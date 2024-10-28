@@ -346,5 +346,23 @@ export class Service {
         });
     }
 
+    // for online payment
+    OnlinePayment(formdata: FormData) {
+        const header = this.getHeaders()
+        return new Promise((resolve, reject) => {
+            this.http
+                .post(this.baseUrl + 'process-payment/', formdata, { headers: header })
+                .pipe()
+                .subscribe({
+                    next: (res) => {
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    },
+                });
+        });
+    }
+
 
 }

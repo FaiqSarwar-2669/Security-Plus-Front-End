@@ -1,0 +1,74 @@
+<app-top-nav></app-top-nav>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Companies Payments</label>
+        </div>
+        <div class="current-content">
+            <div class="salary-container">
+                <h1>Guards' Salaries</h1>
+
+                <!-- Month/Year Filter Section -->
+                <div class="filter-section">
+                    <label for="month-select">Select Month: </label>
+                    <select id="month-select" (change)="filterSalaries()">
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+
+                    <label for="year-select">Select Year: </label>
+                    <select id="year-select" (change)="filterSalaries()">
+                        <ng-container *ngFor="let items of years">
+                            <option [value]="items.year">{{items.year}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+
+                <!-- Interactive Table -->
+                <table id="salaryTable" class="salary-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Slip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="filter_data && filter_data.length > 0; else nodata">
+                            <tr *ngFor="let items of filter_data">
+                                <td>{{items.organization_id}}</td>
+                                <td>{{items.name}}</td>
+                                <td>{{items.price}}</td>
+                                <td>{{ items.created_at | date: 'yyyy-MM-dd' }}</td>
+                                <td>
+                                    <a [href]="items.slip" target="_blank"> View Slip</a>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                    <ng-template #nodata>
+                        <div class="no-reviews-message">
+                            <p>No Record Found</p>
+                        </div>
+                    </ng-template>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
