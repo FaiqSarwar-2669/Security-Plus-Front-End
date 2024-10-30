@@ -1,0 +1,134 @@
+<app-to></app-to>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-nav></app-nav>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Online Payment</label>
+        </div>
+        <div class="current-content">
+            <div class="success-message" id="paymentPopup">
+                <div class="popup-content">
+                    <span class="close" (click)="closePaymentPopup()">&times;</span>
+                    <div class="qr-code">
+                        <img src="../../../assets/payment-success.png" alt="">
+                    </div>
+                    <div class="message">
+                        <label>{{responceMessage}}</label>
+                    </div>
+                    <a class="confirm-btn" [href]="imageLink" target="_blank">View Receipt</a>
+                </div>
+            </div>
+            <div class="container">
+
+                <form (submit)="handlePayment($event)">
+
+                    <div class="row">
+
+                        <div class="col">
+                            <h3 class="title">
+                                Billing Address
+                            </h3>
+
+                            <div class="inputBox">
+                                <label for="name">
+                                    Full Name:
+                                </label>
+                                <input type="text" id="name" [placeholder]="user.bussines_name" disabled>
+                            </div>
+
+                            <div class="inputBox">
+                                <label for="email">
+                                    Email:
+                                </label>
+                                <input type="text" id="email" [placeholder]="user.email" disabled>
+                            </div>
+
+                            <div class="inputBox">
+                                <label for="address">
+                                    Address:
+                                </label>
+                                <input type="text" id="address" [placeholder]="user.adresss" disabled>
+                            </div>
+
+                            <div class="inputBox">
+                                <label for="city">
+                                    City:
+                                </label>
+                                <input type="text" id="city" [placeholder]="user.city" disabled>
+                            </div>
+
+                            <div class="flex">
+
+                                <div class="inputBox">
+                                    <label for="zip">
+                                        Zip Code:
+                                    </label>
+                                    <input type="number" id="zip" [placeholder]="user.postal" disabled>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <h3 class="title">Payment</h3>
+
+                            <div class="inputBox">
+                                <label for="name">
+                                    Card Accepted:
+                                </label>
+                                <img src="https://i.postimg.cc/ZqTMDfKg/image-removebg-preview-5.png"
+                                    alt="credit/debit card image">
+                            </div>
+
+                            <div class="inputBox">
+                                <label for="cardName">
+                                    Enter payment:
+                                </label>
+                                <input type="text" id="cardName" placeholder="Enter amount" required>
+                            </div>
+
+                            <div class="inputBox">
+                                <!-- <div id="card-element"></div> -->
+                                <label for="cardNum">
+                                    Credit Card Number:
+                                </label>
+                                <div id="card-number"></div>
+                            </div>
+
+                            <div class="flex">
+
+                                <div class="inputBox">
+                                    <label for="">Exp Card Date:</label>
+                                    <div id="card-expiry"></div>
+                                </div>
+
+                                <div class="inputBox">
+                                    <label for="cvv">CVC</label>
+                                    <div id="card-cvc"></div>
+                                </div>
+                            </div>
+
+                            <div class="inputBox">
+                                <label for="">Select Company:</label>
+                                <select name="" id="selected-Company">
+                                    <option value="">Choose Company</option>
+                                    <ng-container *ngFor="let items of companies">
+                                        <option [value]="items.OrganizationId">{{items.OrganizationName}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <input type="submit" value="Proceed to Checkout" class="submit_btn">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

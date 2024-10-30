@@ -45,7 +45,9 @@ import { GuardsClientComponent } from './client/guards-client/guards-client.comp
 import { AttendenceComponent } from './client/attendence/attendence.component';
 import { ReviewsComponent } from './services_provider/reviews/reviews.component';
 import { TeamMemberComponent } from './Component/team-member/team-member.component';
-
+import { PaymentComponent } from './client/payment/payment.component';
+import { CompanyPaymentsComponent } from './services_provider/company-payments/company-payments.component';
+import { GuardPaymentsComponent } from './services_provider/guard-payments/guard-payments.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -84,6 +86,8 @@ const routes: Routes = [
   { path: 'guards-data', component: GuardsDataComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'review', component: ReviewsComponent },
+  { path: 'company-payments', component: CompanyPaymentsComponent },
+  { path: 'guard-payments', component: GuardPaymentsComponent },
 
   // for admin
   { path: 'admin/dashboard', component: AdmindashboardComponent },
@@ -103,7 +107,7 @@ const routes: Routes = [
   { path: 'Client-profile', component: ClientProfileComponent },
   { path: 'Client-contracts', component: GuardsClientComponent },
   { path: 'attendence', component: AttendenceComponent },
-
+  { path: 'payment', component: PaymentComponent },
 ];
 
 @NgModule({

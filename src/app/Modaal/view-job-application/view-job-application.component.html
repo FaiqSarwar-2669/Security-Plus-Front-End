@@ -10,7 +10,12 @@
 <div class="job-application-container">
     <div class="job-data">
         <div class="job-content">
-            <div *ngFor="let item of data">
+            <div *ngFor="let item of data" class="data">
+                <div class="part-2">
+                    <div class="image" *ngIf="item.type === 'Image'">
+                        <img [src]="item.data" alt="">
+                    </div>
+                </div>
                 <div class="part-1">
                     <div class="label-input" *ngIf="item.type === 'Input' || item.type === 'Label'">
                         <label *ngIf="item.type === 'Label'">{{ item.text }}</label>
@@ -25,11 +30,6 @@
                     <div class="radio-box" *ngIf="item.type === 'Radio Button'">
                         <label>{{ item.text }}</label>
                         <span>{{ item.data }}</span>
-                    </div>
-                </div>
-                <div class="part-2">
-                    <div class="image" *ngIf="item.type === 'Image'">
-                        <img [src]="item.data" alt="">
                     </div>
                 </div>
             </div>

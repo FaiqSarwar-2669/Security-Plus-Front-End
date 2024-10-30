@@ -1,0 +1,209 @@
+.main-part {
+    display: flex;
+
+    .main-part-2 {
+        width: 100%;
+        padding: 10px;
+
+        .current-page {
+
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+
+            i {
+                font-size: 20px;
+                color: gray;
+                font-weight: bold;
+            }
+
+            label {
+                margin-left: 10px;
+                font-weight: bold;
+                color: #4C489D;
+                font-size: 20px;
+            }
+        }
+
+        .current-content {
+            padding: 10px;
+            background-color: #e7eefa;
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            #paymentPopup {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+
+                .popup-content {
+                    width: 300px;
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    text-align: center;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                    position: relative;
+                    animation: fadeIn 0.3s ease-in-out;
+
+                    .close {
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
+                        font-size: 35px;
+                        color: #333;
+                        cursor: pointer;
+                        transition: color 0.3s ease;
+                    }
+
+                    .message {
+                        font-size: 20px;
+                        margin-bottom: 25px;
+                        color: #4C489D;
+                        font-weight: bold;
+                    }
+
+                    .close:hover {
+                        color: #ff0000;
+                    }
+
+                    .qr-code {
+                        width: 250px;
+                        height: 250px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+
+                    h2 {
+                        display: block;
+                        margin-bottom: 15px;
+                    }
+
+                    .confirm-btn {
+                        padding: 12px 25px;
+                        text-decoration: none;
+                        background-color: #28a745;
+                        color: white;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .confirm-btn:hover {
+                        background-color: #218838;
+                    }
+
+                }
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-20px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 25px;
+
+                form {
+                    width: 700px;
+                    padding: 20px;
+                    background: #fff;
+                    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+
+                    .row {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 15px;
+
+                        .col {
+                            flex: 1 1 250px;
+
+                            .title {
+                                font-size: 20px;
+                                color: #4C489D;
+                                padding-bottom: 5px;
+                            }
+
+                            .inputBox {
+                                margin: 15px 0;
+
+                                img {
+                                    height: 34px;
+                                    margin-top: 5px;
+                                    filter: drop-shadow(0 0 1px #000);
+                                }
+
+                                label {
+                                    margin-bottom: 10px;
+                                    display: block;
+                                }
+
+                                select,
+                                input,
+                                div {
+                                    width: 100%;
+                                    border: 1px solid #ccc;
+                                    padding: 10px 15px;
+                                    font-size: 15px;
+                                }
+
+                                input:focus,
+                                select:focus {
+                                    border: 1px solid #000;
+                                }
+                            }
+
+                            .flex {
+                                display: flex;
+                                gap: 15px;
+
+                                .inputBox {
+                                    flex: 1 1;
+                                    margin-top: 5px;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .submit_btn {
+                        width: 100%;
+                        padding: 12px;
+                        font-size: 17px;
+                        background: rgb(1, 143, 34);
+                        color: #fff;
+                        margin-top: 5px;
+                        cursor: pointer;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+    }
+}

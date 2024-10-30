@@ -60,6 +60,9 @@ import { ChatService } from './services/firebase';
 import { AttendenceComponent } from './client/attendence/attendence.component';
 import { TeamMemberComponent } from './Component/team-member/team-member.component';
 import { ReviewsComponent } from './services_provider/reviews/reviews.component';
+import { PaymentComponent } from './client/payment/payment.component';
+import { GuardPaymentsComponent } from './services_provider/guard-payments/guard-payments.component';
+import { CompanyPaymentsComponent } from './services_provider/company-payments/company-payments.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0vwv6U3qMdNZBVCuOzbZNZlPYaQRNFAw",
@@ -123,6 +126,9 @@ const firebaseConfig = {
     AttendenceComponent,
     TeamMemberComponent,
     ReviewsComponent,
+    PaymentComponent,
+    GuardPaymentsComponent,
+    CompanyPaymentsComponent,
   ],
   imports: [
     BrowserModule,

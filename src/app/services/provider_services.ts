@@ -6,6 +6,7 @@ import { portfolio } from "../models/model";
 export class Service {
 
   baseUrl = 'http://127.0.0.1:8000/api/';
+  // baseUrl = 'http://192.168.100.27:80/api/';
 
   Heads = new HttpHeaders({
     'Accept': 'application/json',
@@ -465,6 +466,41 @@ export class Service {
     return new Promise((resolve, reject) => {
       this.http
         .get(this.baseUrl + 'get-reviews/' + id, { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+
+  // get data for filter
+  getoldcompanypayments() {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .get(this.baseUrl + 'get-old-company-payments/', { headers: header })
+        .pipe()
+        .subscribe({
+          next: (res) => {
+            resolve(res);
+          },
+          error: (err) => {
+            reject(err);
+          },
+        });
+    });
+  }
+  // get the filter data of companies
+  filtercompanypayments(formData: FormData) {
+    const header = this.getHeaders()
+    return new Promise((resolve, reject) => {
+      this.http
+        .post(this.baseUrl + 'get-filter-data/', formData, { headers: header })
         .pipe()
         .subscribe({
           next: (res) => {

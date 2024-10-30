@@ -1,0 +1,89 @@
+<app-top-nav></app-top-nav>
+<div class="main-part">
+    <div class="main-part-1">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="main-part-2">
+        <div class="current-page">
+            <i class="fa-solid fa-angle-right"></i>
+            <label>Guards Payments</label>
+        </div>
+        <div class="current-content">
+            <div class="salary-container">
+                <h1>Guards' Salaries</h1>
+                <div class="salary-list">
+        
+        
+                    <div class="filter-section">
+                        <label for="month-select">Select Month: </label>
+                        <select id="month-select" onchange="filterSalaries()">
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+        
+                        <label for="year-select">Select Year: </label>
+                        <select id="year-select" onchange="filterSalaries()">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+        
+        
+                    <!-- Guard Salary Card Example -->
+                    <div class="salary-card">
+                        <div class="guard-info">
+                            <h2>John Doe</h2>
+                            <p><strong>Guard ID:</strong> 12345</p>
+                            <p><strong>Total Salary:</strong> $2000</p>
+                            <p><strong>Days Worked:</strong> 26/30</p>
+                            <p><strong>Absences:</strong> 4</p>
+                            <p><strong>Deductions:</strong> $100</p>
+                            <p><strong>Payable Salary:</strong> $1900</p>
+                        </div>
+                        <button class="pay-btn" (click)="openPaymentPopup()">Pay</button>
+                    </div>
+        
+                    <div class="salary-card">
+                        <div class="guard-info">
+                            <h2>Jane Smith</h2>
+                            <p><strong>Guard ID:</strong> 67890</p>
+                            <p><strong>Total Salary:</strong> $1800</p>
+                            <p><strong>Days Worked:</strong> 28/30</p>
+                            <p><strong>Absences:</strong> 2</p>
+                            <p><strong>Deductions:</strong> $50</p>
+                            <p><strong>Payable Salary:</strong> $1750</p>
+                        </div>
+                        <button class="pay-btn" (click)="openPaymentPopup()">Pay</button>
+                    </div>
+        
+                    <!-- Add more salary cards as needed -->
+                </div>
+            </div>
+        
+            <!-- Payment Popup -->
+            <div class="payment-popup" id="paymentPopup">
+                <div class="popup-content">
+                    <span class="close" (click)="closePaymentPopup()">&times;</span>
+                    <h2>QR Payment</h2>
+                    <div class="qr-code">
+                        <!-- Example QR Code -->
+                        <img src="https://via.placeholder.com/150" alt="QR Code">
+                    </div>
+                    <button class="confirm-btn" (click)="markAsPaid()">Mark as Paid</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -43,56 +43,68 @@
     .job-data {
 
         .job-content {
-            display: flex;
-            justify-content: space-between;
+            
 
-            .part-1 {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
+            .data{
+                // display: flex;
+                // justify-content: space-between;
+                
 
-                .label-input {
-                    label {
-                        font-size: 18px;
-                        font-weight: bold;
-                    }
-                }
+                .part-1 {
 
-                .check-box {
-                    label {
-                        font-size: 18px;
-                        font-weight: bold;
-                    }
-                }
-
-                .radio-box {
                     display: flex;
                     flex-direction: column;
-                    gap: 10;
-
-                    label {
-                        font-size: 18px;
-                        font-weight: bold;
+                    gap: 10px;
+    
+                    .label-input {
+                        label {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                    }
+    
+                    .check-box {
+                        label {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                    }
+    
+                    .radio-box {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10;
+    
+                        label {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                    }
+    
+                }
+    
+                .part-2 {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    margin-top: 100px;
+                    margin-right: 20px;
+                    .image {
+                        height: 150px;
+                        width: 150px;
+                        overflow: hidden;
+                        border-radius: 50%;
+    
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: contain;
+                            object-position: center;
+                        }
                     }
                 }
-
             }
-
-            .part-2 {
-                .image {
-                    height: 150px;
-                    width: 150px;
-                    overflow: hidden;
-                    border-radius: 50%;
-
-                    img {
-                        height: 100%;
-                        width: 100%;
-                        object-fit: contain;
-                        object-position: center;
-                    }
-                }
-            }
+            
 
         }
     }
