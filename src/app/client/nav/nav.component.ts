@@ -29,6 +29,7 @@ export class NavComponent {
         })
       }
     })
+    
     let profileData: any = {}
     this.services.getClient().then((res: any) => {
       profileData.id = res.data.id
